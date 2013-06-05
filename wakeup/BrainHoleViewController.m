@@ -36,6 +36,12 @@
                                          selector:@selector(generateHole)
                                          userInfo:nil
                                           repeats:YES];
+    
+    game_timer = [NSTimer scheduledTimerWithTimeInterval:1  // 洞升級秒數
+                                                     target:self
+                                                   selector:@selector(counting)
+                                                   userInfo:nil
+                                                    repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,6 +53,11 @@
 - (void)dealloc {
     [_eye release];
     [super dealloc];
+}
+
+- (void) counting
+{
+    sec++;
 }
 
 - (void) generateHole
@@ -99,6 +110,7 @@
         if (remain_hole == 0) {
             NSLog(@"SUCCES!!!");
             [levelup_timer invalidate];
+            [game_timer invalidate];
             [self showAlert];
         }
     }
@@ -114,7 +126,7 @@
 {
     [[[[UIAlertView alloc]
        initWithTitle:@"恭喜！"
-       message:@"成功填補所有腦洞啦～～"
+       message:[NSString stringWithFormat:@"花了%d秒成功填補所有腦洞啦～～",sec]
        delegate:self
        cancelButtonTitle:@"OK"
        otherButtonTitles: nil] autorelease] show];

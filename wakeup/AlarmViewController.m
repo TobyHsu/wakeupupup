@@ -8,6 +8,7 @@
 
 #import "AlarmViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "BrainHoleViewController.h"
 
 @interface AlarmViewController ()
 
@@ -84,6 +85,8 @@
         {
             NSLog(@"time up. Please play this game.");
             // 切換到腦袋有洞
+            BrainHoleViewController *brainhole_vc = [self.storyboard instantiateViewControllerWithIdentifier:@"GamePage"];
+            [self presentViewController:brainhole_vc animated:Yes completion:nil];
         }
     }
 }

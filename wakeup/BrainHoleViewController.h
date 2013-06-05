@@ -13,7 +13,9 @@
 {
     NSTimer *check_timer;
     NSTimer *levelup_timer;
+    NSTimer *game_timer;
     NSUInteger remain_hole;
+    int sec;
 }
 
 @property (retain, nonatomic) IBOutlet UIImageView *eye;
