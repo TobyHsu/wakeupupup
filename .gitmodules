@@ -1,0 +1,3 @@
+[submodule "wakeup/JSONKit"]
+	path = wakeup/JSONKit
+	url = https://github.com/johnezang/JSONKit
