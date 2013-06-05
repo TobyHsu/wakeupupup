@@ -24,7 +24,7 @@
             <objects>
                 <viewController storyboardIdentifier="Home" id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="room_bg.png" id="bmO-U5-NUT">
@@ -62,7 +62,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HSb-Ed-2QG" kind="push" id="fWd-qt-OmV"/>
+                                    <segue destination="pio-2h-eDE" kind="push" id="QPh-mj-1W9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sok-Yt-r6q">
@@ -124,7 +124,7 @@
             <objects>
                 <tableViewController id="W2a-7g-k3S" customClass="SettingViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jVA-6V-Upn">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -448,7 +448,7 @@
             <objects>
                 <viewController id="vgm-0b-nQn" customClass="AlarmViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YiT-MA-5yO">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="set_alarm_bg1.png" id="yY9-5f-Sud">
@@ -547,7 +547,7 @@
             <objects>
                 <viewController id="bw3-ZC-B0t" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fx-Mu-wb6">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -562,7 +562,7 @@
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" id="A3M-9f-7If" customClass="RecordViewController123" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Ljq-CR-1Fd" customClass="RecordScrollView">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </scrollView>
@@ -574,6 +574,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vp9-Dr-gam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1595" y="-996"/>
+        </scene>
+        <!--Calendar Collection View Controller-->
+        <scene sceneID="SwY-b8-lkL">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="pio-2h-eDE" customClass="CalendarCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="UAz-fL-JVZ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="F2h-lI-Kfz">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="50" height="57"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" image="calendar_bg.png" id="gfe-jH-ylh">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cal_cell" id="ALv-ok-cce">
+                                <rect key="frame" x="0.0" y="57" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cal_header" id="aiU-Nz-7Hy">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oyT-wb-eWS">
+                                    <rect key="frame" x="139" y="22" width="42" height="26"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                    <color key="textColor" red="0.91764705882352937" green="0.33333333333333331" blue="0.015686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="pio-2h-eDE" id="1ts-SU-XLD"/>
+                            <outlet property="delegate" destination="pio-2h-eDE" id="gVT-j4-fTb"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="rfo-4W-2h9"/>
+                    <connections>
+                        <segue destination="gCh-g6-0R5" kind="push" identifier="" id="VYz-5U-ull"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MX8-5c-NIO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="525" y="-280"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="sYN-x7-kvZ">
@@ -600,9 +656,13 @@
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="HTb-k3-vNr" customClass="BadgeViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="Aaq-OO-MRC">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewLayout key="collectionViewLayout" id="coh-j2-Kfx" customClass="CustomViewLayout"/>
+                        <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" image="badge_bg.png" id="Gd4-Ch-8wB">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rqL-xg-etb">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -633,11 +693,15 @@
             <objects>
                 <viewController id="Ivh-VB-WTA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Uk-A0-MLI">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="badge_bg.png" id="OLs-zf-xvS">
+                                <rect key="frame" x="0.0" y="-4" width="320" height="376"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="0he-OG-8ix">
-                                <rect key="frame" x="53" y="20" width="215" height="188"/>
+                                <rect key="frame" x="53" y="20" width="215" height="144"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RGX-bq-Wj4">
@@ -676,41 +740,18 @@
             </objects>
             <point key="canvasLocation" x="1583" y="334"/>
         </scene>
-        <!--View Controller - 睡眠紀錄-->
-        <scene sceneID="HF3-5c-EDQ">
-            <objects>
-                <viewController id="HSb-Ed-2QG" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="99S-Lv-vxH">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="2Bi-Kt-YnN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="睡眠紀錄" id="ytN-tl-hMs">
-                        <barButtonItem key="rightBarButtonItem" title="統計圖" id="RS3-rr-yf9">
-                            <connections>
-                                <segue destination="gCh-g6-0R5" kind="push" id="zO4-yY-d8O"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EFe-cv-wZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="525" y="-280"/>
-        </scene>
         <!--Mission View Controller - MISSION-->
         <scene sceneID="qKd-Fn-baP">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="mIV-gT-OeG" customClass="MissionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="dB4-U8-vj2">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewLayout key="collectionViewLayout" id="TNf-8Z-D68" customClass="CustomViewLayout"/>
+                        <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" image="mission_bg.png" id="YwS-6b-bMA">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mission_cell" id="tdR-aN-yBi" customClass="MissionCollectionCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -751,8 +792,14 @@
             <objects>
                 <viewController id="QFA-Ej-aq6" customClass="MIssionConditionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l96-Z1-gAd">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="mission_bg.png" id="291-EV-kze">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="eDz-Pp-8gA"/>
@@ -761,11 +808,11 @@
             </objects>
             <point key="canvasLocation" x="1583" y="1041"/>
         </scene>
-        <!--Tab Bar Controller - 成就-->
+        <!--Tab Bar Controller-->
         <scene sceneID="oYQ-nf-mfU">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="32A-zT-sZ9" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="成就" id="DBl-Bm-3IQ"/>
+                    <navigationItem key="navigationItem" id="DBl-Bm-3IQ"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Qze-TU-jXu">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -784,15 +831,18 @@
     </scenes>
     <resources>
         <image name="alarm_hole-02.png" width="504" height="563"/>
+        <image name="badge_bg.png" width="640" height="860"/>
         <image name="bg.png" width="320" height="460"/>
         <image name="brainhole-06.png" width="55" height="13"/>
         <image name="brainhole1.png" width="30" height="28"/>
         <image name="brainhole2.png" width="30" height="28"/>
         <image name="brainhole3.png" width="30" height="28"/>
         <image name="brainhole4.png" width="30" height="28"/>
+        <image name="calendar_bg.png" width="640" height="860"/>
         <image name="eye-r.png" width="66" height="31"/>
         <image name="eye.png" width="66" height="31"/>
         <image name="f_logo.png" width="140" height="140"/>
+        <image name="mission_bg.png" width="640" height="860"/>
         <image name="mouth.png" width="110" height="30"/>
         <image name="nose.png" width="34" height="35"/>
         <image name="room_alarm.png" width="123" height="137"/>
@@ -810,89 +860,12 @@
         <image name="set_alarm_set.png" width="85" height="125"/>
         <image name="set_alarm_start.png" width="640" height="92"/>
     </resources>
-    <classes>
-        <class className="AlarmViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AlarmViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="alarmClick:" candidateClass="UIButton"/>
-                <relationship kind="action" name="alarm_pan:" candidateClass="UIPanGestureRecognizer"/>
-                <relationship kind="outlet" name="alarm" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="alarm_alarm" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="alarm_hr" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="alarm_min" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="alarm_sec" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="label_alarm_time" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mask" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="set" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="setalarm" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="BadgeViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BadgeViewController.h"/>
-        </class>
-        <class className="BrainHoleViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrainHoleViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="holeClick:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="eye" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="CustomViewLayout" superclassName="UICollectionViewFlowLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomViewLayout.h"/>
-        </class>
-        <class className="MIssionConditionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MIssionConditionViewController.h"/>
-        </class>
-        <class className="MissionCollectionCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MissionCollectionCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mission_button" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="MissionViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MissionViewController.h"/>
-        </class>
-        <class className="RecordScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordScrollView.h"/>
-        </class>
-        <class className="RecordViewController123" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordViewController123.h"/>
-            <relationships>
-                <relationship kind="outlet" name="record" candidateClass="RecordScrollView"/>
-            </relationships>
-        </class>
-        <class className="SettingViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="fbClick:" candidateClass="UIButton"/>
-                <relationship kind="action" name="sendClick:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="fbButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="sendButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timeZone" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="5W9-Zf-SbJ"/>
+        <segue reference="TfL-kD-nbu"/>
     </inferredMetricsTieBreakers>
 </document>

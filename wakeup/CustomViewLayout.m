@@ -39,7 +39,7 @@
     }
     else
     {
-        if (indexPath.item%5==3)
+        if (indexPath.item%5==2)
         {
             column=0;
             row = (indexPath.item-indexPath.item/5)/2;
@@ -51,7 +51,7 @@
     int screen_width = self.collectionView.bounds.size.width;
     attributes.size = CGSizeMake(ITEM_SIZE, ITEM_SIZE);
     // 判斷column奇偶數做置中
-    if(row%2==0)
+    if(row%2==1)
         attributes.center = CGPointMake( (screen_width-ITEM_SIZE*3)/2 + ITEM_SIZE/2 + ITEM_SIZE*column + (column-1)*20,ITEM_SIZE/2 + ITEM_SIZE*row + (row+1)*20);
     else
         attributes.center = CGPointMake( (screen_width-ITEM_SIZE*2)/2 + ITEM_SIZE/2 + ITEM_SIZE*column + (column-1)*20,ITEM_SIZE/2 + ITEM_SIZE*row + (row+1)*20);

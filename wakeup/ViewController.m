@@ -28,6 +28,13 @@
     [testObject save];
     
     NSLog(@"%f,%f",self.view.frame.size.width,self.view.frame.size.height);
+    
+    // 設定 back button
+    UIImage *backButtonIMG = [[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 21, 0, 0)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonIMG forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    UINavigationBar *bar = self.navigationController.navigationBar ;
+    bar.topItem.title = @" ";
+    
 }
 
 - (void)didReceiveMemoryWarning

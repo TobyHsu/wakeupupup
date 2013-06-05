@@ -30,7 +30,7 @@
     [super viewDidLoad];
     // 設定 nav bar
     UINavigationBar *navBar = [self.navigationController navigationBar];
-    [navBar setBackgroundImage:[UIImage imageNamed:@"set_alarm_bar.png"] forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:[UIImage imageNamed:@"mission_bar.png"] forBarMetrics:UIBarMetricsDefault];
     
     // 設定透明
     //navBar.translucent = YES; 

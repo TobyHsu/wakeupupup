@@ -37,6 +37,7 @@
     [button setBackgroundImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
     
     [button addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
+    
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     [self.navigationItem setLeftBarButtonItem:barButtonItem];
     
