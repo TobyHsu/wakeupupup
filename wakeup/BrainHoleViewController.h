@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVAudioPlayer.h>
 #define kHOLES 12
 
 @interface BrainHoleViewController : UIViewController
@@ -16,6 +17,9 @@
     NSTimer *game_timer;
     NSUInteger remain_hole;
     int sec;
+    AVAudioPlayer *bgPlayer;
+    AVAudioPlayer *audioPlayer;
+    NSArray * audioArray;
 }
 
 @property (retain, nonatomic) IBOutlet UIImageView *eye;

@@ -9,6 +9,7 @@
 #import "AlarmViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "BrainHoleViewController.h"
+#import "ViewController.h"
 
 @interface AlarmViewController ()
 
@@ -30,7 +31,7 @@
     [super viewDidLoad];
     UINavigationBar *navBar = [self.navigationController navigationBar];
     [navBar setBackgroundImage:[UIImage imageNamed:@"set_alarm_bar.png"] forBarMetrics:UIBarMetricsDefault];
-
+    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0,0,21,21);
     [button setBackgroundImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
@@ -54,6 +55,8 @@
                  beginBackgroundTaskWithExpirationHandler:^{
                      // If you're worried about exceeding 10 minutes, handle it here
                  }];
+    set_min=0;
+    set_hr=12;
     sec=0;
     timer=[NSTimer scheduledTimerWithTimeInterval:0.03
                                            target:self
@@ -61,6 +64,11 @@
                                          userInfo:nil
                                           repeats:YES];
     flag=NO;
+    NSURL* url = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"turn" ofType:@"mp3"]];
+    //與音樂檔案做連結
+    NSError* error = nil;
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+
 }
 
 - (void)countUp {
@@ -86,7 +94,8 @@
             NSLog(@"time up. Please play this game.");
             // 切換到腦袋有洞
             BrainHoleViewController *brainhole_vc = [self.storyboard instantiateViewControllerWithIdentifier:@"GamePage"];
-            [self presentViewController:brainhole_vc animated:Yes completion:nil];
+            [self.navigationController pushViewController:brainhole_vc animated:YES];
+            [timer invalidate];
         }
     }
 }
@@ -127,13 +136,18 @@ CGFloat DegreesToRadians(CGFloat degrees)
         set_hr = (int)abs(rotateDegree-90)/30;
         if (set_hr==0)
             set_hr=12;
+        if (abs(set_min -(int)abs((rotateDegree-90)*2)%60)>1)
+        {
+            [audioPlayer setNumberOfLoops:0];
+            [audioPlayer play];
+        }
         set_min = (int)abs((rotateDegree-90)*2)%60;
         self.label_alarm_time.text = [NSString stringWithFormat:@"%02d:%02d",set_hr,set_min];
         center.x = self.mask.center.x + self.mask.frame.size.width/2 * cos(rotateDegree*(M_PI/180));
         center.y = self.mask.center.y - self.mask.frame.size.height/2 * sin(rotateDegree*(M_PI/180));
         self.set.center = center;
     }
-
+    
 }
 
 - (IBAction)alarmClick:(UIButton *)sender {

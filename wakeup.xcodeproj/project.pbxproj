@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B69428B175F5CB3009878DD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B69428A175F5CB3009878DD /* AVFoundation.framework */; };
+		8B6942BB175F5DD9009878DD /* back.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942AC175F5DD9009878DD /* back.mp3 */; };
+		8B6942BC175F5DD9009878DD /* back2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942AD175F5DD9009878DD /* back2.mp3 */; };
+		8B6942BD175F5DD9009878DD /* back3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942AE175F5DD9009878DD /* back3.mp3 */; };
+		8B6942BE175F5DD9009878DD /* back4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942AF175F5DD9009878DD /* back4.mp3 */; };
+		8B6942BF175F5DD9009878DD /* get up7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942B0175F5DD9009878DD /* get up7.mp3 */; };
+		8B6942C0175F5DD9009878DD /* i got a hole1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942B1175F5DD9009878DD /* i got a hole1.mp3 */; };
+		8B6942C1175F5DD9009878DD /* laughing2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942B2175F5DD9009878DD /* laughing2.mp3 */; };
+		8B6942C2175F5DD9009878DD /* sound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942B3175F5DD9009878DD /* sound1.wav */; };
+		8B6942C3175F5DD9009878DD /* sound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942B4175F5DD9009878DD /* sound2.wav */; };
+		8B6942C4175F5DD9009878DD /* sound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942B5175F5DD9009878DD /* sound3.wav */; };
+		8B6942C5175F5DD9009878DD /* sound4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942B6175F5DD9009878DD /* sound4.wav */; };
+		8B6942C6175F5DD9009878DD /* switchroom.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942B7175F5DD9009878DD /* switchroom.mp3 */; };
+		8B6942C7175F5DD9009878DD /* touch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942B8175F5DD9009878DD /* touch.mp3 */; };
+		8B6942C8175F5DD9009878DD /* turn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942B9175F5DD9009878DD /* turn.mp3 */; };
+		8B6942C9175F5DD9009878DD /* you are too slow2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942BA175F5DD9009878DD /* you are too slow2.mp3 */; };
 		8BB4B7B5175E62E60037CBB8 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4B7B4175E62E60037CBB8 /* AlarmViewController.m */; };
 		8BB4B7B7175E765B0037CBB8 /* set_alarm_bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4B7B6175E765B0037CBB8 /* set_alarm_bg1.png */; };
 		A639E4E817560C2D005044EA /* sample_linechart_data.json in Resources */ = {isa = PBXBuildFile; fileRef = A639E4E717560C2D005044EA /* sample_linechart_data.json */; };
@@ -91,6 +107,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B69428A175F5CB3009878DD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8B6942AC175F5DD9009878DD /* back.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = back.mp3; sourceTree = "<group>"; };
+		8B6942AD175F5DD9009878DD /* back2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = back2.mp3; sourceTree = "<group>"; };
+		8B6942AE175F5DD9009878DD /* back3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = back3.mp3; sourceTree = "<group>"; };
+		8B6942AF175F5DD9009878DD /* back4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = back4.mp3; sourceTree = "<group>"; };
+		8B6942B0175F5DD9009878DD /* get up7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "get up7.mp3"; sourceTree = "<group>"; };
+		8B6942B1175F5DD9009878DD /* i got a hole1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "i got a hole1.mp3"; sourceTree = "<group>"; };
+		8B6942B2175F5DD9009878DD /* laughing2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laughing2.mp3; sourceTree = "<group>"; };
+		8B6942B3175F5DD9009878DD /* sound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound1.wav; sourceTree = "<group>"; };
+		8B6942B4175F5DD9009878DD /* sound2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound2.wav; sourceTree = "<group>"; };
+		8B6942B5175F5DD9009878DD /* sound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound3.wav; sourceTree = "<group>"; };
+		8B6942B6175F5DD9009878DD /* sound4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound4.wav; sourceTree = "<group>"; };
+		8B6942B7175F5DD9009878DD /* switchroom.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = switchroom.mp3; sourceTree = "<group>"; };
+		8B6942B8175F5DD9009878DD /* touch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = touch.mp3; sourceTree = "<group>"; };
+		8B6942B9175F5DD9009878DD /* turn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = turn.mp3; sourceTree = "<group>"; };
+		8B6942BA175F5DD9009878DD /* you are too slow2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "you are too slow2.mp3"; sourceTree = "<group>"; };
 		8BB4B7B3175E62E60037CBB8 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
 		8BB4B7B4175E62E60037CBB8 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
 		8BB4B7B6175E765B0037CBB8 /* set_alarm_bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_alarm_bg1.png; sourceTree = "<group>"; };
@@ -197,6 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B69428B175F5CB3009878DD /* AVFoundation.framework in Frameworks */,
 				A639E4FB1756378E005044EA /* Accounts.framework in Frameworks */,
 				A639E4FC1756378E005044EA /* AdSupport.framework in Frameworks */,
 				A639E4FD1756378E005044EA /* libsqlite3.0.dylib in Frameworks */,
@@ -221,9 +254,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B69428C175F5D16009878DD /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				8B6942AC175F5DD9009878DD /* back.mp3 */,
+				8B6942AD175F5DD9009878DD /* back2.mp3 */,
+				8B6942AE175F5DD9009878DD /* back3.mp3 */,
+				8B6942AF175F5DD9009878DD /* back4.mp3 */,
+				8B6942B0175F5DD9009878DD /* get up7.mp3 */,
+				8B6942B1175F5DD9009878DD /* i got a hole1.mp3 */,
+				8B6942B2175F5DD9009878DD /* laughing2.mp3 */,
+				8B6942B3175F5DD9009878DD /* sound1.wav */,
+				8B6942B4175F5DD9009878DD /* sound2.wav */,
+				8B6942B5175F5DD9009878DD /* sound3.wav */,
+				8B6942B6175F5DD9009878DD /* sound4.wav */,
+				8B6942B7175F5DD9009878DD /* switchroom.mp3 */,
+				8B6942B8175F5DD9009878DD /* touch.mp3 */,
+				8B6942B9175F5DD9009878DD /* turn.mp3 */,
+				8B6942BA175F5DD9009878DD /* you are too slow2.mp3 */,
+			);
+			name = sound;
+			sourceTree = "<group>";
+		};
 		A60B4EDB17506D2F00CE9DAD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				8B69428C175F5D16009878DD /* sound */,
 				A639E4E717560C2D005044EA /* sample_linechart_data.json */,
 				A6B2796117524ABA00895ACC /* pic */,
 			);
@@ -267,6 +323,7 @@
 		A65238B0173A4DEA0030BDC7 = {
 			isa = PBXGroup;
 			children = (
+				8B69428A175F5CB3009878DD /* AVFoundation.framework */,
 				A65238C2173A4DEA0030BDC7 /* wakeup */,
 				A60B4EDB17506D2F00CE9DAD /* src */,
 				A65238BB173A4DEA0030BDC7 /* Frameworks */,
@@ -530,6 +587,21 @@
 				A6AAFEFA175B5DCC00B07CD7 /* set_alarm_set.png in Resources */,
 				A6AAFEFB175B5DCC00B07CD7 /* set_alarm_start.png in Resources */,
 				8BB4B7B7175E765B0037CBB8 /* set_alarm_bg1.png in Resources */,
+				8B6942BB175F5DD9009878DD /* back.mp3 in Resources */,
+				8B6942BC175F5DD9009878DD /* back2.mp3 in Resources */,
+				8B6942BD175F5DD9009878DD /* back3.mp3 in Resources */,
+				8B6942BE175F5DD9009878DD /* back4.mp3 in Resources */,
+				8B6942BF175F5DD9009878DD /* get up7.mp3 in Resources */,
+				8B6942C0175F5DD9009878DD /* i got a hole1.mp3 in Resources */,
+				8B6942C1175F5DD9009878DD /* laughing2.mp3 in Resources */,
+				8B6942C2175F5DD9009878DD /* sound1.wav in Resources */,
+				8B6942C3175F5DD9009878DD /* sound2.wav in Resources */,
+				8B6942C4175F5DD9009878DD /* sound3.wav in Resources */,
+				8B6942C5175F5DD9009878DD /* sound4.wav in Resources */,
+				8B6942C6175F5DD9009878DD /* switchroom.mp3 in Resources */,
+				8B6942C7175F5DD9009878DD /* touch.mp3 in Resources */,
+				8B6942C8175F5DD9009878DD /* turn.mp3 in Resources */,
+				8B6942C9175F5DD9009878DD /* you are too slow2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

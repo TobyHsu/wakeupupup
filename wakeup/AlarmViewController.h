@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVAudioPlayer.h>
 
 @interface AlarmViewController : UIViewController
 {
@@ -15,6 +16,7 @@
     float min;
     int set_hr,set_min;
     bool flag;
+    AVAudioPlayer *audioPlayer;
     UIBackgroundTaskIdentifier TimerTask;
 }
 @property (retain, nonatomic) IBOutlet UIImageView *alarm;

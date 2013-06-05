@@ -31,17 +31,39 @@
     self.hole_img = [NSArray arrayWithObjects:@"brainhole1.png",@"brainhole2.png",@"brainhole3.png",@"brainhole4.png",nil];
     
     [_eye.layer setAnchorPoint: CGPointMake(0.5,0.5)];
-    levelup_timer = [NSTimer scheduledTimerWithTimeInterval:9  // 洞升級秒數
-                                           target:self
-                                         selector:@selector(generateHole)
-                                         userInfo:nil
-                                          repeats:YES];
-    
-    game_timer = [NSTimer scheduledTimerWithTimeInterval:1  // 洞升級秒數
+    levelup_timer = [NSTimer scheduledTimerWithTimeInterval:8  // 洞升級秒數
                                                      target:self
-                                                   selector:@selector(counting)
+                                                   selector:@selector(generateHole)
                                                    userInfo:nil
                                                     repeats:YES];
+    
+    game_timer = [NSTimer scheduledTimerWithTimeInterval:1  // 遊戲秒數
+                                                  target:self
+                                                selector:@selector(counting)
+                                                userInfo:nil
+                                                 repeats:YES];
+    
+    audioArray = [[NSArray alloc] initWithObjects:@"laughing2",@"get up7", nil];
+    
+    NSURL* url = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"back4" ofType:@"mp3"]];
+    //與音樂檔案做連結
+    NSError* error = nil;
+    bgPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    [bgPlayer setNumberOfLoops:-1];
+    [bgPlayer play];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,6 +80,28 @@
 - (void) counting
 {
     sec++;
+    NSURL* url = [[NSURL alloc]init];
+    //與音樂檔案做連結
+    NSError* error = nil;
+
+    if (sec==15)
+    {
+        NSURL* url = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"you are too slow2" ofType:@"mp3"]];
+        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+        [audioPlayer setNumberOfLoops:0];
+        [audioPlayer play];
+    }
+    else
+    {
+        if (sec%5==0)
+        {
+            int r = arc4random_uniform(2);
+            NSURL* url = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:[audioArray objectAtIndex:r] ofType:@"mp3"]];
+            audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+            [audioPlayer setNumberOfLoops:0];
+            [audioPlayer play];
+        }
+    }
 }
 
 - (void) generateHole
@@ -65,9 +109,9 @@
     for (id obj in self.view.subviews)
     {
         if ([obj isKindOfClass:[UIButton class]])
-        { 
+        {
             UIButton *oldHole = (UIButton*) obj;
-
+            
             
             switch (oldHole.tag) {  // 判斷下個 level 的圖
                 case 1:
@@ -96,11 +140,24 @@
             //[self.view addSubview:newHole];
         }
     }
-
+    
+    NSURL* url = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"i got a hole1" ofType:@"mp3"]];
+    //與音樂檔案做連結
+    NSError* error = nil;
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    [audioPlayer setNumberOfLoops:0];
+    [audioPlayer play];
+    
 }
 
 - (IBAction)holeClick:(UIButton*)sender
 {
+    NSURL* url = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"touch" ofType:@"mp3"]];
+    //與音樂檔案做連結
+    NSError* error = nil;
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    [audioPlayer play];
+    
     UIButton *thisHole = (UIButton*) sender;
     //thisHole.tag--;
     if (thisHole.tag == 1) {
@@ -111,6 +168,8 @@
             NSLog(@"SUCCES!!!");
             [levelup_timer invalidate];
             [game_timer invalidate];
+            [audioPlayer stop];
+            [bgPlayer stop];
             [self showAlert];
         }
     }
@@ -143,7 +202,7 @@
         NSLog(@"after click OK button");
         [self performSegueWithIdentifier:@"backHome" sender:self];
     }
-
+    
 }
 
 @end
