@@ -24,6 +24,7 @@
 		8B6942C7175F5DD9009878DD /* touch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942B8175F5DD9009878DD /* touch.mp3 */; };
 		8B6942C8175F5DD9009878DD /* turn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942B9175F5DD9009878DD /* turn.mp3 */; };
 		8B6942C9175F5DD9009878DD /* you are too slow2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942BA175F5DD9009878DD /* you are too slow2.mp3 */; };
+		8B73020B176067E100026E1F /* BadgeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B73020A176067E100026E1F /* BadgeConditionViewController.m */; };
 		8BB4B7B5175E62E60037CBB8 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4B7B4175E62E60037CBB8 /* AlarmViewController.m */; };
 		8BB4B7B7175E765B0037CBB8 /* set_alarm_bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4B7B6175E765B0037CBB8 /* set_alarm_bg1.png */; };
 		A639E4E817560C2D005044EA /* sample_linechart_data.json in Resources */ = {isa = PBXBuildFile; fileRef = A639E4E717560C2D005044EA /* sample_linechart_data.json */; };
@@ -158,6 +159,8 @@
 		8B6942B8175F5DD9009878DD /* touch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = touch.mp3; sourceTree = "<group>"; };
 		8B6942B9175F5DD9009878DD /* turn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = turn.mp3; sourceTree = "<group>"; };
 		8B6942BA175F5DD9009878DD /* you are too slow2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "you are too slow2.mp3"; sourceTree = "<group>"; };
+		8B730209176067E100026E1F /* BadgeConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeConditionViewController.h; sourceTree = "<group>"; };
+		8B73020A176067E100026E1F /* BadgeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeConditionViewController.m; sourceTree = "<group>"; };
 		8BB4B7B3175E62E60037CBB8 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
 		8BB4B7B4175E62E60037CBB8 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
 		8BB4B7B6175E765B0037CBB8 /* set_alarm_bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_alarm_bg1.png; sourceTree = "<group>"; };
@@ -596,6 +599,8 @@
 				A6CBB9C2175A7D5E007CD419 /* CustomViewLayout.m */,
 				8B43DC60176041A8007DB620 /* BadgeCollectionCell.h */,
 				8B43DC61176041A8007DB620 /* BadgeCollectionCell.m */,
+				8B730209176067E100026E1F /* BadgeConditionViewController.h */,
+				8B73020A176067E100026E1F /* BadgeConditionViewController.m */,
 			);
 			name = Badge;
 			sourceTree = "<group>";
@@ -810,6 +815,7 @@
 				8BB4B7B5175E62E60037CBB8 /* AlarmViewController.m in Sources */,
 				A6D9D11D175F8A0F0086830F /* CalendarCollectionViewController.m in Sources */,
 				8B43DC62176041A8007DB620 /* BadgeCollectionCell.m in Sources */,
+				8B73020B176067E100026E1F /* BadgeConditionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

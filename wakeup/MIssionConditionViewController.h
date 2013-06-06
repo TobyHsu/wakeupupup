@@ -12,4 +12,8 @@
 
 @interface MIssionConditionViewController : UIViewController
 @property (strong) NSString *m_id; // 接收任務 id
+@property (retain, nonatomic) IBOutlet UIImageView *mission_image;
+@property (retain, nonatomic) IBOutlet UILabel *mission_description;
+@property (retain, nonatomic) IBOutlet UILabel *mission_condition;
+@property (retain, nonatomic) IBOutlet UIView *mission_badges;
 @end

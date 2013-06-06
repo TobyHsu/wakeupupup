@@ -35,7 +35,9 @@
     NSString *name = [obj objectForKey:@"name"];
     NSString *description = [obj objectForKey:@"description"];
     NSLog(@"name:%@",name);
+    
     NSLog(@"description:%@",description);
+    self.mission_description.text = description;
     // 設定 back button
     UIImage *backButtonIMG = [[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 21, 0, 0)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonIMG forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
@@ -49,4 +51,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [_mission_image release];
+    [_mission_description release];
+    [_mission_condition release];
+    [_mission_badges release];
+    [super dealloc];
+}
 @end

@@ -9,6 +9,7 @@
 #import "BadgeViewController.h"
 #import "Parse/Parse.h"
 #import "BadgeCollectionCell.h"
+#import "BadgeConditionViewController.h"
 
 @interface BadgeViewController ()
 
@@ -63,7 +64,35 @@
     NSArray *rnd_img = [[NSArray alloc] initWithObjects:@"badge_tw.png",@"badge_tw_n.png",@"badge_jp.png",@"badge_jp_n.png",@"Squirrel.png",@"Squirrel_n.png", nil];
     int r = arc4random_uniform(6);
     cell.badge_thumbnail.image = [UIImage imageNamed:[rnd_img objectAtIndex:r]];
+    
+    
+    NSUInteger index = [indexPath row];
+    cell.cell_id = [[self.obj_ar[0] objectAtIndex:index] objectId];
+    NSLog(@"%@",cell.cell_id);
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"ShowDetail" sender:cell];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"ShowDetail"]) {
+        NSLog(@"detail");
+        if ([sender isKindOfClass:[BadgeCollectionCell class]]) {
+            // Get data
+            BadgeCollectionCell *cell1 = (BadgeCollectionCell *)sender;
+            
+            //将page2设定成Storyboard Segue的目标UIViewController
+            BadgeConditionViewController *conditionPage = segue.destinationViewController; // 這樣回前一頁也會送
+            
+            //将值透过Storyboard Segue带给页面2的string变数
+            [conditionPage setValue:cell1.cell_id forKey:@"b_id"];
+            //NSLog(@"%@",[cell1 ind);
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning

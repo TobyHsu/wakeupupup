@@ -10,5 +10,6 @@
 
 @interface BadgeCollectionCell : UICollectionViewCell
 @property (retain, nonatomic) IBOutlet UIImageView *badge_thumbnail;
-
+@property (strong,nonatomic)  NSString *cell_id;
+@property (strong,nonatomic)  NSString *cell_type;
 @end
