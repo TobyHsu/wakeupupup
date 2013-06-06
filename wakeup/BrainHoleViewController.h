@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 #import <AVFoundation/AVAudioPlayer.h>
 #define kHOLES 12
 
@@ -20,6 +21,8 @@
     AVAudioPlayer *bgPlayer;
     AVAudioPlayer *audioPlayer;
     NSArray * audioArray;
+    NSString *userInfo;
+    
 }
 
 @property (retain, nonatomic) IBOutlet UIImageView *eye;
