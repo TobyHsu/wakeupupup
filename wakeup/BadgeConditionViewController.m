@@ -39,11 +39,7 @@
     NSString *req = [obj objectForKey:@"requirement"];
     NSLog(@"name:%@",name);
     NSLog(@"description:%@",description);
-    self.badge_image.image = [UIImage imageNamed:@"badge_tw.png"];
-    self.badge_image.frame = CGRectMake(self.badge_image.frame.origin.x,
-                                        self.badge_image.frame.origin.y,
-                                        200,
-                                        225);
+//    self.badge_image.image = [UIImage imageNamed:@"badge_tw.png"];
     self.badge_description.text = description;
     self.badge_condition.text =  [NSString stringWithFormat:@"必須要在%@點時起床唷！", req];
     // 設定 back button

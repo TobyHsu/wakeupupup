@@ -619,10 +619,25 @@
                             <outlet property="delegate" destination="pio-2h-eDE" id="gVT-j4-fTb"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="rfo-4W-2h9"/>
-                    <connections>
-                        <segue destination="gCh-g6-0R5" kind="push" identifier="" id="VYz-5U-ull"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="rfo-4W-2h9">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="iHX-uu-Nfb">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3UN-2u-dhc">
+                                <rect key="frame" x="294" y="11" width="21" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="statistics_icon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="gCh-g6-0R5" kind="push" id="RZy-hY-VNq"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MX8-5c-NIO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -699,20 +714,20 @@
         <scene sceneID="EHi-15-Peg">
             <objects>
                 <viewController id="Ivh-VB-WTA" customClass="BadgeConditionViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2Uk-A0-MLI">
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="2Uk-A0-MLI">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="badge_bg.png" id="OLs-zf-xvS">
-                                <rect key="frame" x="0.0" y="-4" width="320" height="376"/>
+                                <rect key="frame" x="0.0" y="-40" width="320" height="459"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="0he-OG-8ix">
-                                <rect key="frame" x="60.5" y="12" width="200" height="200"/>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="Squirrel.png" id="0he-OG-8ix">
+                                <rect key="frame" x="61" y="12" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RGX-bq-Wj4">
-                                <rect key="frame" x="53" y="228" width="215" height="55"/>
+                                <rect key="frame" x="53" y="228" width="215" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -824,7 +839,7 @@
                                 <color key="backgroundColor" red="1" green="0.99338011380000002" blue="0.65123078550000002" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JXB-9f-hAx">
-                                <rect key="frame" x="40" y="216" width="240" height="67"/>
+                                <rect key="frame" x="40" y="211" width="240" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -949,6 +964,7 @@
         <image name="set_alarm_sec.png" width="40" height="185"/>
         <image name="set_alarm_set.png" width="85" height="125"/>
         <image name="set_alarm_start.png" width="640" height="92"/>
+        <image name="statistics_icon.png" width="55" height="55"/>
     </resources>
     <classes>
         <class className="AlarmViewController" superclassName="UIViewController">

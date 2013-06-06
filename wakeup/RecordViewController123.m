@@ -27,6 +27,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIImage *backButtonIMG = [[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 21, 0, 0)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonIMG forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    UINavigationBar *bar = self.navigationController.navigationBar ;
+    bar.topItem.title = @" ";
     [self.record init];
 
 

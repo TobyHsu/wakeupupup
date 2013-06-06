@@ -32,7 +32,7 @@
     self.hole_img = [NSArray arrayWithObjects:@"brainhole1.png",@"brainhole2.png",@"brainhole3.png",@"brainhole4.png",nil];
     
     [_eye.layer setAnchorPoint: CGPointMake(0.5,0.5)];
-    levelup_timer = [NSTimer scheduledTimerWithTimeInterval:8  // 洞升級秒數
+    levelup_timer = [NSTimer scheduledTimerWithTimeInterval:12  // 洞升級秒數
                                                      target:self
                                                    selector:@selector(generateHole)
                                                    userInfo:nil
