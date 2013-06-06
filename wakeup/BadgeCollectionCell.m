@@ -28,4 +28,8 @@
 }
 */
 
+- (void)dealloc {
+    [_badge_thumbnail release];
+    [super dealloc];
+}
 @end

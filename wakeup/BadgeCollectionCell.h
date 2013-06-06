@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BadgeCollectionCell : UICollectionViewCell
+@property (retain, nonatomic) IBOutlet UIImageView *badge_thumbnail;
 
 @end

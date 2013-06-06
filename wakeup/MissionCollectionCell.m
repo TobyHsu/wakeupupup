@@ -29,7 +29,10 @@
 */
 
 - (void)dealloc {
-    [_mission_button release];
+//    [_mission_button release];
+    [_thumbnail release];
+    [_lock release];
+    [_mission_name release];
     [super dealloc];
 }
 @end

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BadgeViewController : UICollectionViewController
-
+@property (nonatomic, strong) NSArray *pobj_ar;
+@property (nonatomic, strong) NSArray *aobj_ar;
+@property (nonatomic, strong) NSArray *obj_ar;
 @end

@@ -23,7 +23,7 @@
 
 //设置collectionViewContentsize
 - (CGSize) collectionViewContentSize{
-    return self.collectionView.frame.size;
+    return CGSizeMake(self.collectionView.frame.size.width, self.collectionView.frame.size.height*2);
 }
 
 //设置UICollectionViewLayoutAttributes

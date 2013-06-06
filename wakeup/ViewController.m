@@ -18,16 +18,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    [testObject setObject:@"bar" forKey:@"foo"];
-    PFQuery *qq = [PFQuery queryWithClassName:@"BADGE"];
-    PFObject *obj = [qq getObjectWithId:@"fIZOGPUIhs"];
-    NSString *name = [obj objectForKey:@"name"];
-    NSLog(@"name:%@",name);
+//    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+//    [testObject setObject:@"bar" forKey:@"foo"];
+//    PFQuery *qq = [PFQuery queryWithClassName:@"BADGE"];
+//    PFObject *obj = [qq getObjectWithId:@"fIZOGPUIhs"];
+//    NSString *name = [obj objectForKey:@"name"];
+//    NSLog(@"name:%@",name);
     
-    [testObject save];
+//    [testObject save];
     
-    NSLog(@"%f,%f",self.view.frame.size.width,self.view.frame.size.height);
+//    NSLog(@"%f,%f",self.view.frame.size.width,self.view.frame.size.height);
     
     // 設定 back button
     UIImage *backButtonIMG = [[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 21, 0, 0)];

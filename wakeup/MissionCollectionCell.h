@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface MissionCollectionCell : UICollectionViewCell
-@property (strong,nonatomic) IBOutlet UIButton *mission_button;
-@property (strong,nonatomic)  NSString *cell_id;
+//@property (strong,nonatomic) IBOutlet UIButton *mission_button;
 //@property (weak, nonatomic) IBOutlet UIImageView *mission_icon;
+@property (strong,nonatomic)  NSString *cell_id;
+@property (retain, nonatomic) IBOutlet UIImageView *thumbnail;
+@property (retain, nonatomic) IBOutlet UIImageView *lock;
+@property (retain, nonatomic) IBOutlet UILabel *mission_name;
+
 @end

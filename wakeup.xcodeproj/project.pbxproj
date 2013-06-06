@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B43DC62176041A8007DB620 /* BadgeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B43DC61176041A8007DB620 /* BadgeCollectionCell.m */; };
 		8B69428B175F5CB3009878DD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B69428A175F5CB3009878DD /* AVFoundation.framework */; };
 		8B6942BB175F5DD9009878DD /* back.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942AC175F5DD9009878DD /* back.mp3 */; };
 		8B6942BC175F5DD9009878DD /* back2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942AD175F5DD9009878DD /* back2.mp3 */; };
@@ -139,6 +140,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B43DC60176041A8007DB620 /* BadgeCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeCollectionCell.h; sourceTree = "<group>"; };
+		8B43DC61176041A8007DB620 /* BadgeCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeCollectionCell.m; sourceTree = "<group>"; };
 		8B69428A175F5CB3009878DD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8B6942AC175F5DD9009878DD /* back.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = back.mp3; sourceTree = "<group>"; };
 		8B6942AD175F5DD9009878DD /* back2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = back2.mp3; sourceTree = "<group>"; };
@@ -591,6 +594,8 @@
 				A680C8A4175C695B001EDDBD /* BadgeViewController.m */,
 				A6CBB9C1175A7D5E007CD419 /* CustomViewLayout.h */,
 				A6CBB9C2175A7D5E007CD419 /* CustomViewLayout.m */,
+				8B43DC60176041A8007DB620 /* BadgeCollectionCell.h */,
+				8B43DC61176041A8007DB620 /* BadgeCollectionCell.m */,
 			);
 			name = Badge;
 			sourceTree = "<group>";
@@ -804,6 +809,7 @@
 				A680C8A5175C695B001EDDBD /* BadgeViewController.m in Sources */,
 				8BB4B7B5175E62E60037CBB8 /* AlarmViewController.m in Sources */,
 				A6D9D11D175F8A0F0086830F /* CalendarCollectionViewController.m in Sources */,
+				8B43DC62176041A8007DB620 /* BadgeCollectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

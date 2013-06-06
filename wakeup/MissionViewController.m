@@ -42,6 +42,13 @@
     NSLog(@"%d,%@",[self.obj_ar count],[[self.obj_ar objectAtIndex:0] objectForKey:@"name"]);
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    UINavigationBar *navBar = [self.navigationController navigationBar];
+    [navBar setBackgroundImage:[UIImage imageNamed:@"mission_bar.png"] forBarMetrics:UIBarMetricsDefault];
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -99,9 +106,10 @@
     
     NSString *name = [[self.obj_ar objectAtIndex:ar_index] objectForKey:@"name"];
     //NSString *description = [obj_ar[row] objectForKey:@"description"];
-    
+    cell.mission_name.text = name;
     NSLog(@"%@",name);
-    cell.mission_button.titleLabel.text = name;
+//    cell.mission_button.titleLabel.text = name;
+    
     cell.cell_id = [[self.obj_ar objectAtIndex:ar_index] objectId];
     NSLog(@"%@",cell.cell_id);
     return cell;
@@ -122,7 +130,7 @@
     //    if ([direction isEqualToString:@"L"]) {
     //        return CGSizeMake(88.0f, 66.0f);
     //    } else {
-    return CGSizeMake(66.0f, 88.0f);
+    return CGSizeMake(263.0f, 150.0f);
     //}
 }
 

@@ -36,6 +36,11 @@
     NSString *description = [obj objectForKey:@"description"];
     NSLog(@"name:%@",name);
     NSLog(@"description:%@",description);
+    // 設定 back button
+    UIImage *backButtonIMG = [[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 21, 0, 0)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonIMG forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    UINavigationBar *bar = self.navigationController.navigationBar ;
+    bar.topItem.title = @" ";
 }
 
 - (void)didReceiveMemoryWarning
