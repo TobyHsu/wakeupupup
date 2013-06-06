@@ -138,6 +138,13 @@
 		A6D9D11D175F8A0F0086830F /* CalendarCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D9D11C175F8A0E0086830F /* CalendarCollectionViewController.m */; };
 		A6DBC912175A166000393671 /* eye-r.png in Resources */ = {isa = PBXBuildFile; fileRef = A6DBC910175A166000393671 /* eye-r.png */; };
 		A6DBC913175A166000393671 /* eyewh-r.png in Resources */ = {isa = PBXBuildFile; fileRef = A6DBC911175A166000393671 /* eyewh-r.png */; };
+		A6E708971760AA3200B89091 /* CalViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E708961760AA3200B89091 /* CalViewLayout.m */; };
+		A6E7089A1760AF5A00B89091 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E708991760AF5A00B89091 /* DataBase.m */; };
+		A6E708A61761194F00B89091 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E7089D1761194F00B89091 /* FMDatabase.m */; };
+		A6E708A71761194F00B89091 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E7089F1761194F00B89091 /* FMDatabaseAdditions.m */; };
+		A6E708A81761194F00B89091 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E708A11761194F00B89091 /* FMDatabasePool.m */; };
+		A6E708A91761194F00B89091 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E708A31761194F00B89091 /* FMDatabaseQueue.m */; };
+		A6E708AA1761194F00B89091 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E708A51761194F00B89091 /* FMResultSet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -292,6 +299,20 @@
 		A6D9D11C175F8A0E0086830F /* CalendarCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarCollectionViewController.m; sourceTree = "<group>"; };
 		A6DBC910175A166000393671 /* eye-r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eye-r.png"; sourceTree = "<group>"; };
 		A6DBC911175A166000393671 /* eyewh-r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eyewh-r.png"; sourceTree = "<group>"; };
+		A6E708951760AA3200B89091 /* CalViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalViewLayout.h; sourceTree = "<group>"; };
+		A6E708961760AA3200B89091 /* CalViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalViewLayout.m; sourceTree = "<group>"; };
+		A6E708981760AF5A00B89091 /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBase.h; sourceTree = "<group>"; };
+		A6E708991760AF5A00B89091 /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBase.m; sourceTree = "<group>"; };
+		A6E7089C1761194F00B89091 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		A6E7089D1761194F00B89091 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		A6E7089E1761194F00B89091 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		A6E7089F1761194F00B89091 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		A6E708A01761194F00B89091 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		A6E708A11761194F00B89091 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		A6E708A21761194F00B89091 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		A6E708A31761194F00B89091 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		A6E708A41761194F00B89091 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		A6E708A51761194F00B89091 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -440,6 +461,7 @@
 		A65238C2173A4DEA0030BDC7 /* wakeup */ = {
 			isa = PBXGroup;
 			children = (
+				A6E708941760A9E500B89091 /* Calendar */,
 				A639E4E917560C4E005044EA /* Mission */,
 				A6CBB9C4175A832F007CD419 /* Badge */,
 				A6B2797F17526B7900895ACC /* Statistics */,
@@ -448,14 +470,14 @@
 				8BB4B7B3175E62E60037CBB8 /* AlarmViewController.h */,
 				8BB4B7B4175E62E60037CBB8 /* AlarmViewController.m */,
 				A65238D4173A4DEA0030BDC7 /* MainStoryboard.storyboard */,
-				A6D9D11B175F8A0E0086830F /* CalendarCollectionViewController.h */,
-				A6D9D11C175F8A0E0086830F /* CalendarCollectionViewController.m */,
 				A639E4FF17563FCB005044EA /* SettingViewController.h */,
 				A639E50017563FCB005044EA /* SettingViewController.m */,
 				A65238D7173A4DEA0030BDC7 /* ViewController.h */,
 				A65238D8173A4DEA0030BDC7 /* ViewController.m */,
 				A639E51F17566EEA005044EA /* BrainHoleViewController.h */,
 				A639E52017566EEA005044EA /* BrainHoleViewController.m */,
+				A6E708981760AF5A00B89091 /* DataBase.h */,
+				A6E708991760AF5A00B89091 /* DataBase.m */,
 				A65238C3173A4DEA0030BDC7 /* Supporting Files */,
 			);
 			path = wakeup;
@@ -464,6 +486,7 @@
 		A65238C3173A4DEA0030BDC7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A6E7089B1761194F00B89091 /* FMDB */,
 				A6B2798017526CDE00895ACC /* JSONKit */,
 				A65238C4173A4DEA0030BDC7 /* wakeup-Info.plist */,
 				A65238C5173A4DEA0030BDC7 /* InfoPlist.strings */,
@@ -643,6 +666,35 @@
 			path = "統計";
 			sourceTree = "<group>";
 		};
+		A6E708941760A9E500B89091 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				A6D9D11B175F8A0E0086830F /* CalendarCollectionViewController.h */,
+				A6D9D11C175F8A0E0086830F /* CalendarCollectionViewController.m */,
+				A6E708951760AA3200B89091 /* CalViewLayout.h */,
+				A6E708961760AA3200B89091 /* CalViewLayout.m */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		A6E7089B1761194F00B89091 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				A6E7089C1761194F00B89091 /* FMDatabase.h */,
+				A6E7089D1761194F00B89091 /* FMDatabase.m */,
+				A6E7089E1761194F00B89091 /* FMDatabaseAdditions.h */,
+				A6E7089F1761194F00B89091 /* FMDatabaseAdditions.m */,
+				A6E708A01761194F00B89091 /* FMDatabasePool.h */,
+				A6E708A11761194F00B89091 /* FMDatabasePool.m */,
+				A6E708A21761194F00B89091 /* FMDatabaseQueue.h */,
+				A6E708A31761194F00B89091 /* FMDatabaseQueue.m */,
+				A6E708A41761194F00B89091 /* FMResultSet.h */,
+				A6E708A51761194F00B89091 /* FMResultSet.m */,
+			);
+			name = FMDB;
+			path = src/FMDB;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -816,6 +868,13 @@
 				A6D9D11D175F8A0F0086830F /* CalendarCollectionViewController.m in Sources */,
 				8B43DC62176041A8007DB620 /* BadgeCollectionCell.m in Sources */,
 				8B73020B176067E100026E1F /* BadgeConditionViewController.m in Sources */,
+				A6E708971760AA3200B89091 /* CalViewLayout.m in Sources */,
+				A6E7089A1760AF5A00B89091 /* DataBase.m in Sources */,
+				A6E708A61761194F00B89091 /* FMDatabase.m in Sources */,
+				A6E708A71761194F00B89091 /* FMDatabaseAdditions.m in Sources */,
+				A6E708A81761194F00B89091 /* FMDatabasePool.m in Sources */,
+				A6E708A91761194F00B89091 /* FMDatabaseQueue.m in Sources */,
+				A6E708AA1761194F00B89091 /* FMResultSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
