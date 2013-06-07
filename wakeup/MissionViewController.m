@@ -9,6 +9,8 @@
 #import "MissionViewController.h"
 #import "MIssionConditionViewController.h"
 #import "MissionCollectionCell.h"
+#import "FMDatabase.h"
+#import "DataBase.h"
 
 @interface MissionViewController ()
 
@@ -35,11 +37,15 @@
     // 設定透明
     //navBar.translucent = YES; 
     
-	// Do any additional setup after loading the view.
     // 開始撈有哪些 mission
     PFQuery *qq = [PFQuery queryWithClassName:@"MISSION"];
     self.obj_ar = [qq findObjects];
     NSLog(@"%d,%@",[self.obj_ar count],[[self.obj_ar objectAtIndex:0] objectForKey:@"name"]);
+
+    // sqlite get mission ids
+    //FMResultSet *rs = nil;
+    //rs = [DataBase executeQuery:@"SELECT id FROM MISSION"];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -83,32 +89,17 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    //static NSString *landscapeImageCellIdentifier = @"LandscapePhoto";
-    //static NSString *portraitImageCellIdentifier = @"PortraitPhoto";
-    
-    // Get data first
-    //NSDictionary *photo = [[ALPhoto sharedSource] photoAtIndexPath:indexPath];
-    
-    // Direction
     NSString *cellIdentifier = @"mission_cell";
-    //    NSString *direction = photo[ALPhotoInfoDirectionKey];
-    //    if ([direction isEqualToString:@"L"]) { // Landscape
-    //        cellIdentifier = landscapeImageCellIdentifier;
-    //    } else if ([direction isEqualToString:@"P"]) { // Portrait
-    //        cellIdentifier = portraitImageCellIdentifier;
-    //    }
     
     // Get cell
     MissionCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier
                                                                             forIndexPath:indexPath];
     NSUInteger ar_index = [indexPath row];
-   
     
     NSString *name = [[self.obj_ar objectAtIndex:ar_index] objectForKey:@"name"];
     //NSString *description = [obj_ar[row] objectForKey:@"description"];
     cell.mission_name.text = name;
     NSLog(@"%@",name);
-//    cell.mission_button.titleLabel.text = name;
     
     cell.cell_id = [[self.obj_ar objectAtIndex:ar_index] objectId];
     NSLog(@"%@",cell.cell_id);

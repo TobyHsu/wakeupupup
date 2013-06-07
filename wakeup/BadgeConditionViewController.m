@@ -28,15 +28,15 @@
 {
     [super viewDidLoad];
     PFQuery *qq = [PFQuery queryWithClassName:@"PERSON_BADGE"];
-    //    if ([self.b_type isEqualToString:@"person"])
-    //        qq = [PFQuery queryWithClassName:@"PERSON_BADGE"];
-    //    else
-    //        qq = [PFQuery queryWithClassName:@"ANIMAL_BADGE"];
+    if ([self.b_type isEqualToString:@"animal"]) {
+        qq = [PFQuery queryWithClassName:@"ANIMAL_BADGE"];
+    }
     PFObject *obj = [qq getObjectWithId:self.b_id];
     
     NSString *name = [obj objectForKey:@"name"];
     NSString *description = [obj objectForKey:@"description"];
     NSString *req = [obj objectForKey:@"requirement"];
+    NSLog(@"id:%@",self.b_id);
     NSLog(@"name:%@",name);
     NSLog(@"description:%@",description);
 //    self.badge_image.image = [UIImage imageNamed:@"badge_tw.png"];

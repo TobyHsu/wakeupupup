@@ -7,9 +7,10 @@
 //
 
 #import "MIssionConditionViewController.h"
+#import "FMDatabase.h"
+#import "DataBase.h"
 
 @interface MIssionConditionViewController ()
-
 @end
 
 @implementation MIssionConditionViewController
@@ -38,6 +39,12 @@
     
     NSLog(@"description:%@",description);
     self.mission_description.text = description;
+    
+    // sqlite get mission details
+    //FMResultSet *rs = nil;
+    //rs = [DataBase executeQuery:@"SELECT * FROM MISSION"];
+    
+    
     // 設定 back button
     UIImage *backButtonIMG = [[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 21, 0, 0)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonIMG forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];

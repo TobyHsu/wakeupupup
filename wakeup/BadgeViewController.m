@@ -7,9 +7,12 @@
 //
 
 #import "BadgeViewController.h"
-#import "Parse/Parse.h"
 #import "BadgeCollectionCell.h"
 #import "BadgeConditionViewController.h"
+
+#import "Parse/Parse.h"
+#import "FMDatabase.h"
+#import "DataBase.h"
 
 @interface BadgeViewController ()
 
@@ -33,13 +36,47 @@
     UINavigationBar *navBar = [self.navigationController navigationBar];
     [navBar setBackgroundImage:[UIImage imageNamed:@"badge_bar.png"] forBarMetrics:UIBarMetricsDefault];
     
-    PFQuery *person_badge = [PFQuery queryWithClassName:@"PERSON_BADGE"];
-    self.pobj_ar = [person_badge findObjects];
+    // sqlite get badge ids
+    _person_id = [[NSMutableArray alloc] initWithObjects: nil];
+    _animal_id = [[NSMutableArray alloc] initWithObjects: nil];
     
-    PFQuery *animal_badge = [PFQuery queryWithClassName:@"ANIMAL_BADGE"];
-    self.aobj_ar = [animal_badge findObjects];
+    FMResultSet *qq = [DataBase executeQuery:@"SELECT COUNT(*) FROM ANIMAL_BADGE"];
+    if ([qq next]) {
+        NSLog(@"%d",[qq intForColumnIndex:0]);  // 數量有問題！！！！！幹！！！！
+    }
+    
+    // sqlite 撈兩種 badge id
+    FMResultSet *rs1,*rs2 = nil;
+    rs1 = [DataBase executeQuery:@"SELECT id FROM PERSON_BADGE"];
+    while ([rs1 next])
+    {
+        NSString *p_id = [rs1 stringForColumn:@"id"];
+        [_person_id addObject:p_id];
 
-    self.obj_ar = [[NSMutableArray alloc]initWithObjects:self.pobj_ar,self.aobj_ar, nil];
+    }
+    rs2 = [DataBase executeQuery:@"SELECT id FROM ANIMAL_BADGE"];
+    while ([rs2 next])
+    {
+        NSString *a_id = [rs2 stringForColumn:@"id"];
+        [_animal_id addObject:a_id];
+        
+    }
+    [rs1 close];
+    [rs2 close];
+    for (int i = 0; i < [_animal_id count];i++ ) {
+        NSLog(@"%d:%@",i,[_animal_id objectAtIndex:i]);
+    }
+    
+    self.obj_ar = [[NSMutableArray alloc]initWithObjects:_person_id,_animal_id, nil];
+
+    
+//    PFQuery *person_badge = [PFQuery queryWithClassName:@"PERSON_BADGE"];
+//    self.pobj_ar = [person_badge findObjects];
+//    
+//    PFQuery *animal_badge = [PFQuery queryWithClassName:@"ANIMAL_BADGE"];
+//    self.aobj_ar = [animal_badge findObjects];
+
+    //self.obj_ar = [[NSMutableArray alloc]initWithObjects:self.pobj_ar,self.aobj_ar, nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -59,6 +96,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     NSString *cellIdentifier = @"badge_cell";
     BadgeCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     NSArray *rnd_img = [[NSArray alloc] initWithObjects:@"badge_tw.png",@"badge_tw_n.png",@"badge_jp.png",@"badge_jp_n.png",@"Squirrel.png",@"Squirrel_n.png", nil];
@@ -66,11 +104,28 @@
     cell.badge_thumbnail.image = [UIImage imageNamed:[rnd_img objectAtIndex:r]];
     
     
+    NSUInteger section = [indexPath section];
     NSUInteger index = [indexPath row];
-    cell.cell_id = [[self.obj_ar[0] objectAtIndex:index] objectId];
-    NSLog(@"%@",cell.cell_id);
+    //cell.cell_id = [[self.obj_ar[0] objectAtIndex:index] objectId];
+    if (section==0) {
+        cell.cell_id = [_person_id objectAtIndex:index];
+        cell.cell_type = @"person";
+        NSLog(@"%@ at sec 0 ",cell.cell_id);
+    }
+    else if (section==1) {
+        cell.cell_id = [_animal_id objectAtIndex:index];
+        cell.cell_type = @"animal";
+        NSLog(@"%@ at sec 1 ",cell.cell_id);
+    }
+    //NSLog(@"%@",cell.cell_id);
     return cell;
 }
+
+
+//- (UIEdgeInsets)collectionView:
+//(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+//    return UIEdgeInsetsMake(50, 20, 50, 20);
+//}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
@@ -89,7 +144,8 @@
             BadgeConditionViewController *conditionPage = segue.destinationViewController; // 這樣回前一頁也會送
             
             //将值透过Storyboard Segue带给页面2的string变数
-            [conditionPage setValue:cell1.cell_id forKey:@"b_id"];
+            [conditionPage setValue:cell1.cell_id forKey:@"b_id"];            
+            [conditionPage setValue:cell1.cell_type forKey:@"b_type"];
             //NSLog(@"%@",[cell1 ind);
         }
     }

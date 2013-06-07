@@ -23,7 +23,7 @@
 //    return db;
     
     NSString* docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString* dbPath = [docPath stringByAppendingPathComponent:@"NCCUActivityDB.db"];
+    NSString* dbPath = [docPath stringByAppendingPathComponent:@"wakeup.db"];
     NSFileManager *fm = [NSFileManager defaultManager];
     
 //    if([fm fileExistsAtPath:dbPath])
@@ -35,7 +35,7 @@
     if(![fm fileExistsAtPath:dbPath])
     {
         NSError* error;
-        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"NCCUActivityDB.db"];
+        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"wakeup.db"];
         BOOL success = [fm copyItemAtPath:defaultDBPath toPath:dbPath error:&error];
         if(!success){
             NSLog(@"can't copy db template.");

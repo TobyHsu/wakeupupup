@@ -11,5 +11,7 @@
 @interface BadgeViewController : UICollectionViewController
 @property (nonatomic, strong) NSArray *pobj_ar;
 @property (nonatomic, strong) NSArray *aobj_ar;
-@property (nonatomic, strong) NSArray *obj_ar;
+@property (nonatomic, strong) NSMutableArray *obj_ar;
+@property (nonatomic, strong) NSMutableArray *person_id;
+@property (nonatomic, strong) NSMutableArray *animal_id;
 @end
