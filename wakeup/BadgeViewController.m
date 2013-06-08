@@ -14,6 +14,9 @@
 #import "FMDatabase.h"
 #import "DataBase.h"
 
+#import "AppDelegate.h"
+#import "BrainHoleViewController.h"
+
 @interface BadgeViewController ()
 
 @end
@@ -40,10 +43,10 @@
     _person_id = [[NSMutableArray alloc] initWithObjects: nil];
     _animal_id = [[NSMutableArray alloc] initWithObjects: nil];
     
-    FMResultSet *qq = [DataBase executeQuery:@"SELECT COUNT(*) FROM ANIMAL_BADGE"];
-    if ([qq next]) {
-        NSLog(@"%d",[qq intForColumnIndex:0]);  // 數量有問題！！！！！幹！！！！
-    }
+//    FMResultSet *qq = [DataBase executeQuery:@"SELECT COUNT(*) FROM ANIMAL_BADGE"];
+//    if ([qq next]) {
+//        NSLog(@"%d",[qq intForColumnIndex:0]);  // 數量有問題！！！！！幹！！！！
+//    }
     
     // sqlite 撈兩種 badge id
     FMResultSet *rs1 = nil;
@@ -57,21 +60,16 @@
     }
     rs2 = [DataBase executeQuery:@"SELECT id FROM ANIMAL_BADGE"];
     
-    int count = 0;  // 控制 animal badge 顯示數量 ＝ ＝
     while ([rs2 next])
     {
-        if (count < 11) {
             NSString *a_id = [rs2 stringForColumn:@"id"];
             [_animal_id addObject:a_id];
-            count++;
-        }
-        else break;
     }
     [rs1 close];
     [rs2 close];
-    for (int i = 0; i < [_animal_id count];i++ ) {
-        NSLog(@"%d:%@",i,[_animal_id objectAtIndex:i]);
-    }
+//    for (int i = 0; i < [_animal_id count];i++ ) {
+//        NSLog(@"%d:%@",i,[_animal_id objectAtIndex:i]);
+//    }
     
     self.obj_ar = [[NSMutableArray alloc]initWithObjects:_person_id,_animal_id, nil];
     [self.obj_ar release];
@@ -83,6 +81,12 @@
 //    self.aobj_ar = [animal_badge findObjects];
 
     //self.obj_ar = [[NSMutableArray alloc]initWithObjects:self.pobj_ar,self.aobj_ar, nil];
+    
+    // notification後進入遊戲
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(Game:)
+                                                 name:@"appDidBecomeActive"
+                                               object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -157,5 +161,14 @@
 
 - (void)dealloc {
     [super dealloc];
+}
+
+- (void)Game:(NSString *)clock_id
+{
+    // 切換clock_id對應的遊戲
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.isAlarm = NO;
+    BrainHoleViewController *brainhole_vc = [self.storyboard instantiateViewControllerWithIdentifier:@"GamePage"];
+    [self.navigationController pushViewController:brainhole_vc animated:YES];
 }
 @end

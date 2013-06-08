@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "BrainHoleViewController.h"
 
 @implementation AppDelegate
 
@@ -19,6 +20,9 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
     [Parse setApplicationId:@"Lt4GQIlip844mLxgisvyxSUf0TBDISc9VErFtAF1"
                   clientKey:@"Eca3LRilxEUhylc89f6CJIZQoYmbsX7vl808xk2k"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    self.set_min=0;
+    self.set_hr=6;
+    self.degree = -90*(M_PI/180);
     return YES;
 }
 
@@ -39,7 +43,7 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -51,6 +55,8 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    if (self.isAlarm)
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"appDidBecomeActive" object:nil];
     [FBSession.activeSession handleDidBecomeActive];
 }
 
@@ -58,6 +64,26 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [FBSession.activeSession close];
+}
+
+#pragma mark - for Alarm
+
+- (void)Alarm
+{
+    if (self.isAlarm)
+    {
+        UILocalNotification *scheduledAlert;
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        scheduledAlert = [[[UILocalNotification alloc] init] autorelease];
+        scheduledAlert.applicationIconBadgeNumber=1;
+        scheduledAlert.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+        scheduledAlert.timeZone = [NSTimeZone defaultTimeZone];
+        scheduledAlert.repeatInterval =  NSDayCalendarUnit;
+        scheduledAlert.soundName=@"back4.mp3";
+        scheduledAlert.alertBody = @"I'd like to get your attention again!";
+        [[UIApplication sharedApplication] scheduleLocalNotification:scheduledAlert];
+        NSLog(@"time up. Please play this game.");
+    }
 }
 
 #pragma mark - for Facebook
