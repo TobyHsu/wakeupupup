@@ -7,8 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "AppDelegate.h"
-#import "BrainHoleViewController.h"
 
 @interface ViewController ()
 
@@ -37,11 +35,6 @@
     UINavigationBar *bar = self.navigationController.navigationBar ;
     bar.topItem.title = @" ";
     
-    // notification後進入遊戲
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(Game:)
-                                                 name:@"appDidBecomeActive"
-                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,15 +53,6 @@
 {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
-}
-
-- (void)Game:(NSString *)clock_id
-{
-    // 切換clock_id對應的遊戲
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.isAlarm = NO;
-    BrainHoleViewController *brainhole_vc = [self.storyboard instantiateViewControllerWithIdentifier:@"GamePage"];
-    [self.navigationController pushViewController:brainhole_vc animated:YES];
 }
 
 @end

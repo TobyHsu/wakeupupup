@@ -7,10 +7,22 @@
 //
 
 #import "CustomViewLayout.h"
+#import "BadgeHeaderView.h"
 
 @implementation CustomViewLayout
 
 #define ITEM_SIZE 80
+#define TOP 70
+
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+    }
+    return self;
+}
+
 
 -(void)prepareLayout
 {
@@ -35,78 +47,100 @@
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-    if (indexPath.section==0) {
-        NSLog(@"s,i = %d,%d",indexPath.section,indexPath.item);
-        //算row&column
-        if (indexPath.item%5==0)
-        {
-            row = indexPath.item/5*2;
-            column=0;
-        }
-        else
-        {
-            if (indexPath.item%5==2)
-            {
-                column=0;
-                row = (indexPath.item-indexPath.item/5)/2;
-            }
-            else
-                column++;
-        }
-        
-        int screen_width = self.collectionView.bounds.size.width;
-        attributes.size = CGSizeMake(ITEM_SIZE, ITEM_SIZE);
-        // 判斷column奇偶數做置中
-        if(row%2==1)
-            attributes.center = CGPointMake( (screen_width-ITEM_SIZE*3)/2 + ITEM_SIZE/2 + ITEM_SIZE*column + (column-1)*20,ITEM_SIZE/2 + ITEM_SIZE*row + (row+1)*20);
-        else
-            attributes.center = CGPointMake( (screen_width-ITEM_SIZE*2)/2 + ITEM_SIZE/2 + ITEM_SIZE*column + (column-1)*20,ITEM_SIZE/2 + ITEM_SIZE*row + (row+1)*20);
+    
+    //算row&column
+    if (indexPath.item%5==0)
+    {
+        row = indexPath.item/5*2;
+        column=0;
     }
-    else if(indexPath.section==1){
-        NSLog(@"s,i = %d,%d",indexPath.section,indexPath.item);
-        //算row&column
-        if (indexPath.item%5==0)
+    else
+    {
+        if (indexPath.item%5==2)
         {
-            row = indexPath.item/5*2;
             column=0;
+            row = (indexPath.item-indexPath.item/5)/2;
         }
         else
-        {
-            if (indexPath.item%5==2)
-            {
-                column=0;
-                row = (indexPath.item-indexPath.item/5)/2;
-            }
-            else
-                column++;
-        }
-        
-        int screen_width = self.collectionView.bounds.size.width;
-        attributes.size = CGSizeMake(ITEM_SIZE, ITEM_SIZE);
-        // 判斷column奇偶數做置中
-        if(row%2==1)
-            attributes.center = CGPointMake( (screen_width-ITEM_SIZE*3)/2 + ITEM_SIZE/2 + ITEM_SIZE*column + (column-1)*20,ITEM_SIZE/2 + ITEM_SIZE*row + (row+1)*20+900);
-        else
-            attributes.center = CGPointMake( (screen_width-ITEM_SIZE*2)/2 + ITEM_SIZE/2 + ITEM_SIZE*column + (column-1)*20,ITEM_SIZE/2 + ITEM_SIZE*row + (row+1)*20+900);
-        
-        
+            column++;
     }
-    return attributes;
+    
+    int cur_section = indexPath.section;
+    int screen_width = self.collectionView.bounds.size.width;
+    attributes.size = CGSizeMake(ITEM_SIZE, ITEM_SIZE);
+    // 判斷column奇偶數做置中
+    if (cur_section==0) {
+        if(row%2==1)
+            attributes.center = CGPointMake( (screen_width-ITEM_SIZE*3)/2 + ITEM_SIZE/2 + ITEM_SIZE*column + (column-1)*20,TOP+ITEM_SIZE/2 + ITEM_SIZE*row + (row+1)*20);
+        else
+            attributes.center = CGPointMake( (screen_width-ITEM_SIZE*2)/2 + ITEM_SIZE/2 + ITEM_SIZE*column + (column-1)*20,TOP+ITEM_SIZE/2 + ITEM_SIZE*row + (row+1)*20);
+    }
+    else if(cur_section==1) {
+        if(row%2==1)
+            attributes.center = CGPointMake( (screen_width-ITEM_SIZE*3)/2 + ITEM_SIZE/2 + ITEM_SIZE*column + (column-1)*20, TOP+ITEM_SIZE/2 + ITEM_SIZE*row + (row+1)*20+900);
+        else
+            attributes.center = CGPointMake( (screen_width-ITEM_SIZE*2)/2 + ITEM_SIZE/2 + ITEM_SIZE*column + (column-1)*20,TOP+ITEM_SIZE/2 + ITEM_SIZE*row + (row+1)*20+900);
+    }
+    
+        return attributes;
 }
 
 //用来在一开始给出一套UICollectionViewLayoutAttributes
 -(NSArray*)layoutAttributesForElementsInRect:(CGRect)rect {
     NSMutableArray* attributes = [NSMutableArray array];
+    
     for (NSUInteger k =0 ; k < self.collectionView.numberOfSections; k++) {
         for (NSInteger i=0 ; i < [self.collectionView numberOfItemsInSection:k]; i++) {
-            //这里利用了-layoutAttributesForItemAtIndexPath:来获取attributes
             NSIndexPath* indexPath = [NSIndexPath indexPathForItem:i inSection:k];
+            //这里利用了-layoutAttributesForItemAtIndexPath:来获取attributes
             [attributes addObject:[self layoutAttributesForItemAtIndexPath:indexPath]];
-            NSLog(@"%d,%d",k,i);
+            if (i == [self.collectionView numberOfItemsInSection:k] - 1) {
+                [attributes addObject:[self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:indexPath]];
+            }
+            
+            //NSLog(@"%d,%d",k,i);
         }
     }
-    
+
     return attributes;
 }
+
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+
+    UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:indexPath];
+    
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) { // 如果是 header
+            NSLog(@"%d,%d",indexPath.section,indexPath.row);
+        if (indexPath.section==0) {
+            attributes.size = CGSizeMake(self.collectionView.frame.size.width,TOP);
+            attributes.center = CGPointMake(self.collectionView.frame.size.width/2,TOP/2);
+        }
+        else if (indexPath.section==1) {
+            attributes.size = CGSizeMake(self.collectionView.frame.size.width,1800+TOP);
+            attributes.center = CGPointMake(self.collectionView.frame.size.width/2,1800+TOP/2);
+            
+        }
+        else
+            NSLog(@"%d,%d",indexPath.section,indexPath.row);
+        //        UICollectionView * const cv = self.collectionView;
+//        CGPoint const contentOffset = cv.contentOffset;
+//        CGPoint nextHeaderOrigin = CGPointMake(INFINITY, INFINITY);
+//        
+//        if (indexPath.section+1 < [cv numberOfSections]) { // 還有下一個 header
+//            UICollectionViewLayoutAttributes *nextHeaderAttributes = [super layoutAttributesForSupplementaryViewOfKind:kind atIndexPath:[NSIndexPath indexPathForItem:0 inSection:indexPath.section+1]];
+//            nextHeaderOrigin = nextHeaderAttributes.frame.origin;
+//        }
+//        
+//        CGRect frame = attributes.frame;
+//        frame.origin.y = MIN(MAX(contentOffset.y, frame.origin.y), nextHeaderOrigin.y - CGRectGetHeight(frame));
+//
+//        attributes.zIndex = 1;
+//        attributes.frame = frame;
+    }
+    return attributes;
+}
+
+
 
 @end

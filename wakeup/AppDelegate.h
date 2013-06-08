@@ -15,12 +15,7 @@ extern NSString *const FBSessionStateChangedNotification;
 
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
 - (void) closeSession;
-- (void) Alarm;
-- (void) OpenGamePage;
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, assign) BOOL *isAlarm;
-@property (strong,nonatomic) NSTimer *timer;
-@property (nonatomic)int set_hr,set_min;
-@property (nonatomic)float degree;
+
 @end

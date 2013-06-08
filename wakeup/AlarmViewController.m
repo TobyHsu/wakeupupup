@@ -10,7 +10,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "BrainHoleViewController.h"
 #import "ViewController.h"
-#import "AppDelegate.h"
 
 @interface AlarmViewController ()
 
@@ -57,49 +56,19 @@
                  beginBackgroundTaskWithExpirationHandler:^{
                      // If you're worried about exceeding 10 minutes, handle it here
                  }];
+    set_min=0;
+    set_hr=12;
     sec=0;
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.isAlarm = NO;
-    appDelegate.timer=[NSTimer scheduledTimerWithTimeInterval:0.03
-                                                       target:self
-                                                     selector:@selector(countUp)
-                                                     userInfo:nil
-                                                      repeats:YES];
-    self.label_alarm_time.text = [NSString stringWithFormat:@"%02d:%02d",appDelegate.set_hr,appDelegate.set_min];
-    
-    
+    timer=[NSTimer scheduledTimerWithTimeInterval:0.03
+                                           target:self
+                                         selector:@selector(countUp)
+                                         userInfo:nil
+                                          repeats:YES];
     flag=NO;
     NSURL* url = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"turn" ofType:@"mp3"]];
     //與音樂檔案做連結
     NSError* error = nil;
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    
-    // notification後進入遊戲
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(Game:)
-                                                 name:@"appDidBecomeActive"
-                                               object:nil];
-    
-    self.alarm_alarm.transform = CGAffineTransformMakeRotation(DegreesToRadians((appDelegate.set_hr%12*60.0+appDelegate.set_min)*0.5+180));
-    self.set.transform= CGAffineTransformMakeRotation(DegreesToRadians((appDelegate.set_hr%12*60.0+appDelegate.set_min)*0.5+180));
-    
-    center = self.set.center;
-    center.x = self.mask.center.x + self.mask.frame.size.width/2 * cos(appDelegate.degree);
-    center.y = self.mask.center.y - self.mask.frame.size.height/2 * sin(appDelegate.degree);
-    self.set.center = center;
-    
-}
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:YES];
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    self.alarm_alarm.transform = CGAffineTransformMakeRotation(DegreesToRadians((appDelegate.set_hr%12*60.0+appDelegate.set_min)*0.5+180));
-//    self.set.transform= CGAffineTransformMakeRotation(DegreesToRadians((appDelegate.set_hr%12*60.0+appDelegate.set_min)*0.5+180));
-//    
-//    CGPoint center = self.set.center;
-//    center.x = self.mask.center.x + self.mask.frame.size.width/2 * cos(appDelegate.degree);
-//    center.y = self.mask.center.y - self.mask.frame.size.height/2 * sin(appDelegate.degree);
-//    self.set.center = center;
 
 }
 
@@ -119,24 +88,17 @@
     self.alarm_min.transform = CGAffineTransformMakeRotation(DegreesToRadians(min*6.0+180));
     self.alarm_sec.transform = CGAffineTransformMakeRotation(DegreesToRadians(sec*6.0+180));
     // 按下設定
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if (flag)
     {
-        if (hr==appDelegate.set_hr && min==appDelegate.set_min && !appDelegate.isAlarm)
+        if (hr==set_hr && min==set_min)
         {
-            appDelegate.isAlarm = YES;
-            [appDelegate Alarm];
+            NSLog(@"time up. Please play this game.");
+            // 切換到腦袋有洞
+            BrainHoleViewController *brainhole_vc = [self.storyboard instantiateViewControllerWithIdentifier:@"GamePage"];
+            [self.navigationController pushViewController:brainhole_vc animated:YES];
+            [timer invalidate];
         }
     }
-}
-
-- (void)Game:(NSString *)clock_id
-{
-    // 切換clock_id對應的遊戲
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.isAlarm = NO;
-    BrainHoleViewController *brainhole_vc = [self.storyboard instantiateViewControllerWithIdentifier:@"GamePage"];
-    [self.navigationController pushViewController:brainhole_vc animated:YES];
 }
 
 CGFloat DegreesToRadians(CGFloat degrees)
@@ -172,29 +134,26 @@ CGFloat DegreesToRadians(CGFloat degrees)
         double rotateDegree = atan2((touch.x-mask_center.x),(touch.y-mask_center.y)) * 180.0 / M_PI -90;
         self.set.transform = CGAffineTransformMakeRotation(DegreesToRadians(360-rotateDegree-90));
         self.alarm_alarm.transform = CGAffineTransformMakeRotation(DegreesToRadians(360-rotateDegree-90));
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        appDelegate.set_hr = (int)abs(rotateDegree-90)/30;
-        if (appDelegate.set_hr==0)
-            appDelegate.set_hr=12;
-        if (abs(appDelegate.set_min -(int)abs((rotateDegree-90)*2)%60)>1)
+        set_hr = (int)abs(rotateDegree-90)/30;
+        if (set_hr==0)
+            set_hr=12;
+        if (abs(set_min -(int)abs((rotateDegree-90)*2)%60)>1)
         {
             [audioPlayer setNumberOfLoops:0];
             [audioPlayer play];
         }
-        appDelegate.set_min = (int)abs((rotateDegree-90)*2)%60;
-        self.label_alarm_time.text = [NSString stringWithFormat:@"%02d:%02d",appDelegate.set_hr,appDelegate.set_min];
+        set_min = (int)abs((rotateDegree-90)*2)%60;
+        self.label_alarm_time.text = [NSString stringWithFormat:@"%02d:%02d",set_hr,set_min];
         center.x = self.mask.center.x + self.mask.frame.size.width/2 * cos(rotateDegree*(M_PI/180));
         center.y = self.mask.center.y - self.mask.frame.size.height/2 * sin(rotateDegree*(M_PI/180));
-        appDelegate.degree = rotateDegree*(M_PI/180);
         self.set.center = center;
     }
     
 }
 
 - (IBAction)alarmClick:(UIButton *)sender {
-    flag = YES;
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSLog(@"%d:%d",appDelegate.set_hr,appDelegate.set_min);
+    flag = true;
+    NSLog(@"%d:%d",set_hr,set_min);
     // 背景執行Code
     //    [[UIApplication sharedApplication] endBackgroundTask:counterTask];
 }
