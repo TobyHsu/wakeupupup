@@ -9,6 +9,7 @@
 #import "BadgeViewController.h"
 #import "BadgeCollectionCell.h"
 #import "BadgeConditionViewController.h"
+#import "BadgeHeaderView.h"
 
 #import "Parse/Parse.h"
 #import "FMDatabase.h"
@@ -39,14 +40,12 @@
     UINavigationBar *navBar = [self.navigationController navigationBar];
     [navBar setBackgroundImage:[UIImage imageNamed:@"badge_bar.png"] forBarMetrics:UIBarMetricsDefault];
     
+    // 註冊一個 class 給 header 用
+    [self.collectionView registerClass:[BadgeHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BadgeHeaderView"];
+    
     // sqlite get badge ids
     _person_id = [[NSMutableArray alloc] initWithObjects: nil];
     _animal_id = [[NSMutableArray alloc] initWithObjects: nil];
-    
-//    FMResultSet *qq = [DataBase executeQuery:@"SELECT COUNT(*) FROM ANIMAL_BADGE"];
-//    if ([qq next]) {
-//        NSLog(@"%d",[qq intForColumnIndex:0]);  // 數量有問題！！！！！幹！！！！
-//    }
     
     // sqlite 撈兩種 badge id
     FMResultSet *rs1 = nil;
@@ -59,7 +58,6 @@
 
     }
     rs2 = [DataBase executeQuery:@"SELECT id FROM ANIMAL_BADGE"];
-    
     while ([rs2 next])
     {
             NSString *a_id = [rs2 stringForColumn:@"id"];
@@ -67,9 +65,6 @@
     }
     [rs1 close];
     [rs2 close];
-//    for (int i = 0; i < [_animal_id count];i++ ) {
-//        NSLog(@"%d:%@",i,[_animal_id objectAtIndex:i]);
-//    }
     
     self.obj_ar = [[NSMutableArray alloc]initWithObjects:_person_id,_animal_id, nil];
     [self.obj_ar release];
@@ -122,12 +117,12 @@
     if (section==0) {
         cell.cell_id = [_person_id objectAtIndex:index];
         cell.cell_type = @"person";
-        NSLog(@"%@ at sec 0 ",cell.cell_id);
+        //NSLog(@"%@ at sec 0 ",cell.cell_id);
     }
     else if (section==1) {
         cell.cell_id = [_animal_id objectAtIndex:index];
         cell.cell_type = @"animal";
-        NSLog(@"%@ at sec 1 ",cell.cell_id);
+        //NSLog(@"%@ at sec 1 ",cell.cell_id);
     }
     return cell;
 }
@@ -151,6 +146,25 @@
             [conditionPage setValue:cell1.cell_type forKey:@"b_type"];
         }
     }
+}
+
+-(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    BadgeHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"BadgeHeaderView"forIndexPath:indexPath];
+    if([kind isEqualToString:UICollectionElementKindSectionHeader]){
+        //headerView.backgroundColor = [UIColor greenColor];
+        if(indexPath.section == 0)
+            headerView.title.text = @"PERSON BADGE";
+        else if (indexPath.section==1)
+            headerView.title.text = @"ANIMAL BADGE";
+        else
+            headerView.title.text = @"?????";
+    }
+    return headerView;
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(self.collectionView.frame.size.width, 100);
+    
 }
 
 - (void)didReceiveMemoryWarning

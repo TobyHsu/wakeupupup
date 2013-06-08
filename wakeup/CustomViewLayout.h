@@ -10,8 +10,6 @@
 
 @interface CustomViewLayout : UICollectionViewFlowLayout
 {
-    int row,column,base;
-    bool flag;
+    int row,column;
 }
-@property (nonatomic,assign) NSInteger cellCount;
 @end
