@@ -173,8 +173,8 @@
             NSLog(@"SUCCES!!!");
             [levelup_timer invalidate];
             [game_timer invalidate];
-            [audioPlayer stop];
-            [bgPlayer stop];
+            [audioPlayer release];
+            [bgPlayer release];
             [self showAlert];
         }
     }
