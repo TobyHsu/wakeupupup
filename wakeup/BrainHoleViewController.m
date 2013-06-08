@@ -52,6 +52,7 @@
     bgPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     [bgPlayer setNumberOfLoops:-1];
     [bgPlayer play];
+    [url release];
     
 }
 
@@ -90,6 +91,7 @@
         audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
         [audioPlayer setNumberOfLoops:0];
         [audioPlayer play];
+        [url release];
     }
     else
     {
@@ -100,6 +102,7 @@
             audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
             [audioPlayer setNumberOfLoops:0];
             [audioPlayer play];
+            [url release];
         }
     }
 }
@@ -147,6 +150,7 @@
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     [audioPlayer setNumberOfLoops:0];
     [audioPlayer play];
+    [url release];
     
 }
 
@@ -157,6 +161,7 @@
     NSError* error = nil;
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     [audioPlayer play];
+    [url release];
     
     UIButton *thisHole = (UIButton*) sender;
     //thisHole.tag--;

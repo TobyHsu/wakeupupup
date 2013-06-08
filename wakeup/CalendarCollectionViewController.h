@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CalendarCollectionViewController : UICollectionViewController
-
+@property (atomic,strong) NSMutableArray *dailyInfo;
 @end

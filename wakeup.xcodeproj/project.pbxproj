@@ -27,6 +27,7 @@
 		8B73020B176067E100026E1F /* BadgeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B73020A176067E100026E1F /* BadgeConditionViewController.m */; };
 		8BB4B7B5175E62E60037CBB8 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4B7B4175E62E60037CBB8 /* AlarmViewController.m */; };
 		8BB4B7B7175E765B0037CBB8 /* set_alarm_bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4B7B6175E765B0037CBB8 /* set_alarm_bg1.png */; };
+		A612043A17631A120082D519 /* CalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A612043917631A120082D519 /* CalendarViewCell.m */; };
 		A636D73E176288F500D12305 /* wakeup.db in Resources */ = {isa = PBXBuildFile; fileRef = A636D73C176288E400D12305 /* wakeup.db */; };
 		A639E4E817560C2D005044EA /* sample_linechart_data.json in Resources */ = {isa = PBXBuildFile; fileRef = A639E4E717560C2D005044EA /* sample_linechart_data.json */; };
 		A639E4EE175636D7005044EA /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A639E4ED175636D7005044EA /* FacebookSDKResources.bundle */; };
@@ -172,6 +173,8 @@
 		8BB4B7B3175E62E60037CBB8 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
 		8BB4B7B4175E62E60037CBB8 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
 		8BB4B7B6175E765B0037CBB8 /* set_alarm_bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_alarm_bg1.png; sourceTree = "<group>"; };
+		A612043817631A120082D519 /* CalendarViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewCell.h; sourceTree = "<group>"; };
+		A612043917631A120082D519 /* CalendarViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewCell.m; sourceTree = "<group>"; };
 		A636D73C176288E400D12305 /* wakeup.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = wakeup.db; path = src/wakeup.db; sourceTree = "<group>"; };
 		A639E4E717560C2D005044EA /* sample_linechart_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_linechart_data.json; sourceTree = "<group>"; };
 		A639E4ED175636D7005044EA /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
@@ -674,6 +677,8 @@
 			children = (
 				A6D9D11B175F8A0E0086830F /* CalendarCollectionViewController.h */,
 				A6D9D11C175F8A0E0086830F /* CalendarCollectionViewController.m */,
+				A612043817631A120082D519 /* CalendarViewCell.h */,
+				A612043917631A120082D519 /* CalendarViewCell.m */,
 				A6E708951760AA3200B89091 /* CalViewLayout.h */,
 				A6E708961760AA3200B89091 /* CalViewLayout.m */,
 			);
@@ -879,6 +884,7 @@
 				A6E708A81761194F00B89091 /* FMDatabasePool.m in Sources */,
 				A6E708A91761194F00B89091 /* FMDatabaseQueue.m in Sources */,
 				A6E708AA1761194F00B89091 /* FMResultSet.m in Sources */,
+				A612043A17631A120082D519 /* CalendarViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

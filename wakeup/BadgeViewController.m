@@ -46,7 +46,8 @@
     }
     
     // sqlite 撈兩種 badge id
-    FMResultSet *rs1,*rs2 = nil;
+    FMResultSet *rs1 = nil;
+    FMResultSet *rs2 = nil;
     rs1 = [DataBase executeQuery:@"SELECT id FROM PERSON_BADGE"];
     while ([rs1 next])
     {
@@ -55,11 +56,16 @@
 
     }
     rs2 = [DataBase executeQuery:@"SELECT id FROM ANIMAL_BADGE"];
+    
+    int count = 0;  // 控制 animal badge 顯示數量 ＝ ＝
     while ([rs2 next])
     {
-        NSString *a_id = [rs2 stringForColumn:@"id"];
-        [_animal_id addObject:a_id];
-        
+        if (count < 11) {
+            NSString *a_id = [rs2 stringForColumn:@"id"];
+            [_animal_id addObject:a_id];
+            count++;
+        }
+        else break;
     }
     [rs1 close];
     [rs2 close];
@@ -68,7 +74,7 @@
     }
     
     self.obj_ar = [[NSMutableArray alloc]initWithObjects:_person_id,_animal_id, nil];
-
+    [self.obj_ar release];
     
 //    PFQuery *person_badge = [PFQuery queryWithClassName:@"PERSON_BADGE"];
 //    self.pobj_ar = [person_badge findObjects];
@@ -102,11 +108,13 @@
     NSArray *rnd_img = [[NSArray alloc] initWithObjects:@"badge_tw.png",@"badge_tw_n.png",@"badge_jp.png",@"badge_jp_n.png",@"Squirrel.png",@"Squirrel_n.png", nil];
     int r = arc4random_uniform(6);
     cell.badge_thumbnail.image = [UIImage imageNamed:[rnd_img objectAtIndex:r]];
-    
+    [rnd_img release];
     
     NSUInteger section = [indexPath section];
     NSUInteger index = [indexPath row];
     //cell.cell_id = [[self.obj_ar[0] objectAtIndex:index] objectId];
+    
+    // 不同 badge 給不同 type（要改成從 db 抓？）
     if (section==0) {
         cell.cell_id = [_person_id objectAtIndex:index];
         cell.cell_type = @"person";
@@ -117,36 +125,26 @@
         cell.cell_type = @"animal";
         NSLog(@"%@ at sec 1 ",cell.cell_id);
     }
-    //NSLog(@"%@",cell.cell_id);
     return cell;
 }
 
-
-//- (UIEdgeInsets)collectionView:
-//(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-//    return UIEdgeInsetsMake(50, 20, 50, 20);
-//}
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    [self performSegueWithIdentifier:@"ShowDetail" sender:cell];
+    [self performSegueWithIdentifier:@"ShowDetail" sender:cell]; // 走叫做 ShowDetail 的 segue
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"ShowDetail"]) {
         NSLog(@"detail");
-        if ([sender isKindOfClass:[BadgeCollectionCell class]]) {
-            // Get data
+        if ([sender isKindOfClass:[BadgeCollectionCell class]]) { // 確定 sendor 是 cell
             BadgeCollectionCell *cell1 = (BadgeCollectionCell *)sender;
             
             //将page2设定成Storyboard Segue的目标UIViewController
-            BadgeConditionViewController *conditionPage = segue.destinationViewController; // 這樣回前一頁也會送
-            
-            //将值透过Storyboard Segue带给页面2的string变数
+            BadgeConditionViewController *conditionPage = segue.destinationViewController;
+            //将值透过Storyboard Segue带给页面2的变数
             [conditionPage setValue:cell1.cell_id forKey:@"b_id"];            
             [conditionPage setValue:cell1.cell_type forKey:@"b_type"];
-            //NSLog(@"%@",[cell1 ind);
         }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 #import "CalendarCollectionViewController.h"
+#import "CalendarViewCell.h"
 
 @interface CalendarCollectionViewController ()
 
@@ -30,13 +31,29 @@
     // 設定 nav bar
     UINavigationBar *navBar = [self.navigationController navigationBar];
     [navBar setBackgroundImage:[UIImage imageNamed:@"calendar_bar.png"] forBarMetrics:UIBarMetricsDefault];
-
+    
+    _dailyInfo = [NSMutableArray array];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Collection View
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [_dailyInfo count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *cellIdentifier = @"cal_cell";
+    CalendarViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+
+    return cell;
 }
 
 @end
