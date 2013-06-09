@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CalViewLayout : UICollectionViewFlowLayout
-
+{
+    int row,column;
+}
 @end

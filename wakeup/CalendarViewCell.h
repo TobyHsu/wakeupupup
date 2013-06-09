@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CalendarViewCell : UICollectionViewCell
+@property (retain, nonatomic) IBOutlet UILabel *date_num;
+@property (retain, nonatomic) IBOutlet UIImageView *badge_thumb;
 
 @end

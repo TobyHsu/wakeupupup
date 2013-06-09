@@ -28,4 +28,9 @@
 }
 */
 
+- (void)dealloc {
+    [_date_num release];
+    [_badge_thumb release];
+    [super dealloc];
+}
 @end

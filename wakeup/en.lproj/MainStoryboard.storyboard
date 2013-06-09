@@ -579,41 +579,43 @@
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="UAz-fL-JVZ">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="F2h-lI-Kfz">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="50" height="57"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" image="calendar_bg.png" id="gfe-jH-ylh">
+                        <inset key="contentInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                        <inset key="scrollIndicatorInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                        <collectionViewLayout key="collectionViewLayout" id="feN-Nc-qyU" customClass="CalViewLayout"/>
+                        <imageView key="backgroundView" autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="calendar_bg.png" id="gfe-jH-ylh">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cal_cell" id="ALv-ok-cce">
-                                <rect key="frame" x="0.0" y="57" width="50" height="50"/>
+                            <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="cal_cell" id="ALv-ok-cce" customClass="CalendarViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="GhV-8b-7aP">
+                                            <rect key="frame" x="11.5" y="10.5" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sl0-Dx-3gq">
+                                            <rect key="frame" x="-2" y="-2" width="25" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <accessibility key="accessibilityConfiguration" label="1"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <size key="customSize" width="53" height="53"/>
+                                <connections>
+                                    <outlet property="badge_thumb" destination="GhV-8b-7aP" id="aDz-Cb-RBV"/>
+                                    <outlet property="date_num" destination="sl0-Dx-3gq" id="3Jn-dG-ADU"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cal_header" id="aiU-Nz-7Hy">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                            <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oyT-wb-eWS">
-                                    <rect key="frame" x="139" y="22" width="42" height="26"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                    <color key="textColor" red="0.91764705882352937" green="0.33333333333333331" blue="0.015686274509803921" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="pio-2h-eDE" id="1ts-SU-XLD"/>
                             <outlet property="delegate" destination="pio-2h-eDE" id="gVT-j4-fTb"/>
@@ -1008,8 +1010,18 @@
                 <relationship kind="outlet" name="eye" candidateClass="UIImageView"/>
             </relationships>
         </class>
+        <class className="CalViewLayout" superclassName="UICollectionViewFlowLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalViewLayout.h"/>
+        </class>
         <class className="CalendarCollectionViewController" superclassName="UICollectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CalendarCollectionViewController.h"/>
+        </class>
+        <class className="CalendarViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalendarViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="badge_thumb" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="date_num" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="CustomViewLayout" superclassName="UICollectionViewFlowLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomViewLayout.h"/>
@@ -1046,8 +1058,6 @@
         <class className="SettingViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingViewController.h"/>
             <relationships>
-                <relationship kind="action" name="fbClick:" candidateClass="UIButton"/>
-                <relationship kind="action" name="sendClick:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="fbButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="sendButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="timeZone" candidateClass="UILabel"/>
