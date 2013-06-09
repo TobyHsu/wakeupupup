@@ -45,15 +45,6 @@
                                                  repeats:YES];
     
     audioArray = [[NSArray alloc] initWithObjects:@"laughing2",@"get up7", nil];
-    
-    NSURL* url = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"back4" ofType:@"mp3"]];
-    //與音樂檔案做連結
-    NSError* error = nil;
-    bgPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    [bgPlayer setNumberOfLoops:-1];
-    [bgPlayer play];
-    [url release];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -76,6 +67,7 @@
 
 - (void)dealloc {
     [_eye release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"appDidBecomeActive" object:nil];
     [super dealloc];
 }
 
@@ -174,7 +166,8 @@
             [levelup_timer invalidate];
             [game_timer invalidate];
             [audioPlayer release];
-            [bgPlayer release];
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [appDelegate.bgPlayer stop];
             [self showAlert];
         }
     }
@@ -206,7 +199,7 @@
     if([title isEqualToString:@"OK"]) {
         NSLog(@"after click OK button");
         [self performSegueWithIdentifier:@"backHome" sender:self];
-        [self sendFBMessage];
+        [self sendFBMessage];     
     }
     
 }

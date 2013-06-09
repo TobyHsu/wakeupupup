@@ -53,14 +53,9 @@
     [self.alarm_alarm.layer setAnchorPoint:CGPointMake(0.5,0)];
     [self.alarm_sec.layer setAnchorPoint:CGPointMake(0.5,0.1)];
     
-    TimerTask = [[UIApplication sharedApplication]
-                 beginBackgroundTaskWithExpirationHandler:^{
-                     // If you're worried about exceeding 10 minutes, handle it here
-                 }];
-    sec=0;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.isAlarm = NO;
-    appDelegate.timer=[NSTimer scheduledTimerWithTimeInterval:0.03
+    timer=[NSTimer scheduledTimerWithTimeInterval:0.03
                                                        target:self
                                                      selector:@selector(countUp)
                                                      userInfo:nil
@@ -75,10 +70,10 @@
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     
     // notification後進入遊戲
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(Game:)
-                                                 name:@"appDidBecomeActive"
-                                               object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(Game:)
+                                                     name:@"appDidBecomeActive"
+                                                   object:nil];
     
     self.alarm_alarm.transform = CGAffineTransformMakeRotation(DegreesToRadians((appDelegate.set_hr%12*60.0+appDelegate.set_min)*0.5+180));
     self.set.transform= CGAffineTransformMakeRotation(DegreesToRadians((appDelegate.set_hr%12*60.0+appDelegate.set_min)*0.5+180));
@@ -89,45 +84,12 @@
     self.set.center = center;
     
 }
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:YES];
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    self.alarm_alarm.transform = CGAffineTransformMakeRotation(DegreesToRadians((appDelegate.set_hr%12*60.0+appDelegate.set_min)*0.5+180));
-//    self.set.transform= CGAffineTransformMakeRotation(DegreesToRadians((appDelegate.set_hr%12*60.0+appDelegate.set_min)*0.5+180));
-//    
-//    CGPoint center = self.set.center;
-//    center.x = self.mask.center.x + self.mask.frame.size.width/2 * cos(appDelegate.degree);
-//    center.y = self.mask.center.y - self.mask.frame.size.height/2 * sin(appDelegate.degree);
-//    self.set.center = center;
-
-}
 
 - (void)countUp {
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    NSDate *date = [NSDate date];
-    //正規化的格式設定
-    [formatter setDateFormat:@"HH:mm:ss"];
-    //正規化取得的系統時間並顯示
-    NSArray * timeArray = [[formatter stringFromDate:date] componentsSeparatedByString:@":"];
-    hr = [timeArray[0] intValue]%12;
-    min = [timeArray[1] intValue];
-    sec = [timeArray[2] intValue];
-    //    self.timelabel.text = [NSString stringWithFormat:@"%d:%.0f:%d",hr,min,sec];
-    self.alarm_hr.transform = CGAffineTransformMakeRotation(DegreesToRadians((hr*60.0+min)*0.5+180));
-    self.alarm_min.transform = CGAffineTransformMakeRotation(DegreesToRadians(min*6.0+180));
-    self.alarm_sec.transform = CGAffineTransformMakeRotation(DegreesToRadians(sec*6.0+180));
-    // 按下設定
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    if (flag)
-    {
-        if (hr==appDelegate.set_hr && min==appDelegate.set_min && !appDelegate.isAlarm)
-        {
-            appDelegate.isAlarm = YES;
-            [appDelegate Alarm];
-        }
-    }
+    self.alarm_hr.transform = CGAffineTransformMakeRotation(DegreesToRadians((appDelegate.hr*60.0+appDelegate.min)*0.5+180));
+    self.alarm_min.transform = CGAffineTransformMakeRotation(DegreesToRadians(appDelegate.min*6.0+180));
+    self.alarm_sec.transform = CGAffineTransformMakeRotation(DegreesToRadians(appDelegate.sec*6.0+180));
 }
 
 - (void)Game:(NSString *)clock_id
@@ -161,6 +123,7 @@ CGFloat DegreesToRadians(CGFloat degrees)
     [_mask release];
     [_label_alarm_time release];
     [_setalarm release];
+    [timer invalidate];
     [super dealloc];
 }
 - (IBAction)alarm_pan:(UIPanGestureRecognizer *)sender {
@@ -194,6 +157,11 @@ CGFloat DegreesToRadians(CGFloat degrees)
 - (IBAction)alarmClick:(UIButton *)sender {
     flag = YES;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.isAlarm = YES;
+    TimerTask = [[UIApplication sharedApplication]
+                 beginBackgroundTaskWithExpirationHandler:^{
+                     // If you're worried about exceeding 10 minutes, handle it here
+                 }];
     NSLog(@"%d:%d",appDelegate.set_hr,appDelegate.set_min);
     // 背景執行Code
     //    [[UIApplication sharedApplication] endBackgroundTask:counterTask];

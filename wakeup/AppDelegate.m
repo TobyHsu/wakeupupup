@@ -23,6 +23,11 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
     self.set_min=0;
     self.set_hr=6;
     self.degree = -90*(M_PI/180);
+    self.timer=[NSTimer scheduledTimerWithTimeInterval:0.03
+                                                target:self
+                                              selector:@selector(countUp)
+                                              userInfo:nil
+                                               repeats:YES];
     return YES;
 }
 
@@ -45,18 +50,20 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+//    UILocalNotification *timerNotification = [[UILocalNotification alloc] init];
+//    //set up notification with proper time and attributes
+//    [[UIApplication sharedApplication] scheduleLocalNotification:timerNotification];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    if (self.isAlarm)
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"appDidBecomeActive" object:nil];
     [FBSession.activeSession handleDidBecomeActive];
 }
 
@@ -68,6 +75,27 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
 
 #pragma mark - for Alarm
 
+- (void)countUp {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSDate *date = [NSDate date];
+    //正規化的格式設定
+    [formatter setDateFormat:@"HH:mm:ss"];
+    //正規化取得的系統時間並顯示
+    NSArray * timeArray = [[formatter stringFromDate:date] componentsSeparatedByString:@":"];
+    self.hr = [timeArray[0] intValue]%12;
+    self.min = [timeArray[1] intValue];
+    self.sec = [timeArray[2] intValue];
+    // 按下設定
+    
+    if (self.hr==self.set_hr && self.min==self.set_min && self.isAlarm)
+    {
+        [self Alarm];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"appDidBecomeActive" object:nil];
+        _isAlarm = NO;
+    }
+}
+
 - (void)Alarm
 {
     if (self.isAlarm)
@@ -76,13 +104,21 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
         scheduledAlert = [[[UILocalNotification alloc] init] autorelease];
         scheduledAlert.applicationIconBadgeNumber=1;
-        scheduledAlert.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+        scheduledAlert.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
         scheduledAlert.timeZone = [NSTimeZone defaultTimeZone];
         scheduledAlert.repeatInterval =  NSDayCalendarUnit;
         scheduledAlert.soundName=@"back4.mp3";
         scheduledAlert.alertBody = @"I'd like to get your attention again!";
         [[UIApplication sharedApplication] scheduleLocalNotification:scheduledAlert];
         NSLog(@"time up. Please play this game.");
+        
+        NSURL* url = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"back4" ofType:@"mp3"]];
+        //與音樂檔案做連結
+        NSError* error = nil;
+        _bgPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+        [self.bgPlayer setNumberOfLoops:-1];
+        [self.bgPlayer play];
+        [url release];
     }
 }
 

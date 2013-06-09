@@ -11,11 +11,10 @@
 
 @interface AlarmViewController : UIViewController
 {
-    int hr,sec;
-    float min;
     bool flag;
     AVAudioPlayer *audioPlayer;
     UIBackgroundTaskIdentifier TimerTask;
+    NSTimer *timer;
 }
 @property (retain, nonatomic) IBOutlet UIImageView *alarm;
 @property (retain, nonatomic) IBOutlet UIImageView *set;

@@ -18,7 +18,6 @@
     NSTimer *game_timer;
     NSUInteger remain_hole;
     int sec;
-    AVAudioPlayer *bgPlayer;
     AVAudioPlayer *audioPlayer;
     NSArray * audioArray;
     NSString *userInfo;

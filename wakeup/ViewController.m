@@ -38,10 +38,12 @@
     bar.topItem.title = @" ";
     
     // notification後進入遊戲
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(Game:)
-                                                 name:@"appDidBecomeActive"
-                                               object:nil];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.isAlarm)
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(Game:)
+                                                     name:@"appDidBecomeActive"
+                                                   object:nil];
 }
 
 - (void)didReceiveMemoryWarning
