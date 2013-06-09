@@ -13,26 +13,22 @@
 
 - (id)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
-    
-    NSLog(@"123456");
 	if (self)
 	{
 		[self setBackgroundColor:[UIColor whiteColor]];
-		//[self setTitle:@"睡眠時數"];
 		NSLog(@"123");
 		self.lineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake(10,10,31*30+80,[self bounds].size.height-20)];
 		[self.lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
 		self.lineChartView.minValue = 0;
 		self.lineChartView.maxValue = 12;
-        //self.lineChartView.xLabelFont = [UIFont boldSystemFontOfSize:12];
         self.contentSize = CGSizeMake([_lineChartView.xLabels count] * 50 + 100, self.frame.size.height);
         self.lineChartView.scrollEnabled = YES;
-        //_lineChartView.showsHorizontalScrollIndicator = YES;
-        //[_lineChartView setShowsVerticalScrollIndicator:TRUE];
 		[self addSubview:self.lineChartView];
 		
         [self setContentSize:CGSizeMake(self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
         [self setScrollEnabled:YES];
+        
+        #warning Make fake data replacing JSON
         
 		NSString *sampleFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"sample_linechart_data.json"];
 		NSString *jsonString = [NSString stringWithContentsOfFile:sampleFile encoding:NSUTF8StringEncoding error:nil];

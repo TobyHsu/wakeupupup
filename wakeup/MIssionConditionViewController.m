@@ -33,6 +33,7 @@
 	// Do any additional setup after loading the view.
     NSLog(@"%@",self.m_id);
     
+ #warning Rewrite using sqlite   
     PFQuery *qq = [PFQuery queryWithClassName:@"MISSION"];
     PFObject *obj = [qq getObjectWithId:self.m_id];
     

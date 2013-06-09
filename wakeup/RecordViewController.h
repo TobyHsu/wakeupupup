@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PCLineChartView.h"
 #import "RecordScrollView.h"
-@interface RecordViewController123 : UIViewController
+@interface RecordViewController : UIViewController
 @property (retain, nonatomic) IBOutlet RecordScrollView *record;
 //@property (nonatomic, strong) PCLineChartView *lineChartView;
 @end

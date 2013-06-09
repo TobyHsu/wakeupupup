@@ -67,7 +67,7 @@
 		A65256861764C8DB007B05E9 /* CalHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A65256851764C8DB007B05E9 /* CalHeaderView.xib */; };
 		A679B2951753AA3D00A01CB0 /* PCLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A679B28B1753987900A01CB0 /* PCLineChartView.m */; };
 		A679B2961753AA3F00A01CB0 /* RecordScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A679B28F175399DF00A01CB0 /* RecordScrollView.m */; };
-		A679B2971753AA4100A01CB0 /* RecordViewController123.m in Sources */ = {isa = PBXBuildFile; fileRef = A679B29217539BA700A01CB0 /* RecordViewController123.m */; };
+		A679B2971753AA4100A01CB0 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A679B29217539BA700A01CB0 /* RecordViewController.m */; };
 		A679B29F175486FA00A01CB0 /* MIssionConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A679B29E175486FA00A01CB0 /* MIssionConditionViewController.m */; };
 		A679B2A2175497C800A01CB0 /* MissionCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A679B2A1175497C800A01CB0 /* MissionCollectionCell.m */; };
 		A680C8A5175C695B001EDDBD /* BadgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A680C8A4175C695B001EDDBD /* BadgeViewController.m */; };
@@ -226,8 +226,8 @@
 		A679B28B1753987900A01CB0 /* PCLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCLineChartView.m; sourceTree = "<group>"; };
 		A679B28E175399DE00A01CB0 /* RecordScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScrollView.h; sourceTree = "<group>"; };
 		A679B28F175399DF00A01CB0 /* RecordScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScrollView.m; sourceTree = "<group>"; };
-		A679B29117539BA700A01CB0 /* RecordViewController123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController123.h; sourceTree = "<group>"; };
-		A679B29217539BA700A01CB0 /* RecordViewController123.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController123.m; sourceTree = "<group>"; };
+		A679B29117539BA700A01CB0 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
+		A679B29217539BA700A01CB0 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		A679B29D175486FA00A01CB0 /* MIssionConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIssionConditionViewController.h; sourceTree = "<group>"; };
 		A679B29E175486FA00A01CB0 /* MIssionConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIssionConditionViewController.m; sourceTree = "<group>"; };
 		A679B2A0175497C800A01CB0 /* MissionCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MissionCollectionCell.h; sourceTree = "<group>"; };
@@ -394,8 +394,8 @@
 				A6C55D5C175537E2008F3314 /* MissionViewController.m */,
 				A679B2A0175497C800A01CB0 /* MissionCollectionCell.h */,
 				A679B2A1175497C800A01CB0 /* MissionCollectionCell.m */,
-				A679B29E175486FA00A01CB0 /* MIssionConditionViewController.m */,
 				A679B29D175486FA00A01CB0 /* MIssionConditionViewController.h */,
+				A679B29E175486FA00A01CB0 /* MIssionConditionViewController.m */,
 			);
 			name = Mission;
 			sourceTree = "<group>";
@@ -567,8 +567,8 @@
 				A679B28B1753987900A01CB0 /* PCLineChartView.m */,
 				A679B28E175399DE00A01CB0 /* RecordScrollView.h */,
 				A679B28F175399DF00A01CB0 /* RecordScrollView.m */,
-				A679B29117539BA700A01CB0 /* RecordViewController123.h */,
-				A679B29217539BA700A01CB0 /* RecordViewController123.m */,
+				A679B29117539BA700A01CB0 /* RecordViewController.h */,
+				A679B29217539BA700A01CB0 /* RecordViewController.m */,
 			);
 			name = Statistics;
 			sourceTree = "<group>";
@@ -874,7 +874,7 @@
 				A679B2951753AA3D00A01CB0 /* PCLineChartView.m in Sources */,
 				A679B2961753AA3F00A01CB0 /* RecordScrollView.m in Sources */,
 				A6B2798617526CDE00895ACC /* JSONKit.m in Sources */,
-				A679B2971753AA4100A01CB0 /* RecordViewController123.m in Sources */,
+				A679B2971753AA4100A01CB0 /* RecordViewController.m in Sources */,
 				A679B29F175486FA00A01CB0 /* MIssionConditionViewController.m in Sources */,
 				A679B2A2175497C800A01CB0 /* MissionCollectionCell.m in Sources */,
 				A6C55D5F175537E2008F3314 /* MissionViewController.m in Sources */,

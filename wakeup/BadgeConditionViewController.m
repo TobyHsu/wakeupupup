@@ -30,12 +30,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+#warning Rewrite using sqlite
     PFQuery *qq = [PFQuery queryWithClassName:@"PERSON_BADGE"];
     if ([self.b_type isEqualToString:@"animal"]) {
         qq = [PFQuery queryWithClassName:@"ANIMAL_BADGE"];
     }
     PFObject *obj = [qq getObjectWithId:self.b_id];
-    
+
     NSString *name = [obj objectForKey:@"name"];
     NSString *description = [obj objectForKey:@"description"];
     NSString *req = [obj objectForKey:@"requirement"];

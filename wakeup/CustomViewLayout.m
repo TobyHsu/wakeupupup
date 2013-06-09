@@ -44,7 +44,7 @@
         else
             column++;
     }
-    
+#warning Clean out the code
     int cur_section = indexPath.section;
     int screen_width = self.collectionView.bounds.size.width;
     attributes.size = CGSizeMake(ITEM_SIZE, ITEM_SIZE);
@@ -89,7 +89,6 @@
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:indexPath];
     
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) { // 如果是 header
-        //NSLog(@"%d,%d",indexPath.section,indexPath.row);
         if (indexPath.section==0) {
             attributes.size = CGSizeMake(self.collectionView.frame.size.width,TOP);
             attributes.center = CGPointMake(self.collectionView.frame.size.width/2,TOP/2);
@@ -100,21 +99,7 @@
             
         }
         else
-            NSLog(@"%d,%d",indexPath.section,indexPath.row);
-        //        UICollectionView * const cv = self.collectionView;
-        //        CGPoint const contentOffset = cv.contentOffset;
-        //        CGPoint nextHeaderOrigin = CGPointMake(INFINITY, INFINITY);
-        //
-        //        if (indexPath.section+1 < [cv numberOfSections]) { // 還有下一個 header
-        //            UICollectionViewLayoutAttributes *nextHeaderAttributes = [super layoutAttributesForSupplementaryViewOfKind:kind atIndexPath:[NSIndexPath indexPathForItem:0 inSection:indexPath.section+1]];
-        //            nextHeaderOrigin = nextHeaderAttributes.frame.origin;
-        //        }
-        //
-        //        CGRect frame = attributes.frame;
-        //        frame.origin.y = MIN(MAX(contentOffset.y, frame.origin.y), nextHeaderOrigin.y - CGRectGetHeight(frame));
-        //
-        //        attributes.zIndex = 1;
-        //        attributes.frame = frame;
+            NSLog(@"wrong header at sec %d,item %d",indexPath.section,indexPath.item);
     }
     return attributes;
 }

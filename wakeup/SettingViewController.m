@@ -23,7 +23,6 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        
     }
     return self;
 }
@@ -44,6 +43,9 @@
     self.timeZone.text = currentTimeZone.abbreviation;
     //NSInteger offset = [currentTimeZone secondsFromGMT];
     //[NSDate dateWithTimeIntervalSince1970:1301322715];
+    #warning Set reminding sleeping time
+    #warning Copyright page
+
 }
 
 - (void)didReceiveMemoryWarning

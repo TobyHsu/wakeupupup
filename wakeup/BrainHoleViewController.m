@@ -106,8 +106,6 @@
         if ([obj isKindOfClass:[UIButton class]])
         {
             UIButton *oldHole = (UIButton*) obj;
-            
-            
             switch (oldHole.tag) {  // 判斷下個 level 的圖
                 case 1:
                     [oldHole setBackgroundImage:[UIImage imageNamed:@"brainhole2.png"] forState:UIControlStateNormal];
@@ -130,9 +128,6 @@
                     remain_hole++;
                     break;
             }
-            // 接 action ＆ 放回 view
-            //[oldHole addTarget:self action:@selector(holeClick:) forControlEvents:UIControlEventTouchUpInside];
-            //[self.view addSubview:newHole];
         }
     }
     
@@ -156,7 +151,6 @@
     [url release];
     
     UIButton *thisHole = (UIButton*) sender;
-    //thisHole.tag--;
     if (thisHole.tag == 1) {
         thisHole.tag--;
         thisHole.hidden = YES;
@@ -192,19 +186,14 @@
 
 // 按了 alert 的 按鈕之後的動作（發佈到fb、轉回首頁。
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
     //將按鈕的Title當作判斷的依據
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
-    
     if([title isEqualToString:@"OK"]) {
         NSLog(@"after click OK button");
         [self performSegueWithIdentifier:@"backHome" sender:self];
         [self sendFBMessage];     
     }
-    
 }
-
-
 
 - (void)sendFBMessage {
     
@@ -231,9 +220,7 @@
     //                                                                          image:nil
     //                                                                            url:[NSURL URLWithString:@""]
     //                                                                        handler:nil];
-    if (FBSession.activeSession.isOpen) { //name!=nil , FBSession.activeSession.isOpen
-
-        
+    if (FBSession.activeSession.isOpen) { //name!=nil , FBSession.activeSession.isOpen        
         NSMutableDictionary* params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                        [NSString stringWithFormat:@"道地的%@!!!!",@"台灣人"],@"message",
                                        @"台灣人",@"name",

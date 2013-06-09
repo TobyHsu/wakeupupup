@@ -39,7 +39,7 @@
 	// Do any additional setup after loading the view.
     UINavigationBar *navBar = [self.navigationController navigationBar];
     [navBar setBackgroundImage:[UIImage imageNamed:@"badge_bar.png"] forBarMetrics:UIBarMetricsDefault];
-    
+#warning Rewrite using nib    
     // 註冊一個 class 給 header 用
     [self.collectionView registerClass:[BadgeHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BadgeHeaderView"];
     
@@ -68,14 +68,6 @@
     
     self.obj_ar = [[NSMutableArray alloc]initWithObjects:_person_id,_animal_id, nil];
     [self.obj_ar release];
-    
-//    PFQuery *person_badge = [PFQuery queryWithClassName:@"PERSON_BADGE"];
-//    self.pobj_ar = [person_badge findObjects];
-//    
-//    PFQuery *animal_badge = [PFQuery queryWithClassName:@"ANIMAL_BADGE"];
-//    self.aobj_ar = [animal_badge findObjects];
-
-    //self.obj_ar = [[NSMutableArray alloc]initWithObjects:self.pobj_ar,self.aobj_ar, nil];
     
     // notification後進入遊戲
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -138,7 +130,6 @@
         NSLog(@"detail");
         if ([sender isKindOfClass:[BadgeCollectionCell class]]) { // 確定 sendor 是 cell
             BadgeCollectionCell *cell1 = (BadgeCollectionCell *)sender;
-            
             //将page2设定成Storyboard Segue的目标UIViewController
             BadgeConditionViewController *conditionPage = segue.destinationViewController;
             //将值透过Storyboard Segue带给页面2的变数
@@ -151,8 +142,7 @@
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     BadgeHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"BadgeHeaderView"forIndexPath:indexPath];
     if([kind isEqualToString:UICollectionElementKindSectionHeader]){
-        //headerView.backgroundColor = [UIColor greenColor];
-        if(indexPath.section == 0)
+        if(indexPath.section == 0)  // 對不同 section 的 header 設定
             headerView.title.text = @"PERSON BADGE";
         else if (indexPath.section==1)
             headerView.title.text = @"ANIMAL BADGE";

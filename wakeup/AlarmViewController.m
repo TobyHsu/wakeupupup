@@ -63,7 +63,7 @@
     self.label_alarm_time.text = [NSString stringWithFormat:@"%02d:%02d",appDelegate.set_hr,appDelegate.set_min];
     
     
-    flag=NO;
+    flag = NO;
     NSURL* url = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"turn" ofType:@"mp3"]];
     //與音樂檔案做連結
     NSError* error = nil;

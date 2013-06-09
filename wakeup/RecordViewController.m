@@ -6,15 +6,15 @@
 //  Copyright (c) 2013年 din1030. All rights reserved.
 //
 
-#import "RecordViewController123.h"
+#import "RecordViewController.h"
 #import "AppDelegate.h"
 #import "BrainHoleViewController.h"
 
-@interface RecordViewController123 ()
+@interface RecordViewController ()
 
 @end
 
-@implementation RecordViewController123
+@implementation RecordViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    // back button
     UIImage *backButtonIMG = [[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 21, 0, 0)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonIMG forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     UINavigationBar *bar = self.navigationController.navigationBar ;

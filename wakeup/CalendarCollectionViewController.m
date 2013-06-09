@@ -35,11 +35,11 @@
     UINavigationBar *navBar = [self.navigationController navigationBar];
     [navBar setBackgroundImage:[UIImage imageNamed:@"calendar_bar.png"] forBarMetrics:UIBarMetricsDefault];
     
-    
     // 註冊一個 nib 給 header 用
     [self.collectionView registerNib:[UINib nibWithNibName:@"CalHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"CalHeader"];
     //[self.collectionView registerClass:[BadgeHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BadgeHeaderView"];
-    
+ #warning Rewrite using sqlite to get data  
+    // 抓 daily_record
     _dailyInfo = [[NSMutableArray alloc] initWithObjects:@"A",@"B",@"C",@"D",@"E",@"A",@"B",@"C",@"D",@"E",@"A",@"B",@"C",@"D",@"E",@"A",@"B",@"C",@"D",@"E",@"A",@"B",@"C",@"D",@"E", nil];
     
     // notification後進入遊戲

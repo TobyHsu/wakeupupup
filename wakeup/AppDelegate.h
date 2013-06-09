@@ -18,7 +18,7 @@ extern NSString *const FBSessionStateChangedNotification;
 - (void) Alarm;
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, assign) BOOL *isAlarm;
+@property (nonatomic, assign) BOOL isAlarm;
 @property (strong, nonatomic) AVAudioPlayer *bgPlayer;
 @property (strong,nonatomic) NSTimer *timer;
 @property (nonatomic)int set_hr,set_min;

@@ -98,6 +98,7 @@
     return [_mission count];
 }
 
+// header!!
 //- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
 //           viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
 //
@@ -137,18 +138,8 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    //    // Get data first
-    //    NSString *location = [[ALPhoto sharedSource] arrayOfLocations][indexPath.section];
-    //    NSArray *photos = [[ALPhoto sharedSource] arrayWithPhotosInLocation:location];
-    //    NSDictionary *photo = photos[indexPath.row];
-    //
-    //    // Direction
-    //    NSString *direction = photo[ALPhotoInfoDirectionKey];
-    //    if ([direction isEqualToString:@"L"]) {
-    //        return CGSizeMake(88.0f, 66.0f);
-    //    } else {
+
     return CGSizeMake(263.0f, 150.0f);
-    //}
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -158,7 +149,6 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
     if ([segue.identifier isEqualToString:@"ShowDetail"]) {
         NSLog(@"detail");
         if ([sender isKindOfClass:[MissionCollectionCell class]]) {

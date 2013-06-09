@@ -27,7 +27,7 @@
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     
-
+    // 計算位置
     row = indexPath.item / 5;
     column = indexPath.item % 5;
     
@@ -41,7 +41,7 @@
 -(NSArray*)layoutAttributesForElementsInRect:(CGRect)rect {
     NSMutableArray* attributes = [NSMutableArray array];
     
-//    for (NSUInteger k =0 ; k < self.collectionView.numberOfSections; k++) {
+//    for (NSUInteger k =0 ; k < self.collectionView.numberOfSections; k++) { 只有一個 section 暫時不用
         for (NSInteger i=0 ; i < [self.collectionView numberOfItemsInSection:0]; i++) {
             NSIndexPath* indexPath = [NSIndexPath indexPathForItem:i inSection:0];
             //这里利用了-layoutAttributesForItemAtIndexPath:来获取attributes

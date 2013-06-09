@@ -20,12 +20,11 @@
     int sec;
     AVAudioPlayer *audioPlayer;
     NSArray * audioArray;
-    NSString *userInfo;
-    
+    NSString *userInfo;    
 }
 
 @property (retain, nonatomic) IBOutlet UIImageView *eye;
-@property (retain, nonatomic)  NSArray *hole_img;
+@property (retain, nonatomic) NSArray *hole_img;
 
 
 -(IBAction)holeClick:(UIButton*)sender;
