@@ -9,11 +9,11 @@
 #import "MissionViewController.h"
 #import "MIssionConditionViewController.h"
 #import "MissionCollectionCell.h"
-#import "FMDatabase.h"
 #import "DataBase.h"
 
 #import "AppDelegate.h"
 #import "BrainHoleViewController.h"
+#import "MISSION.h"
 
 @interface MissionViewController ()
 
@@ -38,22 +38,43 @@
     [navBar setBackgroundImage:[UIImage imageNamed:@"mission_bar.png"] forBarMetrics:UIBarMetricsDefault];
     
     // 設定透明
-    //navBar.translucent = YES; 
+    //navBar.translucent = YES;
     
     // 開始撈有哪些 mission
-    PFQuery *qq = [PFQuery queryWithClassName:@"MISSION"];
-    self.obj_ar = [qq findObjects];
-    NSLog(@"%d,%@",[self.obj_ar count],[[self.obj_ar objectAtIndex:0] objectForKey:@"name"]);
+    //    PFQuery *qq = [PFQuery queryWithClassName:@"MISSION"];
+    //    self.obj_ar = [qq findObjects];
+    //    NSLog(@"%d,%@",[self.obj_ar count],[[self.obj_ar objectAtIndex:0] objectForKey:@"name"]);
+    
+    //    sqlite get mission ids
+    _mission = [[NSMutableArray alloc] initWithObjects: nil];
+    FMResultSet *rs = nil;
+    rs = [DataBase executeQuery:@"SELECT * FROM MISSION"];
+    while ([rs next])
+    {
+        NSString *m_id = [rs stringForColumn:@"id"];
+        NSString *name = [rs stringForColumn:@"name"];
+        NSString *description = [rs stringForColumn:@"description"];
+        NSString *award_type = [rs stringForColumn:@"award_type"];
+        NSString *award_var = [rs stringForColumn:@"award_var"];
+        NSString *state = [rs stringForColumn:@"state"];
+        
+        [_mission addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+                            m_id, @"id",
+                            name, @"name",
+                            description, @"description",
+                            award_type,@"award_type",
+                            award_var,@"award_var",
+                            state,@"state",
+                            nil]];
+    }
+    [rs close];
 
-    // sqlite get mission ids
-    //FMResultSet *rs = nil;
-    //rs = [DataBase executeQuery:@"SELECT id FROM MISSION"];
     // notification後進入遊戲
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(Game:)
                                                  name:@"appDidBecomeActive"
                                                object:nil];
-
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -75,7 +96,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.obj_ar count];
+    return [_mission count];
 }
 
 //- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
@@ -98,18 +119,16 @@
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *cellIdentifier = @"mission_cell";
-    
     // Get cell
     MissionCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier
                                                                             forIndexPath:indexPath];
-    NSUInteger ar_index = [indexPath row];
-    
-    NSString *name = [[self.obj_ar objectAtIndex:ar_index] objectForKey:@"name"];
+    NSUInteger index = [indexPath row];
+    NSString *name = [[_mission objectAtIndex:index ] objectForKey:@"name"];
     //NSString *description = [obj_ar[row] objectForKey:@"description"];
     cell.mission_name.text = name;
     NSLog(@"%@",name);
-    
-    cell.cell_id = [[self.obj_ar objectAtIndex:ar_index] objectId];
+
+    cell.cell_id = [[_mission objectAtIndex:0 ] objectForKey:@"id"];
     NSLog(@"%@",cell.cell_id);
     return cell;
 }
@@ -144,15 +163,15 @@
     if ([segue.identifier isEqualToString:@"ShowDetail"]) {
         NSLog(@"detail");
         if ([sender isKindOfClass:[MissionCollectionCell class]]) {
-        // Get data
-        MissionCollectionCell *cell1 = (MissionCollectionCell *)sender;
-
-        //将page2设定成Storyboard Segue的目标UIViewController
-        MIssionConditionViewController *conditionPage = segue.destinationViewController; // 這樣回前一頁也會送
+            // Get data
+            MissionCollectionCell *cell1 = (MissionCollectionCell *)sender;
             
-        //将值透过Storyboard Segue带给页面2的string变数
-        [conditionPage setValue:cell1.cell_id forKey:@"m_id"];
-        //NSLog(@"%@",[cell1 ind);
+            //将page2设定成Storyboard Segue的目标UIViewController
+            MIssionConditionViewController *conditionPage = segue.destinationViewController; // 這樣回前一頁也會送
+            
+            //将值透过Storyboard Segue带给页面2的string变数
+            [conditionPage setValue:cell1.cell_id forKey:@"m_id"];
+            //NSLog(@"%@",[cell1 ind);
         }
     }
 }

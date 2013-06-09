@@ -25,6 +25,7 @@
 		8B6942C8175F5DD9009878DD /* turn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942B9175F5DD9009878DD /* turn.mp3 */; };
 		8B6942C9175F5DD9009878DD /* you are too slow2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942BA175F5DD9009878DD /* you are too slow2.mp3 */; };
 		8B73020B176067E100026E1F /* BadgeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B73020A176067E100026E1F /* BadgeConditionViewController.m */; };
+		8B7E41101763BA16002E8930 /* MISSION.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E410F1763BA16002E8930 /* MISSION.m */; };
 		8BB4B7B5175E62E60037CBB8 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4B7B4175E62E60037CBB8 /* AlarmViewController.m */; };
 		8BB4B7B7175E765B0037CBB8 /* set_alarm_bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4B7B6175E765B0037CBB8 /* set_alarm_bg1.png */; };
 		A612043A17631A120082D519 /* CalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A612043917631A120082D519 /* CalendarViewCell.m */; };
@@ -171,6 +172,8 @@
 		8B6942BA175F5DD9009878DD /* you are too slow2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "you are too slow2.mp3"; sourceTree = "<group>"; };
 		8B730209176067E100026E1F /* BadgeConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeConditionViewController.h; sourceTree = "<group>"; };
 		8B73020A176067E100026E1F /* BadgeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeConditionViewController.m; sourceTree = "<group>"; };
+		8B7E410E1763BA16002E8930 /* MISSION.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MISSION.h; sourceTree = "<group>"; };
+		8B7E410F1763BA16002E8930 /* MISSION.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MISSION.m; sourceTree = "<group>"; };
 		8BB4B7B3175E62E60037CBB8 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
 		8BB4B7B4175E62E60037CBB8 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
 		8BB4B7B6175E765B0037CBB8 /* set_alarm_bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_alarm_bg1.png; sourceTree = "<group>"; };
@@ -375,6 +378,15 @@
 			name = sound;
 			sourceTree = "<group>";
 		};
+		8B7E410D1763B9EE002E8930 /* DataObject */ = {
+			isa = PBXGroup;
+			children = (
+				8B7E410E1763BA16002E8930 /* MISSION.h */,
+				8B7E410F1763BA16002E8930 /* MISSION.m */,
+			);
+			name = DataObject;
+			sourceTree = "<group>";
+		};
 		A60B4EDB17506D2F00CE9DAD /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +481,7 @@
 		A65238C2173A4DEA0030BDC7 /* wakeup */ = {
 			isa = PBXGroup;
 			children = (
+				8B7E410D1763B9EE002E8930 /* DataObject */,
 				A6E708941760A9E500B89091 /* Calendar */,
 				A639E4E917560C4E005044EA /* Mission */,
 				A6CBB9C4175A832F007CD419 /* Badge */,
@@ -891,6 +904,7 @@
 				A6E708AA1761194F00B89091 /* FMResultSet.m in Sources */,
 				A612043A17631A120082D519 /* CalendarViewCell.m in Sources */,
 				A612043D176337650082D519 /* BadgeHeaderView.m in Sources */,
+				8B7E41101763BA16002E8930 /* MISSION.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
