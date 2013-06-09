@@ -67,7 +67,7 @@
 
 - (void)dealloc {
     [_eye release];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"appDidBecomeActive" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
 
