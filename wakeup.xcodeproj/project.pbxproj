@@ -29,7 +29,6 @@
 		8BB4B7B7175E765B0037CBB8 /* set_alarm_bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4B7B6175E765B0037CBB8 /* set_alarm_bg1.png */; };
 		A612043A17631A120082D519 /* CalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A612043917631A120082D519 /* CalendarViewCell.m */; };
 		A612043D176337650082D519 /* BadgeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A612043C176337650082D519 /* BadgeHeaderView.m */; };
-		A636D73E176288F500D12305 /* wakeup.db in Resources */ = {isa = PBXBuildFile; fileRef = A636D73C176288E400D12305 /* wakeup.db */; };
 		A639E4E817560C2D005044EA /* sample_linechart_data.json in Resources */ = {isa = PBXBuildFile; fileRef = A639E4E717560C2D005044EA /* sample_linechart_data.json */; };
 		A639E4EE175636D7005044EA /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A639E4ED175636D7005044EA /* FacebookSDKResources.bundle */; };
 		A639E4F0175636F3005044EA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A639E4EF175636F3005044EA /* FacebookSDK.framework */; };
@@ -71,6 +70,7 @@
 		A679B29F175486FA00A01CB0 /* MIssionConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A679B29E175486FA00A01CB0 /* MIssionConditionViewController.m */; };
 		A679B2A2175497C800A01CB0 /* MissionCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A679B2A1175497C800A01CB0 /* MissionCollectionCell.m */; };
 		A680C8A5175C695B001EDDBD /* BadgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A680C8A4175C695B001EDDBD /* BadgeViewController.m */; };
+		A68C510A1766519200CC221D /* wakeup.db in Resources */ = {isa = PBXBuildFile; fileRef = A68C51091766519200CC221D /* wakeup.db */; };
 		A69BC2F6174BA087006AE7FE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69BC2F5174BA087006AE7FE /* Parse.framework */; };
 		A69BC309174BA1A3006AE7FE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69BC2F7174BA135006AE7FE /* AudioToolbox.framework */; };
 		A69BC30A174BA1A3006AE7FE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69BC2F8174BA135006AE7FE /* CFNetwork.framework */; };
@@ -179,8 +179,7 @@
 		A612043917631A120082D519 /* CalendarViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewCell.m; sourceTree = "<group>"; };
 		A612043B176337650082D519 /* BadgeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeHeaderView.h; sourceTree = "<group>"; };
 		A612043C176337650082D519 /* BadgeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeHeaderView.m; sourceTree = "<group>"; };
-		A636D73C176288E400D12305 /* wakeup.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = wakeup.db; path = src/wakeup.db; sourceTree = "<group>"; };
-		A639E4E717560C2D005044EA /* sample_linechart_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_linechart_data.json; sourceTree = "<group>"; };
+		A639E4E717560C2D005044EA /* sample_linechart_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sample_linechart_data.json; path = ../sample_linechart_data.json; sourceTree = "<group>"; };
 		A639E4ED175636D7005044EA /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		A639E4EF175636F3005044EA /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		A639E4F1175636FF005044EA /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBUserSettingsViewResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
@@ -234,6 +233,7 @@
 		A679B2A1175497C800A01CB0 /* MissionCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MissionCollectionCell.m; sourceTree = "<group>"; };
 		A680C8A3175C695B001EDDBD /* BadgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeViewController.h; sourceTree = "<group>"; };
 		A680C8A4175C695B001EDDBD /* BadgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeViewController.m; sourceTree = "<group>"; };
+		A68C51091766519200CC221D /* wakeup.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = wakeup.db; path = src/wakeup.db; sourceTree = "<group>"; };
 		A69BC2F5174BA087006AE7FE /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A69BC2F7174BA135006AE7FE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A69BC2F8174BA135006AE7FE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -381,7 +381,6 @@
 			isa = PBXGroup;
 			children = (
 				8B69428C175F5D16009878DD /* sound */,
-				A639E4E717560C2D005044EA /* sample_linechart_data.json */,
 				A6B2796117524ABA00895ACC /* pic */,
 			);
 			name = src;
@@ -496,7 +495,8 @@
 		A65238C3173A4DEA0030BDC7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A636D73C176288E400D12305 /* wakeup.db */,
+				A68C51091766519200CC221D /* wakeup.db */,
+				A639E4E717560C2D005044EA /* sample_linechart_data.json */,
 				A6E7089B1761194F00B89091 /* FMDB */,
 				A6B2798017526CDE00895ACC /* JSONKit */,
 				A65238C4173A4DEA0030BDC7 /* wakeup-Info.plist */,
@@ -762,7 +762,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A636D73E176288F500D12305 /* wakeup.db in Resources */,
 				A65238C7173A4DEA0030BDC7 /* InfoPlist.strings in Resources */,
 				A65238CF173A4DEA0030BDC7 /* Default.png in Resources */,
 				A65238D1173A4DEA0030BDC7 /* Default@2x.png in Resources */,
@@ -858,6 +857,7 @@
 				A6C735F3175FB1D000E5EFA2 /* 排版示意_a縮圖.PNG in Resources */,
 				A6C735F4175FB1D000E5EFA2 /* 排版示意_b介紹.PNG in Resources */,
 				A65256861764C8DB007B05E9 /* CalHeaderView.xib in Resources */,
+				A68C510A1766519200CC221D /* wakeup.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

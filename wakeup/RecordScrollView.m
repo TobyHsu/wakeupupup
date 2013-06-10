@@ -8,6 +8,8 @@
 
 #import "RecordScrollView.h"
 #import "JSONKit.h"
+#import "FMDatabase.h"
+#import "DataBase.h"
 
 @implementation RecordScrollView
 
@@ -15,35 +17,50 @@
 	self = [super initWithFrame:frame];
 	if (self)
 	{
-		[self setBackgroundColor:[UIColor whiteColor]];
-		NSLog(@"123");
-		self.lineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake(10,10,31*30+80,[self bounds].size.height-20)];
+        // 取得現有資料，並依資料數量決定 view 大小
+        FMResultSet *rs = nil;
+        rs = [DataBase executeQuery:@"SELECT duration_time FROM DAILY_RECORD"];
+        NSMutableArray *duration_ar = [NSMutableArray array];
+        while ([rs next])
+        {
+            NSUInteger duration = [rs intForColumn:@"duration_time"];
+            [duration_ar addObject:[NSString stringWithFormat:@"%d",duration]];
+            
+        }
+        int data_amount = [duration_ar count];
+        
+        // 設定折線圖 view 大小位置 及 y 軸最大最小值
+		self.lineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake(10,10,data_amount*30+100,[self bounds].size.height-20)];
 		[self.lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
 		self.lineChartView.minValue = 0;
 		self.lineChartView.maxValue = 12;
-        self.contentSize = CGSizeMake([_lineChartView.xLabels count] * 50 + 100, self.frame.size.height);
-        self.lineChartView.scrollEnabled = YES;
 		[self addSubview:self.lineChartView];
-		
+        
+        // 設定 scroll veiw 大小
         [self setContentSize:CGSizeMake(self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];
         [self setScrollEnabled:YES];
         
-        #warning Make fake data replacing JSON
+        // 建立折線圖所需 dictionary 資料
+        NSDictionary *dailyInfo = [[NSDictionary alloc] initWithObjectsAndKeys:duration_ar,@"dailyData",@"din1010",@"name",nil];
+        NSMutableArray *userInfo_ar = [[NSMutableArray alloc] initWithObjects:dailyInfo, nil];
         
-		NSString *sampleFile = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"sample_linechart_data.json"];
-		NSString *jsonString = [NSString stringWithContentsOfFile:sampleFile encoding:NSUTF8StringEncoding error:nil];
-		
-        NSDictionary *sampleInfo = [jsonString objectFromJSONString];
+        // 日期 for x labels
+        NSMutableArray *date_ar = [NSMutableArray array];
+        for (int day = 1; day <= [duration_ar count]; day++)
+        {
+            [date_ar addObject:[NSString stringWithFormat:@"%d",day]];
+        }
+        NSDictionary *Info = [[NSDictionary alloc] initWithObjectsAndKeys:userInfo_ar,@"data",date_ar,@"x_labels",nil];
         
         NSMutableArray *components = [NSMutableArray array];
-		for (int i=0; i<[[sampleInfo objectForKey:@"data"] count]; i++)
+		for (int i = 0; i < [[Info objectForKey:@"data"] count]; i++)
 		{
-			NSDictionary *point = [[sampleInfo objectForKey:@"data"] objectAtIndex:i];
+            // 拆 dictionary
+            NSDictionary *point = [[Info objectForKey:@"data"] objectAtIndex:i];
 			PCLineChartViewComponent *component = [[PCLineChartViewComponent alloc] init];
-			[component setTitle:[point objectForKey:@"title"]];
-			[component setPoints:[point objectForKey:@"data"]];
-			[component setShouldLabelValues:YES];
-			
+            [component setTitle:[point objectForKey:@"name"]];
+            [component setPoints:[point objectForKey:@"dailyData"]];
+            [component setShouldLabelValues:YES];
 			if (i==0)
 			{
 				[component setColour:PCColorYellow];
@@ -68,7 +85,7 @@
 			[components addObject:component];
 		}
 		[_lineChartView setComponents:components];
-		[_lineChartView setXLabels:[sampleInfo objectForKey:@"x_labels"]];
+		[_lineChartView setXLabels:[Info objectForKey:@"x_labels"]];
 	}
     return self;
 }
@@ -76,12 +93,12 @@
 
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
 
 @end
