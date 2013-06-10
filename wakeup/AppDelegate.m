@@ -107,7 +107,6 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
         scheduledAlert.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
         scheduledAlert.timeZone = [NSTimeZone defaultTimeZone];
         scheduledAlert.repeatInterval =  NSDayCalendarUnit;
-        scheduledAlert.soundName=@"back4.mp3";
         scheduledAlert.alertBody = @"Dumb way to wake.";
         [[UIApplication sharedApplication] scheduleLocalNotification:scheduledAlert];
         NSLog(@"time up. Please play this game.");
