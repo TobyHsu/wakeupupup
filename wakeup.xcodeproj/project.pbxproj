@@ -32,6 +32,11 @@
 		A612043A17631A120082D519 /* CalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A612043917631A120082D519 /* CalendarViewCell.m */; };
 		A612043D176337650082D519 /* BadgeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A612043C176337650082D519 /* BadgeHeaderView.m */; };
 		A638A8AA17671CC5004B3844 /* StatisticTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A638A8A917671CC5004B3844 /* StatisticTabViewController.m */; };
+		A638A8AD17676FFC004B3844 /* progress0.png in Resources */ = {isa = PBXBuildFile; fileRef = A638A8AB17676FFC004B3844 /* progress0.png */; };
+		A638A8AE17676FFC004B3844 /* progress1.png in Resources */ = {isa = PBXBuildFile; fileRef = A638A8AC17676FFC004B3844 /* progress1.png */; };
+		A638A8B1176771C6004B3844 /* CustomMissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A638A8B0176771C6004B3844 /* CustomMissionViewController.m */; };
+		A638A8B417677941004B3844 /* CustomMissionPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A638A8B317677940004B3844 /* CustomMissionPreviewCell.m */; };
+		A638A8B617677BDD004B3844 /* down_w.png in Resources */ = {isa = PBXBuildFile; fileRef = A638A8B517677BDD004B3844 /* down_w.png */; };
 		A639E4E817560C2D005044EA /* sample_linechart_data.json in Resources */ = {isa = PBXBuildFile; fileRef = A639E4E717560C2D005044EA /* sample_linechart_data.json */; };
 		A639E4EE175636D7005044EA /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A639E4ED175636D7005044EA /* FacebookSDKResources.bundle */; };
 		A639E4F0175636F3005044EA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A639E4EF175636F3005044EA /* FacebookSDK.framework */; };
@@ -186,6 +191,13 @@
 		A612043C176337650082D519 /* BadgeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeHeaderView.m; sourceTree = "<group>"; };
 		A638A8A817671CC5004B3844 /* StatisticTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticTabViewController.h; sourceTree = "<group>"; };
 		A638A8A917671CC5004B3844 /* StatisticTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticTabViewController.m; sourceTree = "<group>"; };
+		A638A8AB17676FFC004B3844 /* progress0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress0.png; sourceTree = "<group>"; };
+		A638A8AC17676FFC004B3844 /* progress1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress1.png; sourceTree = "<group>"; };
+		A638A8AF176771C6004B3844 /* CustomMissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMissionViewController.h; sourceTree = "<group>"; };
+		A638A8B0176771C6004B3844 /* CustomMissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMissionViewController.m; sourceTree = "<group>"; };
+		A638A8B217677940004B3844 /* CustomMissionPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMissionPreviewCell.h; sourceTree = "<group>"; };
+		A638A8B317677940004B3844 /* CustomMissionPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMissionPreviewCell.m; sourceTree = "<group>"; };
+		A638A8B517677BDD004B3844 /* down_w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down_w.png; sourceTree = "<group>"; };
 		A639E4E717560C2D005044EA /* sample_linechart_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sample_linechart_data.json; path = ../sample_linechart_data.json; sourceTree = "<group>"; };
 		A639E4ED175636D7005044EA /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		A639E4EF175636F3005044EA /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
@@ -411,6 +423,10 @@
 				A679B2A1175497C800A01CB0 /* MissionCollectionCell.m */,
 				A679B29D175486FA00A01CB0 /* MIssionConditionViewController.h */,
 				A679B29E175486FA00A01CB0 /* MIssionConditionViewController.m */,
+				A638A8AF176771C6004B3844 /* CustomMissionViewController.h */,
+				A638A8B0176771C6004B3844 /* CustomMissionViewController.m */,
+				A638A8B217677940004B3844 /* CustomMissionPreviewCell.h */,
+				A638A8B317677940004B3844 /* CustomMissionPreviewCell.m */,
 			);
 			name = Mission;
 			sourceTree = "<group>";
@@ -549,6 +565,9 @@
 		A6B2796117524ABA00895ACC /* pic */ = {
 			isa = PBXGroup;
 			children = (
+				A638A8B517677BDD004B3844 /* down_w.png */,
+				A638A8AB17676FFC004B3844 /* progress0.png */,
+				A638A8AC17676FFC004B3844 /* progress1.png */,
 				8B7E41111766A4E2002E8930 /* story_setting */,
 				A6C735D0175FB1D000E5EFA2 /* story_mission_badges */,
 				A6D9D0F6175F89750086830F /* story_calendar */,
@@ -879,6 +898,9 @@
 				A68C510A1766519200CC221D /* wakeup.db in Resources */,
 				8B7E41141766A4E2002E8930 /* setting_bar@2x.png in Resources */,
 				8B7E41151766A4E2002E8930 /* setting_02.png in Resources */,
+				A638A8AD17676FFC004B3844 /* progress0.png in Resources */,
+				A638A8AE17676FFC004B3844 /* progress1.png in Resources */,
+				A638A8B617677BDD004B3844 /* down_w.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,6 +939,8 @@
 				A612043A17631A120082D519 /* CalendarViewCell.m in Sources */,
 				A612043D176337650082D519 /* BadgeHeaderView.m in Sources */,
 				A638A8AA17671CC5004B3844 /* StatisticTabViewController.m in Sources */,
+				A638A8B1176771C6004B3844 /* CustomMissionViewController.m in Sources */,
+				A638A8B417677941004B3844 /* CustomMissionPreviewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

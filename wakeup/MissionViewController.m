@@ -144,24 +144,32 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    [self performSegueWithIdentifier:@"ShowDetail" sender:cell];
+    if (indexPath.item == 0) {
+        [self performSegueWithIdentifier:@"ShowCollect" sender:cell];
+    } else if (indexPath.item == 1) {
+        [self performSegueWithIdentifier:@"ShowInvite" sender:cell];
+    } else if (indexPath.item == 2) {
+        [self performSegueWithIdentifier:@"ShowCustom" sender:cell];
+    }
+
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ShowDetail"]) {
-        NSLog(@"detail");
-        if ([sender isKindOfClass:[MissionCollectionCell class]]) {
-            // Get data
+    if ([sender isKindOfClass:[MissionCollectionCell class]]) {
+        if ([segue.identifier isEqualToString:@"ShowCollect"]) {            
             MissionCollectionCell *cell1 = (MissionCollectionCell *)sender;
-            
-            //将page2设定成Storyboard Segue的目标UIViewController
-            MIssionConditionViewController *conditionPage = segue.destinationViewController; // 這樣回前一頁也會送
-            
-            //将值透过Storyboard Segue带给页面2的string变数
-            [conditionPage setValue:cell1.cell_id forKey:@"m_id"];
-            //NSLog(@"%@",[cell1 ind);
-        }
+            MIssionConditionViewController *conditionPage = segue.destinationViewController;
+            [conditionPage setValue:cell1.cell_id forKey:@"m_id"]; }
+//        } else if ([segue.identifier isEqualToString:@"ShowInvite"]) {
+//            MissionCollectionCell *cell1 = (MissionCollectionCell *)sender;
+//            MIssionConditionViewController *conditionPage = segue.destinationViewController;
+//            [conditionPage setValue:cell1.cell_id forKey:@"m_id"];
+//        } else if ([segue.identifier isEqualToString:@"ShowCustom"]) {
+//            MissionCollectionCell *cell1 = (MissionCollectionCell *)sender;
+//            MIssionConditionViewController *conditionPage = segue.destinationViewController;
+//            [conditionPage setValue:cell1.cell_id forKey:@"m_id"];
+//        }
     }
 }
 
