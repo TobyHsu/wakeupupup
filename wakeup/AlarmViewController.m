@@ -158,11 +158,7 @@ CGFloat DegreesToRadians(CGFloat degrees)
     flag = YES;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.isAlarm = YES;
-    TimerTask = [[UIApplication sharedApplication]
-                 beginBackgroundTaskWithExpirationHandler:^{
-                     // If you're worried about exceeding 10 minutes, handle it here
-                 }];
-    NSLog(@"%d:%d",appDelegate.set_hr,appDelegate.set_min);
+     NSLog(@"%02d:%02d",appDelegate.set_hr,appDelegate.set_min);
     // 背景執行Code
     //    [[UIApplication sharedApplication] endBackgroundTask:counterTask];
 }

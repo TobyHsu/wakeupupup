@@ -12,7 +12,10 @@
 
 extern NSString *const FBSessionStateChangedNotification;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>
+{
+    UIBackgroundTaskIdentifier bgTask;
+}
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
 - (void) closeSession;
 - (void) Alarm;
@@ -24,4 +27,7 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (nonatomic)int set_hr,set_min;
 @property (nonatomic)int hr,min,sec;
 @property (nonatomic)float degree;
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *startLocation;
 @end
