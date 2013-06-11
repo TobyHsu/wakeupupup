@@ -7,10 +7,12 @@
 //
 
 #import "BadgeConditionViewController.h"
-#import <Parse/Parse.h>
-
 #import "AppDelegate.h"
 #import "BrainHoleViewController.h"
+
+#import "FMDatabase.h"
+#import "DataBase.h"
+
 
 @interface BadgeConditionViewController ()
 
@@ -30,22 +32,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-#warning Rewrite using sqlite
-    PFQuery *qq = [PFQuery queryWithClassName:@"PERSON_BADGE"];
-    if ([self.b_type isEqualToString:@"animal"]) {
-        qq = [PFQuery queryWithClassName:@"ANIMAL_BADGE"];
+    FMResultSet *rs1 = nil;
+    NSString *req_string = @"";
+    if ([self.b_type isEqualToString:@"person"]) {
+        rs1 = [DataBase executeQuery:[NSString stringWithFormat:@"SELECT * FROM PERSON_BADGE WHERE id = '%@'",self.b_id]];
+        req_string = @"必須要在%@點時起床唷！";
+        
+    } else if ([self.b_type isEqualToString:@"animal"]) {
+        rs1 = [DataBase executeQuery:[NSString stringWithFormat:@"SELECT * FROM ANIMAL_BADGE WHERE id = '%@'",self.b_id]];
+        req_string = @"你的睡眠時數排行朋友中的前 %@%%！";
     }
-    PFObject *obj = [qq getObjectWithId:self.b_id];
+    while ([rs1 next])
+    {
+        //NSString *name = [rs1 stringForColumn:@"name"];
+        self.badge_description.text = [rs1 stringForColumn:@"description"];
+        NSString *req = [rs1 stringForColumn:@"requirement"];
+        self.badge_condition.text =  [NSString stringWithFormat:req_string, req];
+    }
 
-    NSString *name = [obj objectForKey:@"name"];
-    NSString *description = [obj objectForKey:@"description"];
-    NSString *req = [obj objectForKey:@"requirement"];
-    NSLog(@"id:%@",self.b_id);
-    NSLog(@"name:%@",name);
-    NSLog(@"description:%@",description);
-//    self.badge_image.image = [UIImage imageNamed:@"badge_tw.png"];
-    self.badge_description.text = description;
-    self.badge_condition.text =  [NSString stringWithFormat:@"必須要在%@點時起床唷！", req];
     // 設定 back button
     UIImage *backButtonIMG = [[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 21, 0, 0)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonIMG forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];

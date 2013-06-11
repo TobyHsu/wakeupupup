@@ -11,7 +11,6 @@
 #import "BadgeConditionViewController.h"
 #import "BadgeHeaderView.h"
 
-#import "Parse/Parse.h"
 #import "FMDatabase.h"
 #import "DataBase.h"
 
