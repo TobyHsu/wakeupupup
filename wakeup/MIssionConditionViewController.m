@@ -33,21 +33,17 @@
 	// Do any additional setup after loading the view.
     NSLog(@"%@",self.m_id);
     
- #warning Rewrite using sqlite   
-    PFQuery *qq = [PFQuery queryWithClassName:@"MISSION"];
-    PFObject *obj = [qq getObjectWithId:self.m_id];
-    
-    NSString *name = [obj objectForKey:@"name"];
-    NSString *description = [obj objectForKey:@"description"];
-    NSLog(@"name:%@",name);
-    
-    NSLog(@"description:%@",description);
-    self.mission_description.text = description;
-    
-    // sqlite get mission details
-    //FMResultSet *rs = nil;
-    //rs = [DataBase executeQuery:@"SELECT * FROM MISSION"];
-    
+    FMResultSet *rs1 = [DataBase executeQuery:[NSString stringWithFormat:@"SELECT * FROM MISSION WHERE id = '%@'",self.m_id]];
+    while ([rs1 next])
+    {
+        //NSString *name = [rs1 stringForColumn:@"name"];
+        self.mission_description.text = [rs1 stringForColumn:@"description"];
+    }
+    FMResultSet *rs2 = [DataBase executeQuery:[NSString stringWithFormat:@"SELECT * FROM MISSION_CONDITION WHERE id = '%@'",self.m_id]];
+    while ([rs2 next])
+    {
+#warning  using dictionary to package data and show in condition view
+    }
     
     // 設定 back button
     UIImage *backButtonIMG = [[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 21, 0, 0)];
