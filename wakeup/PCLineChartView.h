@@ -41,6 +41,7 @@
 @end
 
 #define PCColorBlue [UIColor colorWithRed:0.0 green:153/255.0 blue:204/255.0 alpha:1.0]
+#define PCColorPurle [UIColor colorWithRed:178.0/255.0 green:138.0/255.0 blue:230.0/255.0 alpha:1.0]
 #define PCColorGreen [UIColor colorWithRed:153/255.0 green:204/255.0 blue:51/255.0 alpha:1.0]
 #define PCColorOrange [UIColor colorWithRed:1.0 green:153/255.0 blue:51/255.0 alpha:1.0]
 #define PCColorRed [UIColor colorWithRed:1.0 green:51/255.0 blue:51/255.0 alpha:1.0]

@@ -21,6 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.tabBarItem.image = [UIImage imageNamed:@"statistics_tab_sleep1.png"];
     }
     return self;
 }
@@ -34,6 +35,21 @@
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonIMG forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     UINavigationBar *bar = self.navigationController.navigationBar ;
     bar.topItem.title = @" ";
+    
+    // tab bar item background
+    UIImage *selectedImage0 = [UIImage imageNamed:@"statistics_tab_sleep1.png"];
+    UIImage *unselectedImage0 = [UIImage imageNamed:@"statistics_tab_sleep0.png"];
+    
+    UIImage *selectedImage1 = [UIImage imageNamed:@"statistics_tab_wake1.png"];
+    UIImage *unselectedImage1 = [UIImage imageNamed:@"statistics_tab_wake0.png"];
+    
+    UITabBar *tabBar = self.tabBarController.tabBar;
+    UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *item1 = [tabBar.items objectAtIndex:1];
+    
+    [item0 setFinishedSelectedImage:selectedImage0 withFinishedUnselectedImage:unselectedImage0];
+    [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
+    
     [self.record init];
 
     // notification後進入遊戲

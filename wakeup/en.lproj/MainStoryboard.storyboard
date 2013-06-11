@@ -539,31 +539,34 @@
             </objects>
             <point key="canvasLocation" x="525" y="-899"/>
         </scene>
-        <!--View Controller - 起床時間-->
+        <!--Record View Controller-->
         <scene sceneID="xFk-EL-5lj">
             <objects>
-                <viewController id="bw3-ZC-B0t" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7Fx-Mu-wb6">
+                <viewController storyboardIdentifier="stat2" autoresizesArchivedViewToFullSize="NO" id="bw3-ZC-B0t" customClass="RecordViewController" sceneMemberID="viewController">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="YId-3o-vaE" customClass="RecordScrollView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="起床時間" id="GAp-7c-Nbh"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </scrollView>
+                    <tabBarItem key="tabBarItem" title="" id="GAp-7c-Nbh"/>
+                    <connections>
+                        <outlet property="record" destination="YId-3o-vaE" id="tjw-B5-dV6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6MH-yl-8ds" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1583" y="-280"/>
+            <point key="canvasLocation" x="1595" y="-280"/>
         </scene>
-        <!--Record View Controller - 睡眠長度-->
+        <!--Record View Controller-->
         <scene sceneID="ZFU-kP-ddF">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" id="A3M-9f-7If" customClass="RecordViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="stat1" autoresizesArchivedViewToFullSize="NO" id="A3M-9f-7If" customClass="RecordViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Ljq-CR-1Fd" customClass="RecordScrollView">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </scrollView>
-                    <tabBarItem key="tabBarItem" title="睡眠長度" id="DwC-tp-WOr"/>
+                    <tabBarItem key="tabBarItem" title="" id="DwC-tp-WOr"/>
                     <connections>
                         <outlet property="record" destination="Ljq-CR-1Fd" id="4Wy-sN-adi"/>
                     </connections>
@@ -576,7 +579,7 @@
         <scene sceneID="SwY-b8-lkL">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="pio-2h-eDE" customClass="CalendarCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="UAz-fL-JVZ">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="UAz-fL-JVZ">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <inset key="contentInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
@@ -645,10 +648,10 @@
             </objects>
             <point key="canvasLocation" x="525" y="-280"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Statistic Tab View Controller-->
         <scene sceneID="sYN-x7-kvZ">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="gCh-g6-0R5" sceneMemberID="viewController">
+                <tabBarController definesPresentationContext="YES" id="gCh-g6-0R5" customClass="StatisticTabViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="y1h-Br-vv2"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="wZd-Wu-mvF">
@@ -754,7 +757,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKR-Kk-sc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1583" y="334"/>
+            <point key="canvasLocation" x="1595" y="334"/>
         </scene>
         <!--Mission View Controller - MISSION-->
         <scene sceneID="qKd-Fn-baP">
@@ -817,6 +820,8 @@
                     <tabBarItem key="tabBarItem" tag="1" title="MISSION" id="H6K-o0-j0l"/>
                     <connections>
                         <segue destination="QFA-Ej-aq6" kind="push" identifier="ShowDetail" id="z5Y-zI-Rtu"/>
+                        <segue destination="RTP-Ue-m2y" kind="push" id="gsG-zG-SfB"/>
+                        <segue destination="hFi-eZ-3L0" kind="push" id="vSn-bx-g7v"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PCf-tj-EsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -896,7 +901,99 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UM9-ps-qaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1583" y="1041"/>
+            <point key="canvasLocation" x="2031" y="697"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FlC-jC-iGf">
+            <objects>
+                <viewController id="RTP-Ue-m2y" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hvS-vf-kLG">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="mission_bg.png" id="tsu-Ya-2iQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="llp-Y3-wIl">
+                                <rect key="frame" x="0.0" y="7" width="320" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.99338011380000002" blue="0.65123078550000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VzQ-5d-P1I">
+                                <rect key="frame" x="40" y="209" width="240" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="任務需求：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="13i-KX-0Eo">
+                                <rect key="frame" x="40" y="289" width="130" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="JOF-5g-ByT">
+                                <rect key="frame" x="40" y="307" width="240" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Squirrel.png" id="AuW-4I-4Vk">
+                                        <rect key="frame" x="0.0" y="8" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Squirrel_n.png" id="7OX-jA-jhK">
+                                        <rect key="frame" x="50" y="8" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Squirrel_n.png" id="me3-pT-e0v">
+                                        <rect key="frame" x="103" y="8" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Squirrel_n.png" id="XtD-ag-3gu">
+                                        <rect key="frame" x="156" y="8" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Squirrel_n.png" id="TQe-By-y5e">
+                                        <rect key="frame" x="205" y="8" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oux-BV-JE2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQO-QL-2Wc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2447" y="1041"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="OWi-tw-p3m">
+            <objects>
+                <viewController id="hFi-eZ-3L0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jgh-4s-BzK">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="mission_bg.png" id="Qlu-d3-Bpu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="Squirrel.png" id="POD-Cw-a7l">
+                                <rect key="frame" x="60" y="14" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0z3-X4-lTM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bZg-Ur-aJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2031" y="1353"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="oYQ-nf-mfU">
@@ -921,6 +1018,7 @@
     </scenes>
     <resources>
         <image name="Squirrel.png" width="500" height="500"/>
+        <image name="Squirrel_n.png" width="500" height="500"/>
         <image name="alarm_hole-02.png" width="504" height="563"/>
         <image name="badge_bg.png" width="640" height="860"/>
         <image name="badge_tw.png" width="500" height="500"/>
@@ -1050,6 +1148,9 @@
                 <relationship kind="outlet" name="timeZone" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="StatisticTabViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatisticTabViewController.h"/>
+        </class>
         <class className="UICollectionReusableView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
         </class>
@@ -1061,9 +1162,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>

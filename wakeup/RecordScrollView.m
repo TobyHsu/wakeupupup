@@ -19,6 +19,8 @@
 	{
         // 取得現有資料，並依資料數量決定 view 大小
         FMResultSet *rs = nil;
+        
+#warning  how to cahnge month
         rs = [DataBase executeQuery:@"SELECT duration_time FROM DAILY_RECORD"];
         NSMutableArray *duration_ar = [NSMutableArray array];
         while ([rs next])
@@ -30,7 +32,7 @@
         int data_amount = [duration_ar count];
         
         // 設定折線圖 view 大小位置 及 y 軸最大最小值
-		self.lineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake(10,10,data_amount*30+100,[self bounds].size.height-20)];
+		self.lineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake(10,50,data_amount*30+100,[self bounds].size.height-80)];
 		[self.lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
 		self.lineChartView.minValue = 0;
 		self.lineChartView.maxValue = 12;
@@ -63,11 +65,11 @@
             [component setShouldLabelValues:YES];
 			if (i==0)
 			{
-				[component setColour:PCColorYellow];
+				[component setColour:PCColorPurle];
 			}
 			else if (i==1)
 			{
-				[component setColour:PCColorGreen];
+				[component setColour:PCColorYellow];
 			}
 			else if (i==2)
 			{
@@ -79,7 +81,7 @@
 			}
 			else if (i==4)
 			{
-				[component setColour:PCColorBlue];
+				[component setColour:PCColorGreen];
 			}
 			
 			[components addObject:component];
