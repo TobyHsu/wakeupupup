@@ -37,6 +37,16 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    // 設定 nav bar
+    
+    UINavigationBar *navBar = [self.navigationController navigationBar];
+    [navBar setBackgroundImage:[UIImage imageNamed:@"setting_bar.png"] forBarMetrics:UIBarMetricsDefault];
+    
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"setting_02.png"]];
+    [tempImageView setFrame:self.tableView.frame];
+    self.tableView.backgroundView = tempImageView;
+    [tempImageView release];
+    
     NSTimeZone *currentTimeZone = [NSTimeZone localTimeZone];
     NSLog(@"%@",currentTimeZone.description); // Local Time Zone (Asia/Taipei (GMT+08:00) offset 28800)
     NSLog(@"%@",currentTimeZone.abbreviation); // GMT+08:00

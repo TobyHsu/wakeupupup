@@ -116,7 +116,7 @@
             </objects>
             <point key="canvasLocation" x="-15" y="102"/>
         </scene>
-        <!--Setting View Controller - 設定-->
+        <!--Setting View Controller-->
         <scene sceneID="WVl-3X-V4k">
             <objects>
                 <tableViewController id="W2a-7g-k3S" customClass="SettingViewController" sceneMemberID="viewController">
@@ -201,7 +201,7 @@
                             <outlet property="delegate" destination="W2a-7g-k3S" id="QEU-2Y-1ZP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="設定" id="usP-3V-0yX"/>
+                    <navigationItem key="navigationItem" id="usP-3V-0yX"/>
                     <connections>
                         <outlet property="fbButton" destination="rrv-OI-AMu" id="SdN-E8-zpZ"/>
                         <outlet property="sendButton" destination="t5c-xi-TAk" id="tfU-Z6-c9h"/>
@@ -539,7 +539,7 @@
             </objects>
             <point key="canvasLocation" x="525" y="-899"/>
         </scene>
-        <!--View Controller - Item 2-->
+        <!--View Controller - 起床時間-->
         <scene sceneID="xFk-EL-5lj">
             <objects>
                 <viewController id="bw3-ZC-B0t" sceneMemberID="viewController">
@@ -548,13 +548,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="GAp-7c-Nbh"/>
+                    <tabBarItem key="tabBarItem" title="起床時間" id="GAp-7c-Nbh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6MH-yl-8ds" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1583" y="-280"/>
         </scene>
-        <!--Record View Controller - Item 1-->
+        <!--Record View Controller - 睡眠長度-->
         <scene sceneID="ZFU-kP-ddF">
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" id="A3M-9f-7If" customClass="RecordViewController" sceneMemberID="viewController">
@@ -563,7 +563,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </scrollView>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="DwC-tp-WOr"/>
+                    <tabBarItem key="tabBarItem" title="睡眠長度" id="DwC-tp-WOr"/>
                     <connections>
                         <outlet property="record" destination="Ljq-CR-1Fd" id="4Wy-sN-adi"/>
                     </connections>
@@ -1061,6 +1061,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
