@@ -513,6 +513,36 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hm5-Xc-q6k">
+                                <rect key="frame" x="299" y="148" width="12" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="change_alarm_R.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="next_alarmClick:" destination="vgm-0b-nQn" eventType="touchUpInside" id="e1S-KY-Gvt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eVh-I3-r74">
+                                <rect key="frame" x="8" y="148" width="12" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="change_alarm_L.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="prev_alarmClick:" destination="vgm-0b-nQn" eventType="touchUpInside" id="tFD-V8-x7X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -526,6 +556,8 @@
                         <outlet property="alarm_sec" destination="ETd-fp-Rvj" id="4AB-I6-fCc"/>
                         <outlet property="label_alarm_time" destination="WMy-Ai-52V" id="gzn-xV-Kcv"/>
                         <outlet property="mask" destination="Odp-iT-RC7" id="Cwc-Kj-Zls"/>
+                        <outlet property="next_alarm" destination="hm5-Xc-q6k" id="2hx-QK-GnO"/>
+                        <outlet property="prev_alarm" destination="eVh-I3-r74" id="azl-Ww-zXJ"/>
                         <outlet property="set" destination="PQW-SR-bdP" id="SGd-m2-jwY"/>
                         <outlet property="setalarm" destination="K6p-Aa-Ozk" id="1aD-YJ-rWJ"/>
                     </connections>
@@ -955,7 +987,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" progress="0.30000000000000004" id="aEb-iB-doT">
+                            <progressView autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" progress="0.30000000000000004" id="aEb-iB-doT">
                                 <rect key="frame" x="40" y="338" width="234" height="9"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="progressTintColor" red="1" green="0.99338011380000002" blue="0.65123078550000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1002,7 +1034,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <collectionView opaque="NO" autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="vLw-Ed-Olk">
+                            <collectionView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="vLw-Ed-Olk">
                                 <rect key="frame" x="0.0" y="201" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.33333333329999998" blue="0.015686274510000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
@@ -1152,6 +1184,8 @@
         <image name="brainhole3.png" width="30" height="28"/>
         <image name="brainhole4.png" width="30" height="28"/>
         <image name="calendar_bg.png" width="640" height="860"/>
+        <image name="change_alarm_L.png" width="24" height="52"/>
+        <image name="change_alarm_R.png" width="24" height="52"/>
         <image name="down_w.png" width="52" height="47"/>
         <image name="eye-r.png" width="66" height="31"/>
         <image name="eye.png" width="66" height="31"/>
@@ -1184,6 +1218,8 @@
             <relationships>
                 <relationship kind="action" name="alarmClick:" candidateClass="UIButton"/>
                 <relationship kind="action" name="alarm_pan:" candidateClass="UIPanGestureRecognizer"/>
+                <relationship kind="action" name="next_alarmClick:" candidateClass="UIButton"/>
+                <relationship kind="action" name="prev_alarmClick:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="alarm" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="alarm_alarm" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="alarm_hr" candidateClass="UIImageView"/>
@@ -1191,6 +1227,8 @@
                 <relationship kind="outlet" name="alarm_sec" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="label_alarm_time" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mask" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="next_alarm" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="prev_alarm" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="set" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="setalarm" candidateClass="UIButton"/>
             </relationships>

@@ -83,6 +83,11 @@
     center.y = self.mask.center.y - self.mask.frame.size.height/2 * sin(appDelegate.degree);
     self.set.center = center;
     
+    alarm_img = [[NSArray alloc] initWithObjects:@"alarm_hole-02.png",@"alarm_spirit.png",nil];
+    // 之後要讀sqlite user table的cid
+    alarm_index=0;
+    [self.alarm setImage:[UIImage imageNamed:[alarm_img objectAtIndex:alarm_index]]];
+
 }
 
 - (void)countUp {
@@ -124,6 +129,8 @@ CGFloat DegreesToRadians(CGFloat degrees)
     [_label_alarm_time release];
     [_setalarm release];
     [timer invalidate];
+    [_next_alarm release];
+    [_prev_alarm release];
     [super dealloc];
 }
 - (IBAction)alarm_pan:(UIPanGestureRecognizer *)sender {
@@ -161,5 +168,23 @@ CGFloat DegreesToRadians(CGFloat degrees)
      NSLog(@"%02d:%02d",appDelegate.set_hr,appDelegate.set_min);
     // 背景執行Code
     //    [[UIApplication sharedApplication] endBackgroundTask:counterTask];
+}
+
+- (IBAction)next_alarmClick:(UIButton *)sender {
+    if (alarm_index<[alarm_img count]-1)
+        alarm_index++;
+    else
+        alarm_index = [alarm_img count]-1;
+    [self.alarm setImage:[UIImage imageNamed:[alarm_img objectAtIndex:alarm_index]]];
+
+}
+
+- (IBAction)prev_alarmClick:(UIButton *)sender {
+    if (alarm_index>0)
+        alarm_index--;
+    else
+        alarm_index =0;
+    [self.alarm setImage:[UIImage imageNamed:[alarm_img objectAtIndex:alarm_index]]];
+
 }
 @end

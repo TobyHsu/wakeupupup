@@ -20,21 +20,15 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
     [Parse setApplicationId:@"Lt4GQIlip844mLxgisvyxSUf0TBDISc9VErFtAF1"
                   clientKey:@"Eca3LRilxEUhylc89f6CJIZQoYmbsX7vl808xk2k"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
-    _locationManager = [[CLLocationManager alloc] init];
-    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    _locationManager.delegate = self;
-    [_locationManager startUpdatingLocation];
-    _startLocation = nil;
-    
+
     self.set_min=0;
     self.set_hr=6;
     self.degree = -90*(M_PI/180);
-//    self.timer=[NSTimer scheduledTimerWithTimeInterval:0.03
-//                                                target:self
-//                                              selector:@selector(countUp)
-//                                              userInfo:nil
-//                                               repeats:YES];
+    self.timer=[NSTimer scheduledTimerWithTimeInterval:0.03
+                                                target:self
+                                              selector:@selector(countUp)
+                                              userInfo:nil
+                                               repeats:YES];
     return YES;
 }
 
@@ -62,7 +56,6 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    //    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -90,7 +83,7 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
     self.hr = [timeArray[0] intValue]%12;
     self.min = [timeArray[1] intValue];
     self.sec = [timeArray[2] intValue];
-    NSLog(@"%02d:%02d:%02d",self.hr,self.min,self.sec);
+//    NSLog(@"%02d:%02d:%02d",self.hr,self.min,self.sec);
     // 按下設定
     if (self.hr==self.set_hr && self.min==self.set_min && self.isAlarm)
     {
@@ -122,20 +115,6 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
         [self.bgPlayer play];
         [url release];
     }
-}
-
--(void)locationManager:(CLLocationManager *)manager
-   didUpdateToLocation:(CLLocation *)newLocation
-          fromLocation:(CLLocation *)oldLocation
-{
-    NSString *currentLatitude = [[NSString alloc]
-                                 initWithFormat:@"%+.6f",
-                                 newLocation.coordinate.latitude];
-//    NSLog(@"%@",currentLatitude);
-    [self countUp];
-    if (_startLocation == nil)
-        _startLocation = newLocation;
-    
 }
 
 #pragma mark - for Facebook

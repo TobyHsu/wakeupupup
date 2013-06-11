@@ -27,6 +27,10 @@
 		8B73020B176067E100026E1F /* BadgeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B73020A176067E100026E1F /* BadgeConditionViewController.m */; };
 		8B7E41141766A4E2002E8930 /* setting_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E41121766A4E2002E8930 /* setting_bar@2x.png */; };
 		8B7E41151766A4E2002E8930 /* setting_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E41131766A4E2002E8930 /* setting_02.png */; };
+		8B7E412017679392002E8930 /* change_alarm_L.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E411E17679392002E8930 /* change_alarm_L.png */; };
+		8B7E412117679392002E8930 /* change_alarm_R.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E411F17679392002E8930 /* change_alarm_R.png */; };
+		8B7E4123176793A4002E8930 /* set_alarm_set.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E4122176793A4002E8930 /* set_alarm_set.png */; };
+		8B7E4125176793E9002E8930 /* alarm_spirit.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E4124176793E9002E8930 /* alarm_spirit.png */; };
 		8BB4B7B5175E62E60037CBB8 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4B7B4175E62E60037CBB8 /* AlarmViewController.m */; };
 		8BB4B7B7175E765B0037CBB8 /* set_alarm_bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4B7B6175E765B0037CBB8 /* set_alarm_bg1.png */; };
 		A612043A17631A120082D519 /* CalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A612043917631A120082D519 /* CalendarViewCell.m */; };
@@ -91,15 +95,12 @@
 		A69BC311174BA1A3006AE7FE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69BC2FF174BA135006AE7FE /* SystemConfiguration.framework */; };
 		A6AAFEF0175B5DCC00B07CD7 /* alarm_hole-02.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AAFEE3175B5DCC00B07CD7 /* alarm_hole-02.png */; };
 		A6AAFEF1175B5DCC00B07CD7 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AAFEE4175B5DCC00B07CD7 /* back@2x.png */; };
-		A6AAFEF2175B5DCC00B07CD7 /* change_alarm_L.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AAFEE5175B5DCC00B07CD7 /* change_alarm_L.png */; };
-		A6AAFEF3175B5DCC00B07CD7 /* change_alarm_R.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AAFEE6175B5DCC00B07CD7 /* change_alarm_R.png */; };
 		A6AAFEF4175B5DCC00B07CD7 /* set_alarm_alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AAFEE7175B5DCC00B07CD7 /* set_alarm_alarm.png */; };
 		A6AAFEF5175B5DCC00B07CD7 /* set_alarm_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AAFEE8175B5DCC00B07CD7 /* set_alarm_bar@2x.png */; };
 		A6AAFEF6175B5DCC00B07CD7 /* set_alarm_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AAFEE9175B5DCC00B07CD7 /* set_alarm_bg.png */; };
 		A6AAFEF7175B5DCC00B07CD7 /* set_alarm_hr.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AAFEEA175B5DCC00B07CD7 /* set_alarm_hr.png */; };
 		A6AAFEF8175B5DCC00B07CD7 /* set_alarm_min.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AAFEEB175B5DCC00B07CD7 /* set_alarm_min.png */; };
 		A6AAFEF9175B5DCC00B07CD7 /* set_alarm_sec.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AAFEEC175B5DCC00B07CD7 /* set_alarm_sec.png */; };
-		A6AAFEFA175B5DCC00B07CD7 /* set_alarm_set.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AAFEED175B5DCC00B07CD7 /* set_alarm_set.png */; };
 		A6AAFEFB175B5DCC00B07CD7 /* set_alarm_start.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AAFEEE175B5DCC00B07CD7 /* set_alarm_start.png */; };
 		A6B2797017524ABA00895ACC /* room_alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B2796417524ABA00895ACC /* room_alarm.png */; };
 		A6B2797117524ABA00895ACC /* room_b.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B2796517524ABA00895ACC /* room_b.png */; };
@@ -182,6 +183,10 @@
 		8B73020A176067E100026E1F /* BadgeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeConditionViewController.m; sourceTree = "<group>"; };
 		8B7E41121766A4E2002E8930 /* setting_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting_bar@2x.png"; sourceTree = "<group>"; };
 		8B7E41131766A4E2002E8930 /* setting_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_02.png; sourceTree = "<group>"; };
+		8B7E411E17679392002E8930 /* change_alarm_L.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change_alarm_L.png; sourceTree = "<group>"; };
+		8B7E411F17679392002E8930 /* change_alarm_R.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change_alarm_R.png; sourceTree = "<group>"; };
+		8B7E4122176793A4002E8930 /* set_alarm_set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_alarm_set.png; sourceTree = "<group>"; };
+		8B7E4124176793E9002E8930 /* alarm_spirit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm_spirit.png; sourceTree = "<group>"; };
 		8BB4B7B3175E62E60037CBB8 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
 		8BB4B7B4175E62E60037CBB8 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
 		8BB4B7B6175E765B0037CBB8 /* set_alarm_bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_alarm_bg1.png; sourceTree = "<group>"; };
@@ -265,15 +270,12 @@
 		A69BC2FF174BA135006AE7FE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A6AAFEE3175B5DCC00B07CD7 /* alarm_hole-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarm_hole-02.png"; sourceTree = "<group>"; };
 		A6AAFEE4175B5DCC00B07CD7 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
-		A6AAFEE5175B5DCC00B07CD7 /* change_alarm_L.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change_alarm_L.png; sourceTree = "<group>"; };
-		A6AAFEE6175B5DCC00B07CD7 /* change_alarm_R.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change_alarm_R.png; sourceTree = "<group>"; };
 		A6AAFEE7175B5DCC00B07CD7 /* set_alarm_alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_alarm_alarm.png; sourceTree = "<group>"; };
 		A6AAFEE8175B5DCC00B07CD7 /* set_alarm_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "set_alarm_bar@2x.png"; sourceTree = "<group>"; };
 		A6AAFEE9175B5DCC00B07CD7 /* set_alarm_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_alarm_bg.png; sourceTree = "<group>"; };
 		A6AAFEEA175B5DCC00B07CD7 /* set_alarm_hr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_alarm_hr.png; sourceTree = "<group>"; };
 		A6AAFEEB175B5DCC00B07CD7 /* set_alarm_min.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_alarm_min.png; sourceTree = "<group>"; };
 		A6AAFEEC175B5DCC00B07CD7 /* set_alarm_sec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_alarm_sec.png; sourceTree = "<group>"; };
-		A6AAFEED175B5DCC00B07CD7 /* set_alarm_set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_alarm_set.png; sourceTree = "<group>"; };
 		A6AAFEEE175B5DCC00B07CD7 /* set_alarm_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_alarm_start.png; sourceTree = "<group>"; };
 		A6B2796417524ABA00895ACC /* room_alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_alarm.png; sourceTree = "<group>"; };
 		A6B2796517524ABA00895ACC /* room_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room_b.png; sourceTree = "<group>"; };
@@ -547,16 +549,17 @@
 			children = (
 				A6AAFEE3175B5DCC00B07CD7 /* alarm_hole-02.png */,
 				A6AAFEE4175B5DCC00B07CD7 /* back@2x.png */,
-				A6AAFEE5175B5DCC00B07CD7 /* change_alarm_L.png */,
 				8BB4B7B6175E765B0037CBB8 /* set_alarm_bg1.png */,
-				A6AAFEE6175B5DCC00B07CD7 /* change_alarm_R.png */,
+				8B7E411E17679392002E8930 /* change_alarm_L.png */,
+				8B7E411F17679392002E8930 /* change_alarm_R.png */,
 				A6AAFEE7175B5DCC00B07CD7 /* set_alarm_alarm.png */,
+				8B7E4124176793E9002E8930 /* alarm_spirit.png */,
+				8B7E4122176793A4002E8930 /* set_alarm_set.png */,
 				A6AAFEE8175B5DCC00B07CD7 /* set_alarm_bar@2x.png */,
 				A6AAFEE9175B5DCC00B07CD7 /* set_alarm_bg.png */,
 				A6AAFEEA175B5DCC00B07CD7 /* set_alarm_hr.png */,
 				A6AAFEEB175B5DCC00B07CD7 /* set_alarm_min.png */,
 				A6AAFEEC175B5DCC00B07CD7 /* set_alarm_sec.png */,
-				A6AAFEED175B5DCC00B07CD7 /* set_alarm_set.png */,
 				A6AAFEEE175B5DCC00B07CD7 /* set_alarm_start.png */,
 			);
 			path = "story_set alarm";
@@ -836,15 +839,12 @@
 				A6DBC913175A166000393671 /* eyewh-r.png in Resources */,
 				A6AAFEF0175B5DCC00B07CD7 /* alarm_hole-02.png in Resources */,
 				A6AAFEF1175B5DCC00B07CD7 /* back@2x.png in Resources */,
-				A6AAFEF2175B5DCC00B07CD7 /* change_alarm_L.png in Resources */,
-				A6AAFEF3175B5DCC00B07CD7 /* change_alarm_R.png in Resources */,
 				A6AAFEF4175B5DCC00B07CD7 /* set_alarm_alarm.png in Resources */,
 				A6AAFEF5175B5DCC00B07CD7 /* set_alarm_bar@2x.png in Resources */,
 				A6AAFEF6175B5DCC00B07CD7 /* set_alarm_bg.png in Resources */,
 				A6AAFEF7175B5DCC00B07CD7 /* set_alarm_hr.png in Resources */,
 				A6AAFEF8175B5DCC00B07CD7 /* set_alarm_min.png in Resources */,
 				A6AAFEF9175B5DCC00B07CD7 /* set_alarm_sec.png in Resources */,
-				A6AAFEFA175B5DCC00B07CD7 /* set_alarm_set.png in Resources */,
 				A6AAFEFB175B5DCC00B07CD7 /* set_alarm_start.png in Resources */,
 				8BB4B7B7175E765B0037CBB8 /* set_alarm_bg1.png in Resources */,
 				8B6942BB175F5DD9009878DD /* back.mp3 in Resources */,
@@ -901,6 +901,10 @@
 				A638A8AD17676FFC004B3844 /* progress0.png in Resources */,
 				A638A8AE17676FFC004B3844 /* progress1.png in Resources */,
 				A638A8B617677BDD004B3844 /* down_w.png in Resources */,
+				8B7E412017679392002E8930 /* change_alarm_L.png in Resources */,
+				8B7E412117679392002E8930 /* change_alarm_R.png in Resources */,
+				8B7E4123176793A4002E8930 /* set_alarm_set.png in Resources */,
+				8B7E4125176793E9002E8930 /* alarm_spirit.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

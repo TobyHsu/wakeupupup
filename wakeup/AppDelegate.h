@@ -12,7 +12,7 @@
 
 extern NSString *const FBSessionStateChangedNotification;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     UIBackgroundTaskIdentifier bgTask;
 }
@@ -28,6 +28,4 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (nonatomic)int hr,min,sec;
 @property (nonatomic)float degree;
 
-@property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) CLLocation *startLocation;
 @end
