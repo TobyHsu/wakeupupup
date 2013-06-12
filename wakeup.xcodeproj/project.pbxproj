@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B22098517689FA10091C082 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B22098417689FA10091C082 /* MainStoryboard.storyboard */; };
+		8B22098717689FBB0091C082 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B22098617689FBB0091C082 /* MainStoryboard.storyboard */; };
 		8B43DC62176041A8007DB620 /* BadgeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B43DC61176041A8007DB620 /* BadgeCollectionCell.m */; };
 		8B69428B175F5CB3009878DD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B69428A175F5CB3009878DD /* AVFoundation.framework */; };
 		8B6942BB175F5DD9009878DD /* back.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942AC175F5DD9009878DD /* back.mp3 */; };
@@ -74,7 +76,6 @@
 		A65238CF173A4DEA0030BDC7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A65238CE173A4DEA0030BDC7 /* Default.png */; };
 		A65238D1173A4DEA0030BDC7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A65238D0173A4DEA0030BDC7 /* Default@2x.png */; };
 		A65238D3173A4DEA0030BDC7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A65238D2173A4DEA0030BDC7 /* Default-568h@2x.png */; };
-		A65238D6173A4DEA0030BDC7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A65238D4173A4DEA0030BDC7 /* MainStoryboard.storyboard */; };
 		A65238D9173A4DEA0030BDC7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A65238D8173A4DEA0030BDC7 /* ViewController.m */; };
 		A65256861764C8DB007B05E9 /* CalHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A65256851764C8DB007B05E9 /* CalHeaderView.xib */; };
 		A679B2951753AA3D00A01CB0 /* PCLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A679B28B1753987900A01CB0 /* PCLineChartView.m */; };
@@ -162,6 +163,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B22098417689FA10091C082 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = wakeup/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		8B22098617689FBB0091C082 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8B43DC60176041A8007DB620 /* BadgeCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeCollectionCell.h; sourceTree = "<group>"; };
 		8B43DC61176041A8007DB620 /* BadgeCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeCollectionCell.m; sourceTree = "<group>"; };
 		8B69428A175F5CB3009878DD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -243,7 +246,6 @@
 		A65238CE173A4DEA0030BDC7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A65238D0173A4DEA0030BDC7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A65238D2173A4DEA0030BDC7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		A65238D5173A4DEA0030BDC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A65238D7173A4DEA0030BDC7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A65238D8173A4DEA0030BDC7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A65256851764C8DB007B05E9 /* CalHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalHeaderView.xib; path = ../CalHeaderView.xib; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 		A65238B0173A4DEA0030BDC7 = {
 			isa = PBXGroup;
 			children = (
+				8B22098417689FA10091C082 /* MainStoryboard.storyboard */,
 				A65238C2173A4DEA0030BDC7 /* wakeup */,
 				A60B4EDB17506D2F00CE9DAD /* src */,
 				A65238BB173A4DEA0030BDC7 /* Frameworks */,
@@ -514,8 +517,8 @@
 				A65238CC173A4DEA0030BDC7 /* AppDelegate.m */,
 				8BB4B7B3175E62E60037CBB8 /* AlarmViewController.h */,
 				8BB4B7B4175E62E60037CBB8 /* AlarmViewController.m */,
-				A65238D4173A4DEA0030BDC7 /* MainStoryboard.storyboard */,
 				A639E4FF17563FCB005044EA /* SettingViewController.h */,
+				8B22098617689FBB0091C082 /* MainStoryboard.storyboard */,
 				A639E50017563FCB005044EA /* SettingViewController.m */,
 				A65238D7173A4DEA0030BDC7 /* ViewController.h */,
 				A65238D8173A4DEA0030BDC7 /* ViewController.m */,
@@ -810,7 +813,7 @@
 				A65238CF173A4DEA0030BDC7 /* Default.png in Resources */,
 				A65238D1173A4DEA0030BDC7 /* Default@2x.png in Resources */,
 				A65238D3173A4DEA0030BDC7 /* Default-568h@2x.png in Resources */,
-				A65238D6173A4DEA0030BDC7 /* MainStoryboard.storyboard in Resources */,
+				8B22098517689FA10091C082 /* MainStoryboard.storyboard in Resources */,
 				A6B2797017524ABA00895ACC /* room_alarm.png in Resources */,
 				A6B2797117524ABA00895ACC /* room_b.png in Resources */,
 				A6B2797217524ABA00895ACC /* room_bg.png in Resources */,
@@ -909,6 +912,7 @@
 				8B7E4123176793A4002E8930 /* set_alarm_set.png in Resources */,
 				8B7E4125176793E9002E8930 /* alarm_spirit.png in Resources */,
 				A63E0A7B1768838A003A3A04 /* BadgeHeaderView.xib in Resources */,
+				8B22098717689FBB0091C082 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,14 +965,6 @@
 				A65238C6173A4DEA0030BDC7 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A65238D4173A4DEA0030BDC7 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A65238D5173A4DEA0030BDC7 /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
