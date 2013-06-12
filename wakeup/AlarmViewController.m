@@ -103,7 +103,7 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.isAlarm = NO;
     BrainHoleViewController *brainhole_vc = [self.storyboard instantiateViewControllerWithIdentifier:@"GamePage"];
-    [self.navigationController pushViewController:brainhole_vc animated:YES];
+    [self.navigationController pushViewController:brainhole_vc animated:NO];
 }
 
 CGFloat DegreesToRadians(CGFloat degrees)
@@ -189,7 +189,8 @@ CGFloat DegreesToRadians(CGFloat degrees)
         scheduledAlert = [[[UILocalNotification alloc] init] autorelease];
         scheduledAlert.fireDate = [NSDate dateWithTimeIntervalSinceNow:timeDifference];
         scheduledAlert.timeZone = [NSTimeZone defaultTimeZone];
-        scheduledAlert.repeatInterval =  NSDayCalendarUnit;
+        scheduledAlert.repeatInterval =  kCFCalendarUnitMinute;
+        scheduledAlert.soundName = @"get up7.mp3";
         scheduledAlert.alertBody = @"Dumb way to wake.";
         [[UIApplication sharedApplication] scheduleLocalNotification:scheduledAlert];
     }

@@ -179,7 +179,7 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.isAlarm = NO;
     BrainHoleViewController *brainhole_vc = [self.storyboard instantiateViewControllerWithIdentifier:@"GamePage"];
-    [self.navigationController pushViewController:brainhole_vc animated:YES];
+    [self.navigationController pushViewController:brainhole_vc animated:NO];
 }
 
 @end
