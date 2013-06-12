@@ -61,6 +61,12 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    if (self.hr==self.set_hr && self.min==self.set_min && self.isAlarm)
+    {
+        [self Alarm];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"appDidBecomeActive" object:nil];
+        _isAlarm = NO;
+    }
     [FBSession.activeSession handleDidBecomeActive];
 }
 
@@ -85,28 +91,13 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
     self.sec = [timeArray[2] intValue];
 //    NSLog(@"%02d:%02d:%02d",self.hr,self.min,self.sec);
     // 按下設定
-    if (self.hr==self.set_hr && self.min==self.set_min && self.isAlarm)
-    {
-        [self Alarm];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"appDidBecomeActive" object:nil];
-        _isAlarm = NO;
-    }
 }
 
 - (void)Alarm
 {
     if (self.isAlarm)
     {
-        UILocalNotification *scheduledAlert;
-        [[UIApplication sharedApplication] cancelAllLocalNotifications];
-        scheduledAlert = [[[UILocalNotification alloc] init] autorelease];
-        scheduledAlert.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
-        scheduledAlert.timeZone = [NSTimeZone defaultTimeZone];
-        scheduledAlert.repeatInterval =  NSDayCalendarUnit;
-        scheduledAlert.alertBody = @"Dumb way to wake.";
-        [[UIApplication sharedApplication] scheduleLocalNotification:scheduledAlert];
-        NSLog(@"time up. Please play this game.");
-        
+        NSLog(@"time up. Please play this game.");        
         NSURL* url = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"back4" ofType:@"mp3"]];
         //與音樂檔案做連結
         NSError* error = nil;

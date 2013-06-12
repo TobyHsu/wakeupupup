@@ -99,7 +99,7 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.isAlarm = NO;
     BrainHoleViewController *brainhole_vc = [self.storyboard instantiateViewControllerWithIdentifier:@"GamePage"];
-    [self.navigationController pushViewController:brainhole_vc animated:YES];
+    [self.navigationController pushViewController:brainhole_vc animated:NO];
 }
 
 - (void)dealloc {
@@ -111,6 +111,7 @@
     [_setting release];
     [_random_timer invalidate];
     [_itemlist release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
 

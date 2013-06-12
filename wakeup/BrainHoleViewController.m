@@ -43,8 +43,9 @@
                                                 selector:@selector(counting)
                                                 userInfo:nil
                                                  repeats:YES];
-    
     audioArray = [[NSArray alloc] initWithObjects:@"laughing2",@"get up7", nil];
+            qq++;
+    NSLog(@"%d次",qq);
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -67,6 +68,10 @@
 
 - (void)dealloc {
     [_eye release];
+    [levelup_timer invalidate];
+    [game_timer invalidate];
+    [check_timer invalidate];
+    [audioPlayer release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }

@@ -54,12 +54,12 @@
     [self.alarm_sec.layer setAnchorPoint:CGPointMake(0.5,0.1)];
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.isAlarm = NO;
+    //    appDelegate.isAlarm = NO;
     timer=[NSTimer scheduledTimerWithTimeInterval:0.03
-                                                       target:self
-                                                     selector:@selector(countUp)
-                                                     userInfo:nil
-                                                      repeats:YES];
+                                           target:self
+                                         selector:@selector(countUp)
+                                         userInfo:nil
+                                          repeats:YES];
     self.label_alarm_time.text = [NSString stringWithFormat:@"%02d:%02d",appDelegate.set_hr,appDelegate.set_min];
     
     
@@ -70,10 +70,10 @@
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     
     // notification後進入遊戲
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(Game:)
-                                                     name:@"appDidBecomeActive"
-                                                   object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(Game:)
+                                                 name:@"appDidBecomeActive"
+                                               object:nil];
     
     self.alarm_alarm.transform = CGAffineTransformMakeRotation(DegreesToRadians((appDelegate.set_hr%12*60.0+appDelegate.set_min)*0.5+180));
     self.set.transform= CGAffineTransformMakeRotation(DegreesToRadians((appDelegate.set_hr%12*60.0+appDelegate.set_min)*0.5+180));
@@ -87,7 +87,7 @@
     // 之後要讀sqlite user table的cid
     alarm_index=0;
     [self.alarm setImage:[UIImage imageNamed:[alarm_img objectAtIndex:alarm_index]]];
-
+    
 }
 
 - (void)countUp {
@@ -131,6 +131,7 @@ CGFloat DegreesToRadians(CGFloat degrees)
     [timer invalidate];
     [_next_alarm release];
     [_prev_alarm release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
 - (IBAction)alarm_pan:(UIPanGestureRecognizer *)sender {
@@ -165,9 +166,33 @@ CGFloat DegreesToRadians(CGFloat degrees)
     flag = YES;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.isAlarm = YES;
-     NSLog(@"%02d:%02d",appDelegate.set_hr,appDelegate.set_min);
-    // 背景執行Code
-    //    [[UIApplication sharedApplication] endBackgroundTask:counterTask];
+    NSLog(@"%02d:%02d",appDelegate.set_hr,appDelegate.set_min);
+    
+    NSDateFormatter* dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    [dateFormatter setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"] autorelease]];
+    [dateFormatter setDateFormat:@"HH:mm:ss"];
+    
+    NSDate* firstDate = [dateFormatter dateFromString:[NSString stringWithFormat:@"%02d:%02d:%02d",appDelegate.hr,appDelegate.min,appDelegate.sec]];
+    NSDate* secondDate = [dateFormatter dateFromString:[NSString stringWithFormat:@"%02d:%02d:00",appDelegate.set_hr,appDelegate.set_min]];
+    NSTimeInterval timeDifference = [secondDate timeIntervalSinceDate:firstDate];
+    NSLog(@"%f",timeDifference);
+    if (appDelegate.set_hr==appDelegate.hr && appDelegate.set_min==appDelegate.min)
+    {
+        [appDelegate Alarm];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"appDidBecomeActive" object:nil];
+        appDelegate.isAlarm = NO;
+    }
+    else
+    {
+        UILocalNotification *scheduledAlert;
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        scheduledAlert = [[[UILocalNotification alloc] init] autorelease];
+        scheduledAlert.fireDate = [NSDate dateWithTimeIntervalSinceNow:timeDifference];
+        scheduledAlert.timeZone = [NSTimeZone defaultTimeZone];
+        scheduledAlert.repeatInterval =  NSDayCalendarUnit;
+        scheduledAlert.alertBody = @"Dumb way to wake.";
+        [[UIApplication sharedApplication] scheduleLocalNotification:scheduledAlert];
+    }
 }
 
 - (IBAction)next_alarmClick:(UIButton *)sender {
@@ -176,7 +201,7 @@ CGFloat DegreesToRadians(CGFloat degrees)
     else
         alarm_index = [alarm_img count]-1;
     [self.alarm setImage:[UIImage imageNamed:[alarm_img objectAtIndex:alarm_index]]];
-
+    
 }
 
 - (IBAction)prev_alarmClick:(UIButton *)sender {
@@ -185,6 +210,6 @@ CGFloat DegreesToRadians(CGFloat degrees)
     else
         alarm_index =0;
     [self.alarm setImage:[UIImage imageNamed:[alarm_img objectAtIndex:alarm_index]]];
-
+    
 }
 @end
