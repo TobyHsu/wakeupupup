@@ -38,9 +38,9 @@
 	// Do any additional setup after loading the view.
     UINavigationBar *navBar = [self.navigationController navigationBar];
     [navBar setBackgroundImage:[UIImage imageNamed:@"badge_bar.png"] forBarMetrics:UIBarMetricsDefault];
-#warning Rewrite using nib    
-    // 註冊一個 class 給 header 用
-    [self.collectionView registerClass:[BadgeHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BadgeHeaderView"];
+    // 註冊一個 nib 給 header 用
+    [self.collectionView registerClass:[BadgeHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BadgeHeader"];
+//    [self.collectionView registerNib:[UINib nibWithNibName:@"BadgeHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"BadgeHeader"];
     
     // sqlite get badge ids
     _person_id = [[NSMutableArray alloc] initWithObjects: nil];
@@ -138,14 +138,18 @@
     }
 }
 
+
+
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    BadgeHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"BadgeHeaderView"forIndexPath:indexPath];
+    BadgeHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"BadgeHeader" forIndexPath:indexPath];
+    
     if([kind isEqualToString:UICollectionElementKindSectionHeader]){
         if(indexPath.section == 0)  // 對不同 section 的 header 設定
-            headerView.title.text = @"PERSON BADGE";
-        else if (indexPath.section==1)
-            headerView.title.text = @"ANIMAL BADGE";
-        else
+            headerView.title.text = @"世界公民";
+        else if (indexPath.section == 1) {
+            headerView.title.text = @"可愛動物";
+        NSLog(@"at sec %d",indexPath.section);
+        } else
             headerView.title.text = @"?????";
     }
     return headerView;

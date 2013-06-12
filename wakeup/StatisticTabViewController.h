@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StatisticTabViewController : UITabBarController
-
+@interface StatisticTabViewController : UITabBarController <UITabBarControllerDelegate>
+@property (nonatomic) NSUInteger cur_tab;
 @end

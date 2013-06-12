@@ -21,7 +21,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.tabBarItem.image = [UIImage imageNamed:@"statistics_tab_sleep1.png"];
     }
     return self;
 }
@@ -49,7 +48,8 @@
     
     [item0 setFinishedSelectedImage:selectedImage0 withFinishedUnselectedImage:unselectedImage0];
     [item1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:unselectedImage1];
-    
+    //_record.tab_index = _cur_tab;
+    NSLog(@"cur_tab: %d",_cur_tab);
     [self.record init];
 
     // notification後進入遊戲
