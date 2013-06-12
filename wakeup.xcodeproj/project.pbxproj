@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B22098517689FA10091C082 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B22098417689FA10091C082 /* MainStoryboard.storyboard */; };
 		8B22098717689FBB0091C082 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B22098617689FBB0091C082 /* MainStoryboard.storyboard */; };
+		8B2209891768AE930091C082 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2209881768AE930091C082 /* MediaPlayer.framework */; };
 		8B43DC62176041A8007DB620 /* BadgeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B43DC61176041A8007DB620 /* BadgeCollectionCell.m */; };
 		8B69428B175F5CB3009878DD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B69428A175F5CB3009878DD /* AVFoundation.framework */; };
 		8B6942BB175F5DD9009878DD /* back.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B6942AC175F5DD9009878DD /* back.mp3 */; };
@@ -163,8 +163,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8B22098417689FA10091C082 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = wakeup/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8B22098617689FBB0091C082 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		8B2209881768AE930091C082 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		8B43DC60176041A8007DB620 /* BadgeCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeCollectionCell.h; sourceTree = "<group>"; };
 		8B43DC61176041A8007DB620 /* BadgeCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeCollectionCell.m; sourceTree = "<group>"; };
 		8B69428A175F5CB3009878DD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -355,6 +355,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B2209891768AE930091C082 /* MediaPlayer.framework in Frameworks */,
 				8B69428B175F5CB3009878DD /* AVFoundation.framework in Frameworks */,
 				A639E4FB1756378E005044EA /* Accounts.framework in Frameworks */,
 				A639E4FC1756378E005044EA /* AdSupport.framework in Frameworks */,
@@ -461,7 +462,7 @@
 		A65238B0173A4DEA0030BDC7 = {
 			isa = PBXGroup;
 			children = (
-				8B22098417689FA10091C082 /* MainStoryboard.storyboard */,
+				8B2209881768AE930091C082 /* MediaPlayer.framework */,
 				A65238C2173A4DEA0030BDC7 /* wakeup */,
 				A60B4EDB17506D2F00CE9DAD /* src */,
 				A65238BB173A4DEA0030BDC7 /* Frameworks */,
@@ -813,7 +814,6 @@
 				A65238CF173A4DEA0030BDC7 /* Default.png in Resources */,
 				A65238D1173A4DEA0030BDC7 /* Default@2x.png in Resources */,
 				A65238D3173A4DEA0030BDC7 /* Default-568h@2x.png in Resources */,
-				8B22098517689FA10091C082 /* MainStoryboard.storyboard in Resources */,
 				A6B2797017524ABA00895ACC /* room_alarm.png in Resources */,
 				A6B2797117524ABA00895ACC /* room_b.png in Resources */,
 				A6B2797217524ABA00895ACC /* room_bg.png in Resources */,

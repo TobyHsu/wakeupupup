@@ -11,6 +11,7 @@
 #import "BrainHoleViewController.h"
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface AlarmViewController ()
 
@@ -176,23 +177,23 @@ CGFloat DegreesToRadians(CGFloat degrees)
     NSDate* secondDate = [dateFormatter dateFromString:[NSString stringWithFormat:@"%02d:%02d:00",appDelegate.set_hr,appDelegate.set_min]];
     NSTimeInterval timeDifference = [secondDate timeIntervalSinceDate:firstDate];
     NSLog(@"%f",timeDifference);
-    if (appDelegate.set_hr==appDelegate.hr && appDelegate.set_min==appDelegate.min)
+    if (appDelegate.set_hr==appDelegate.hr && appDelegate.set_min<=appDelegate.min)
     {
         [appDelegate Alarm];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"appDidBecomeActive" object:nil];
+        [[UIApplication sharedApplication] cancelLocalNotification:appDelegate.scheduledAlert];
         appDelegate.isAlarm = NO;
     }
     else
     {
-        UILocalNotification *scheduledAlert;
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
-        scheduledAlert = [[[UILocalNotification alloc] init] autorelease];
-        scheduledAlert.fireDate = [NSDate dateWithTimeIntervalSinceNow:timeDifference];
-        scheduledAlert.timeZone = [NSTimeZone defaultTimeZone];
-        scheduledAlert.repeatInterval =  kCFCalendarUnitMinute;
-        scheduledAlert.soundName = @"get up7.mp3";
-        scheduledAlert.alertBody = @"Dumb way to wake.";
-        [[UIApplication sharedApplication] scheduleLocalNotification:scheduledAlert];
+        appDelegate.scheduledAlert = [[[UILocalNotification alloc] init] autorelease];
+        appDelegate.scheduledAlert.fireDate = [NSDate dateWithTimeIntervalSinceNow:timeDifference];
+        appDelegate.scheduledAlert.timeZone = [NSTimeZone defaultTimeZone];
+        appDelegate.scheduledAlert.repeatInterval =  kCFCalendarUnitMinute;
+        appDelegate.scheduledAlert.soundName = @"get up7.mp3";
+        appDelegate.scheduledAlert.alertBody = @"Dumb way to wake.";
+        [[UIApplication sharedApplication] scheduleLocalNotification:appDelegate.scheduledAlert];
     }
 }
 

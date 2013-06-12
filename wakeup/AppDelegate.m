@@ -56,17 +56,18 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    if (self.hr==self.set_hr && self.min>=self.set_min && self.isAlarm)
+    {
+        [self Alarm];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"appDidBecomeActive" object:nil];
+        [[UIApplication sharedApplication] cancelLocalNotification:_scheduledAlert];
+        _isAlarm = NO;
+    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    if (self.hr==self.set_hr && self.min==self.set_min && self.isAlarm)
-    {
-        [self Alarm];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"appDidBecomeActive" object:nil];
-        _isAlarm = NO;
-    }
     [FBSession.activeSession handleDidBecomeActive];
 }
 

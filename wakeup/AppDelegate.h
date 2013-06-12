@@ -27,5 +27,6 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (nonatomic)int set_hr,set_min;
 @property (nonatomic)int hr,min,sec;
 @property (nonatomic)float degree;
+@property (strong,nonatomic)UILocalNotification *scheduledAlert;
 
 @end
