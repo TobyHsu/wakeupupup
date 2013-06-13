@@ -31,7 +31,7 @@
 //        [horizontalLine release];
         
         _badge_type = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
-        [_badge_type setCenter:CGPointMake(frame.size.width/2,frame.size.height/2+10)];
+        [_badge_type setCenter:CGPointMake( frame.size.width/2,frame.size.height/2+10)];
         [self addSubview:_badge_type];
 
         

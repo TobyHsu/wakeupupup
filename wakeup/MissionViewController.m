@@ -39,6 +39,11 @@
     // 設定透明
     //navBar.translucent = YES;
     
+    // 開始撈有哪些 mission
+    //    PFQuery *qq = [PFQuery queryWithClassName:@"MISSION"];
+    //    self.obj_ar = [qq findObjects];
+    //    NSLog(@"%d,%@",[self.obj_ar count],[[self.obj_ar objectAtIndex:0] objectForKey:@"name"]);
+    
     //    sqlite get mission ids
     _mission = [[NSMutableArray alloc] initWithObjects: nil];
     FMResultSet *rs = nil;
