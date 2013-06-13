@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
+
 
 @interface ViewController : UIViewController
 @property (retain, nonatomic) IBOutlet UIImageView *window;
@@ -16,7 +16,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *theme;
 @property (retain, nonatomic) IBOutlet UIButton *calendar;
 @property (retain, nonatomic) IBOutlet UIButton *setting;
-@property (retain, nonatomic) IBOutlet NSTimer *random_timer;
-@property (retain, nonatomic) IBOutlet NSArray *itemlist;
+@property (retain, nonatomic) NSTimer *random_timer;
+@property (retain, nonatomic) NSArray *itemlist;
 
 @end

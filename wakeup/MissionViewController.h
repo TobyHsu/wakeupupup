@@ -8,7 +8,7 @@
 
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
+
 @interface MissionViewController : UICollectionViewController
 @property (nonatomic,strong) NSMutableArray* mission;
 @end

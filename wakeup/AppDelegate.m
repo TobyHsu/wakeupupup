@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <Parse/Parse.h>
 #import "BrainHoleViewController.h"
 
 @implementation AppDelegate
@@ -16,10 +15,10 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    [Parse setApplicationId:@"Lt4GQIlip844mLxgisvyxSUf0TBDISc9VErFtAF1"
-                  clientKey:@"Eca3LRilxEUhylc89f6CJIZQoYmbsX7vl808xk2k"];
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+//    // Override point for customization after application launch.
+//    [Parse setApplicationId:@"Lt4GQIlip844mLxgisvyxSUf0TBDISc9VErFtAF1"
+//                  clientKey:@"Eca3LRilxEUhylc89f6CJIZQoYmbsX7vl808xk2k"];
+//    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     self.set_min=0;
     self.set_hr=6;

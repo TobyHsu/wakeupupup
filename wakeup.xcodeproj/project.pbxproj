@@ -37,7 +37,6 @@
 		8BB4B7B7175E765B0037CBB8 /* set_alarm_bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4B7B6175E765B0037CBB8 /* set_alarm_bg1.png */; };
 		A612043A17631A120082D519 /* CalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A612043917631A120082D519 /* CalendarViewCell.m */; };
 		A612043D176337650082D519 /* BadgeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A612043C176337650082D519 /* BadgeHeaderView.m */; };
-		A638A8AA17671CC5004B3844 /* StatisticTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A638A8A917671CC5004B3844 /* StatisticTabViewController.m */; };
 		A638A8AD17676FFC004B3844 /* progress0.png in Resources */ = {isa = PBXBuildFile; fileRef = A638A8AB17676FFC004B3844 /* progress0.png */; };
 		A638A8AE17676FFC004B3844 /* progress1.png in Resources */ = {isa = PBXBuildFile; fileRef = A638A8AC17676FFC004B3844 /* progress1.png */; };
 		A638A8B1176771C6004B3844 /* CustomMissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A638A8B0176771C6004B3844 /* CustomMissionViewController.m */; };
@@ -192,8 +191,6 @@
 		A612043917631A120082D519 /* CalendarViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewCell.m; sourceTree = "<group>"; };
 		A612043B176337650082D519 /* BadgeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeHeaderView.h; sourceTree = "<group>"; };
 		A612043C176337650082D519 /* BadgeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeHeaderView.m; sourceTree = "<group>"; };
-		A638A8A817671CC5004B3844 /* StatisticTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticTabViewController.h; sourceTree = "<group>"; };
-		A638A8A917671CC5004B3844 /* StatisticTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticTabViewController.m; sourceTree = "<group>"; };
 		A638A8AB17676FFC004B3844 /* progress0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress0.png; sourceTree = "<group>"; };
 		A638A8AC17676FFC004B3844 /* progress1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress1.png; sourceTree = "<group>"; };
 		A638A8AF176771C6004B3844 /* CustomMissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMissionViewController.h; sourceTree = "<group>"; };
@@ -450,7 +447,6 @@
 		A65238B0173A4DEA0030BDC7 = {
 			isa = PBXGroup;
 			children = (
-				8B2209881768AE930091C082 /* MediaPlayer.framework */,
 				A65238C2173A4DEA0030BDC7 /* wakeup */,
 				A60B4EDB17506D2F00CE9DAD /* src */,
 				A65238BB173A4DEA0030BDC7 /* Frameworks */,
@@ -470,6 +466,7 @@
 		A65238BB173A4DEA0030BDC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B2209881768AE930091C082 /* MediaPlayer.framework */,
 				8B69428A175F5CB3009878DD /* AVFoundation.framework */,
 				A639E4F31756376B005044EA /* Accounts.framework */,
 				A639E4F41756376B005044EA /* AdSupport.framework */,
@@ -602,8 +599,6 @@
 				A679B28F175399DF00A01CB0 /* RecordScrollView.m */,
 				A679B29117539BA700A01CB0 /* RecordViewController.h */,
 				A679B29217539BA700A01CB0 /* RecordViewController.m */,
-				A638A8A817671CC5004B3844 /* StatisticTabViewController.h */,
-				A638A8A917671CC5004B3844 /* StatisticTabViewController.m */,
 			);
 			name = Statistics;
 			sourceTree = "<group>";
@@ -926,7 +921,6 @@
 				A6E708AA1761194F00B89091 /* FMResultSet.m in Sources */,
 				A612043A17631A120082D519 /* CalendarViewCell.m in Sources */,
 				A612043D176337650082D519 /* BadgeHeaderView.m in Sources */,
-				A638A8AA17671CC5004B3844 /* StatisticTabViewController.m in Sources */,
 				A638A8B1176771C6004B3844 /* CustomMissionViewController.m in Sources */,
 				A638A8B417677941004B3844 /* CustomMissionPreviewCell.m in Sources */,
 			);

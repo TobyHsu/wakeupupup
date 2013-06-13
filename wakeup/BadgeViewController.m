@@ -77,8 +77,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-//    UINavigationBar *navBar = [self.navigationController navigationBar];
-//    [navBar setBackgroundImage:[UIImage imageNamed:@"badge_bar.png"] forBarMetrics:UIBarMetricsDefault];
+    UINavigationBar *navBar = [self.navigationController navigationBar];
+    [navBar setBackgroundImage:[UIImage imageNamed:@"badge_bar.png"] forBarMetrics:UIBarMetricsDefault];
 
 }
 
