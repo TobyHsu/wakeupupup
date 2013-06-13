@@ -10,7 +10,7 @@
 #import "BadgeHeaderView.h"
 
 #define ITEM_SIZE 80
-#define TOP 70
+#define TOP 50
 
 @implementation CustomViewLayout
 

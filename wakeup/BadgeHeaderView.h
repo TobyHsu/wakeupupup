@@ -10,4 +10,5 @@
 
 @interface BadgeHeaderView : UICollectionReusableView
 @property(atomic,strong) IBOutlet UILabel *title;
+@property(atomic,strong) IBOutlet UIImageView *badge_type;
 @end
