@@ -54,8 +54,8 @@
         NSLog(@"PCL2");
 		[self setBackgroundColor:[UIColor clearColor]];
 		_interval = 2;
-		_maxValue = 12;
-		_minValue = 0;
+//		_maxValue = 12;
+//		_minValue = 0;
 		_yLabelFont = [UIFont boldSystemFontOfSize:14];
 		_xLabelFont = [UIFont boldSystemFontOfSize:12];
 		_valueLabelFont = [UIFont boldSystemFontOfSize:13];

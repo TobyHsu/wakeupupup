@@ -23,6 +23,8 @@
 #warning  how to cahnge month
         if ([self.restorationIdentifier isEqualToString:@"stat1"]) {
             NSLog(@"%d",_tab_index);
+            [_lineChartView setMinValue:0];
+            [_lineChartView setMaxValue:12];
             rs = [DataBase executeQuery:@"SELECT duration_time FROM DAILY_RECORD"];
             while ([rs next])
             {
@@ -33,6 +35,8 @@
             }
         } else if ([self.restorationIdentifier isEqualToString:@"stat2"]) {
             NSLog(@"%d",_tab_index);
+            [_lineChartView setMinValue:18];
+            [_lineChartView setMaxValue:28];
             rs = [DataBase executeQuery:@"SELECT wake_time FROM DAILY_RECORD"];
             while ([rs next])
             {
@@ -49,10 +53,18 @@
         
         // 設定折線圖 view 大小位置 及 y 軸最大最小值
 		self.lineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake(10,50,data_amount*30+100,[self bounds].size.height-80)];
-		[self.lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-		self.lineChartView.minValue = 0;
-		self.lineChartView.maxValue = 12;
-		[self addSubview:self.lineChartView];
+        if ([self.restorationIdentifier isEqualToString:@"stat1"]) {
+            NSLog(@"%d",_tab_index);
+            [_lineChartView setMinValue:0];
+            [_lineChartView setMaxValue:12];
+
+        } else if ([self.restorationIdentifier isEqualToString:@"stat2"]) {
+            NSLog(@"%d",_tab_index);
+            [_lineChartView setMinValue:6];
+            [_lineChartView setMaxValue:12];
+            [_lineChartView setInterval:1];
+        }
+        [self addSubview:_lineChartView];
         
         // 設定 scroll veiw 大小
         [self setContentSize:CGSizeMake(self.lineChartView.frame.size.width, self.lineChartView.frame.size.height)];

@@ -77,8 +77,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    UINavigationBar *navBar = [self.navigationController navigationBar];
-    [navBar setBackgroundImage:[UIImage imageNamed:@"badge_bar.png"] forBarMetrics:UIBarMetricsDefault];
+//    UINavigationBar *navBar = [self.navigationController navigationBar];
+//    [navBar setBackgroundImage:[UIImage imageNamed:@"badge_bar.png"] forBarMetrics:UIBarMetricsDefault];
 
 }
 
@@ -120,13 +120,14 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    NSLog(@"didSelect");
     [self performSegueWithIdentifier:@"ShowDetail" sender:cell]; // 走叫做 ShowDetail 的 segue
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"ShowDetail"]) {
-        NSLog(@"detail");
+        NSLog(@"prepare");
         if ([sender isKindOfClass:[BadgeCollectionCell class]]) { // 確定 sendor 是 cell
             BadgeCollectionCell *cell1 = (BadgeCollectionCell *)sender;
             //将page2设定成Storyboard Segue的目标UIViewController
@@ -144,11 +145,13 @@
     BadgeHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"BadgeHeader" forIndexPath:indexPath];
     
     if([kind isEqualToString:UICollectionElementKindSectionHeader]){
-        if(indexPath.section == 0)  // 對不同 section 的 header 設定
+        if(indexPath.section == 0) { // 對不同 section 的 header 設定
             headerView.title.text = @"世界公民";
-        else if (indexPath.section == 1) {
+            [headerView.badge_type setImage:[UIImage imageNamed:@"person_b.png"]];
+        } else if (indexPath.section == 1) {
             headerView.title.text = @"可愛動物";
-        NSLog(@"at sec %d",indexPath.section);
+            [headerView.badge_type setImage:[UIImage imageNamed:@"animal_b.png"]];
+            //NSLog(@"at sec %d",indexPath.section);
         } else
             headerView.title.text = @"?????";
     }

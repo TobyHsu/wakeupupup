@@ -6,6 +6,7 @@
 //  Copyright (c) 2013年 din1030. All rights reserved.
 //
 
+#import "QuartzCore/QuartzCore.h"
 #import "AppDelegate.h"
 #import "SettingViewController.h"
 
@@ -38,7 +39,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // 設定 nav bar
-    
+#warning navBar background change
     UINavigationBar *navBar = [self.navigationController navigationBar];
     [navBar setBackgroundImage:[UIImage imageNamed:@"setting_bar.png"] forBarMetrics:UIBarMetricsDefault];
     
@@ -53,7 +54,21 @@
     self.timeZone.text = currentTimeZone.abbreviation;
     //NSInteger offset = [currentTimeZone secondsFromGMT];
     //[NSDate dateWithTimeIntervalSince1970:1301322715];
-    #warning Set reminding sleeping time
+    
+#warning Set reminding sleeping time
+    [self prepareData];
+    _setRemindTimePicker = [[UIPickerView alloc] init];
+    _setRemindTimePicker.frame = CGRectMake(0, self.view.frame.size.height/4, 320.0, 162.0);
+    _setRemindTimePicker.transform = CGAffineTransformMakeScale(1.0, 1.0);
+    //setRemindTimePicker.transform = CGAffineTransformMakeTranslation(0, 40);
+    _setRemindTimePicker.delegate = self;
+    _setRemindTimePicker.showsSelectionIndicator = YES;
+    [_setRemindTimePicker selectRow:0 inComponent:0 animated:YES];
+    [_setRemindTimePicker selectRow:0 inComponent:1 animated:YES];
+    [self.view addSubview:_setRemindTimePicker];
+    _setRemindTimePicker.hidden = YES;
+    //_mask.hidden = YES;
+    
     #warning Copyright page
 
 }
@@ -75,7 +90,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 2;
+    return 3;
 }
 
 /* - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -144,6 +159,7 @@
 - (void)dealloc {
     [_fbButton release];
     [_timeZone release];
+    [_mask release];
     [super dealloc];
 }
 
@@ -259,5 +275,64 @@
     [alertView show];
 }
 
+#pragma mark - Picker
 
+//設定滾輪總共有幾個欄位
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
+    return 2;
+}
+
+//設定滾輪總共有幾個項目
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
+    if (component==0) {
+        return [keys count];
+    }else{
+        NSString *key = [keys objectAtIndex:[thePickerView selectedRowInComponent:0]]; // 飲料或甜點
+        NSArray *array = [data objectForKey:key];
+        return [array count];
+    }
+}
+
+- (IBAction)show_picker:(UIButton *)sender {
+//    RoundedRect *roundedRect = [[RoundedRect alloc] initWithFrame:CGRectMake(50.0, 50.0, 120.0, 200.0)];
+//    roundedRect.tag = 1;
+//    roundedRect.clipsToBounds = YES;
+//    [self.view addSubview:roundedRect];
+    
+    UIView *content = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 640.0)];
+    content.backgroundColor = [UIColor blackColor];
+    content.alpha = 0.6;
+    _setRemindTimePicker.hidden = NO;
+    [self.view addSubview:content];
+    [self.view addSubview:_setRemindTimePicker];
+//    UIImage *mask_bar = [UIImage imageNamed:@"setting_bar.png"];
+//    [[self.navigationController navigationBar] setBackgroundImage:mask_bar  forBarMetrics:UIBarMetricsDefault];
+    UINavigationBar *tabBar = [self.navigationController navigationBar];
+    tabBar.alpha = 0.6;
+    [tabBar setUserInteractionEnabled:NO];
+    content.layer.zPosition = 9;
+    _setRemindTimePicker.layer.zPosition = 10;
+}
+
+- (void) prepareData {
+    data = [[NSMutableDictionary alloc] init];
+    [data setValue:[NSArray arrayWithObjects:@"牡羊",@"金牛",@"雙子",@"巨蟹",@"獅子",@"處女",@"天秤",@"天蠍",@"射手",@"摩羯",@"水瓶",@"雙魚",nil] forKey:@"女"];
+    [data setValue:[NSArray arrayWithObjects:@"牡羊",@"金牛",@"雙子",@"巨蟹",@"獅子",@"處女",@"天秤",@"天蠍",@"射手",@"摩羯",@"水瓶",@"雙魚",nil] forKey:@"男"];
+    keys =[[data allKeys]
+           sortedArrayUsingComparator:(NSComparator)^(id obj1,id obj2){
+               return [obj1 caseInsensitiveCompare:obj2];
+           }];
+}
+
+
+//設定滾輪顯示的文字
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    if (component==0) {
+        return[keys objectAtIndex:row];
+    }else{
+        NSString *key = [keys objectAtIndex:[thePickerView selectedRowInComponent:0]]; // 飲料或甜點
+        NSArray *array = [data objectForKey:key];
+        return [array objectAtIndex:row];
+    }
+}
 @end
