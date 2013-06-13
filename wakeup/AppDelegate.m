@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 #import "BrainHoleViewController.h"
 
 @implementation AppDelegate
@@ -15,19 +16,22 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    // Override point for customization after application launch.
-//    [Parse setApplicationId:@"Lt4GQIlip844mLxgisvyxSUf0TBDISc9VErFtAF1"
-//                  clientKey:@"Eca3LRilxEUhylc89f6CJIZQoYmbsX7vl808xk2k"];
-//    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-
+    // Override point for customization after application launch.
+    [Parse setApplicationId:@"Lt4GQIlip844mLxgisvyxSUf0TBDISc9VErFtAF1"
+                  clientKey:@"Eca3LRilxEUhylc89f6CJIZQoYmbsX7vl808xk2k"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    NSLog(@"launch");
     self.set_min=0;
     self.set_hr=6;
     self.degree = -90*(M_PI/180);
+    [self countUp];
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     self.timer=[NSTimer scheduledTimerWithTimeInterval:0.03
                                                 target:self
                                               selector:@selector(countUp)
                                               userInfo:nil
                                                repeats:YES];
+
     return YES;
 }
 
@@ -44,22 +48,27 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+        NSLog(@"active");
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSLog(@"background");
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        NSLog(@"foreground");
     if (self.hr==self.set_hr && self.min>=self.set_min && self.isAlarm)
     {
         [self Alarm];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"appDidBecomeActive" object:nil];
-        [[UIApplication sharedApplication] cancelLocalNotification:_scheduledAlert];
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
         _isAlarm = NO;
     }
 }
@@ -67,12 +76,15 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        NSLog(@"becomeactive");
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     [FBSession.activeSession handleDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    NSLog(@"terminate");
     [FBSession.activeSession close];
 }
 
@@ -86,9 +98,10 @@ NSString *const FBSessionStateChangedNotification = @"din1030.wakeup:FBSessionSt
     [formatter setDateFormat:@"HH:mm:ss"];
     //正規化取得的系統時間並顯示
     NSArray * timeArray = [[formatter stringFromDate:date] componentsSeparatedByString:@":"];
-    self.hr = [timeArray[0] intValue]%12;
+    self.hr = [timeArray[0] intValue];
     self.min = [timeArray[1] intValue];
     self.sec = [timeArray[2] intValue];
+    [formatter release];
 //    NSLog(@"%02d:%02d:%02d",self.hr,self.min,self.sec);
     // 按下設定
 }
