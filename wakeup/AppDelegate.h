@@ -13,9 +13,7 @@
 extern NSString *const FBSessionStateChangedNotification;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-{
-    UIBackgroundTaskIdentifier bgTask;
-}
+
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
 - (void) closeSession;
 - (void) Alarm;

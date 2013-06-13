@@ -31,7 +31,7 @@
                                 <rect key="frame" x="-1" y="0.0" width="321" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="room_day.png" id="HNB-Fw-wKm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="room_w1.png" id="HNB-Fw-wKm">
                                 <rect key="frame" x="-1" y="26" width="143" height="211"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -39,7 +39,7 @@
                                 <rect key="frame" x="41" y="280" width="61" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="room_alarm.png">
+                                <state key="normal" backgroundImage="room_a.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -54,7 +54,7 @@
                                 <rect key="frame" x="140" y="268" width="95" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="room_clender.png">
+                                <state key="normal" backgroundImage="room_c.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -69,7 +69,7 @@
                                 <rect key="frame" x="182" y="153" width="97" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="room_b.png">
+                                <state key="normal" backgroundImage="room_mb.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -84,19 +84,22 @@
                                 <rect key="frame" x="168" y="34" width="124" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="room_myroom.png">
+                                <state key="normal" backgroundImage="room_t.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="theme_OnClick:" destination="2" eventType="touchUpInside" id="sRh-bF-n38"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eRY-ZU-KQ2">
                                 <rect key="frame" x="284" y="0.0" width="36" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="room_setting.png">
+                                <state key="normal" backgroundImage="room_s.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -113,6 +116,7 @@
                     <navigationItem key="navigationItem" id="kDD-ht-IkX"/>
                     <connections>
                         <outlet property="alarm" destination="vdk-5V-07S" id="Lkb-ex-irC"/>
+                        <outlet property="background" destination="bmO-U5-NUT" id="BaC-KY-VPv"/>
                         <outlet property="badgetable" destination="Sok-Yt-r6q" id="6QD-qh-9dY"/>
                         <outlet property="calendar" destination="60R-Gj-pHK" id="jtS-Os-j3X"/>
                         <outlet property="setting" destination="eRY-ZU-KQ2" id="lql-q6-Qav"/>
@@ -1274,13 +1278,13 @@
         <image name="progress0.png" width="863" height="863"/>
         <image name="progress1.png" width="760" height="760"/>
         <image name="right_r.png" width="47" height="52"/>
-        <image name="room_alarm.png" width="123" height="137"/>
-        <image name="room_b.png" width="195" height="185"/>
+        <image name="room_a.png" width="130" height="136"/>
         <image name="room_bg.png" width="640" height="960"/>
-        <image name="room_clender.png" width="190" height="160"/>
-        <image name="room_day.png" width="287" height="422"/>
-        <image name="room_myroom.png" width="248" height="198"/>
-        <image name="room_setting.png" width="73" height="76"/>
+        <image name="room_c.png" width="190" height="160"/>
+        <image name="room_mb.png" width="195" height="189"/>
+        <image name="room_s.png" width="73" height="77"/>
+        <image name="room_t.png" width="192" height="157"/>
+        <image name="room_w1.png" width="363" height="480"/>
         <image name="set_alarm_alarm.png" width="18" height="130"/>
         <image name="set_alarm_bg1.png" width="639" height="780"/>
         <image name="set_alarm_hr.png" width="28" height="122"/>
@@ -1290,150 +1294,6 @@
         <image name="set_alarm_start.png" width="640" height="92"/>
         <image name="statistics_icon.png" width="55" height="55"/>
     </resources>
-    <classes>
-        <class className="AlarmViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AlarmViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="alarmClick:" candidateClass="UIButton"/>
-                <relationship kind="action" name="alarm_pan:" candidateClass="UIPanGestureRecognizer"/>
-                <relationship kind="action" name="next_alarmClick:" candidateClass="UIButton"/>
-                <relationship kind="action" name="prev_alarmClick:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="alarm" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="alarm_alarm" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="alarm_hr" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="alarm_min" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="alarm_sec" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="label_alarm_time" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mask" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="next_alarm" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="prev_alarm" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="set" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="setalarm" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="BadgeCollectionCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BadgeCollectionCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="badge_thumbnail" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="BadgeConditionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BadgeConditionViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="badge_condition" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="badge_description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="badge_image" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="BadgeViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BadgeViewController.h"/>
-        </class>
-        <class className="BrainHoleViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BrainHoleViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="holeClick:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="eye" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="CalViewLayout" superclassName="UICollectionViewFlowLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalViewLayout.h"/>
-        </class>
-        <class className="CalendarCollectionViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalendarCollectionViewController.h"/>
-        </class>
-        <class className="CalendarViewCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalendarViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="badge_thumb" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="date_num" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CustomMissionPreviewCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomMissionPreviewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="preview_thumb" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="CustomMissionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomMissionViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="preview_badge" candidateClass="UICollectionView"/>
-            </relationships>
-        </class>
-        <class className="CustomViewLayout" superclassName="UICollectionViewFlowLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomViewLayout.h"/>
-        </class>
-        <class className="MIssionConditionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MIssionConditionViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mission_badges" candidateClass="UIView"/>
-                <relationship kind="outlet" name="mission_condition" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mission_description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mission_image" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MissionCollectionCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MissionCollectionCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="lock" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="mission_name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MissionViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MissionViewController.h"/>
-        </class>
-        <class className="NSTimer" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSTimer.h"/>
-        </class>
-        <class className="RecordScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordScrollView.h"/>
-        </class>
-        <class className="RecordViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="record" candidateClass="RecordScrollView"/>
-            </relationships>
-        </class>
-        <class className="SettingViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="fbClick:" candidateClass="UIButton"/>
-                <relationship kind="action" name="sendClick:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="fbButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="sendButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timeZone" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="StatisticTabViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatisticTabViewController.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="alarm" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="badgetable" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="calendar" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="itemlist" candidateClass="NSArray"/>
-                <relationship kind="outlet" name="random_timer" candidateClass="NSTimer"/>
-                <relationship kind="outlet" name="setting" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="theme" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="window" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

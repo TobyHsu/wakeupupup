@@ -44,8 +44,6 @@
                                                 userInfo:nil
                                                  repeats:YES];
     audioArray = [[NSArray alloc] initWithObjects:@"laughing2",@"get up7", nil];
-            qq++;
-    NSLog(@"%d次",qq);
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -10,7 +10,6 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <AVFoundation/AVAudioPlayer.h>
 #define kHOLES 12
-static int qq=0;
 
 @interface BrainHoleViewController : UIViewController
 {
